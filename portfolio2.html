@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>   
+    <header >
+        <nav>
+            <h2 class="port"><a href="portfolio1.html">My Portfo<span class="sp1">lio</span></a></h2>
+            <button class="nav-toggle"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="35" height="auto" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+             </svg>
+            </button>
+        <ul class="links">
+            <li><a href="portfolio1.html#home">Home</a></li>
+            <li><a href="portfolio1.html#about">About Me</a></li>
+            <li><a href="portfolio1.html#tech">Technology</a></li>
+            <li><a href="portfolio1.html#Projects">Projects</a></li>
+            <li><a href="portfolio1.html#Contact">Let's Talk</a></li>
+        </ul>     
+    </nav>
+   </header>   
+   
+   <section id="card">
+    <center>
+    <div class="login">
+        <div class="login-head">
+            <h1>Login</h1>
+        </div>
+        <br>
+    <form action="" class="login-card">
+        
+    <label for="">UserName</label><input type="text" name="" id="name1">
+    <span class="s-input"></span>
+    <label for="">Password</label><input type="password" name="" id="pas1">
+    <span class="s-input"></span>
+   </form>
+   <button class="btn">
+    login
+   </button>
+   <hr>
+ 
+   <p>Don't have an Account?<a class="link" href="portfolio2.html#card"> Create Account</a></p>
+   <br>
+</div>
+</center>
+<center >
+    <div class=" hidden register" >
+        <div class="register-head">
+            <h1>Sign Up</h1>
+        </div>
+        <br>
+    <form action="" class="register-card">
+    <label for="">Username</label><input type="text" name="" id="name2">
+    <label for="">Email</label><input type="email" name="" id="">
+    <label for="">Password</label><input type="password" name="" id="pas2">
+   </form>
+   <button class="btn">
+    Sign up
+   </button>
+   <hr>
+   <p>Already have an Account?<a class="link2" href="portfolio2.html"> Login</a></p>
+   <br>
+</div>
+</center>
+</section>
+   
+
+<script src="portfolio.js"></script>
+<script>
+    const login=document.querySelector('.login')
+    const register=document.querySelector('.register')
+    const link=document.querySelector('.link');
+  
+    link.addEventListener('click',()=>{
+        register.classList.remove('hidden');
+        login.classList.toggle('hidden');
+    })
+</script>
+</body>
+</html>      

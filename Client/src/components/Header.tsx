@@ -11,7 +11,7 @@ const Header = () => {
     }, []);
 
     const HeaderBackground = styled(Box)({
-      backgroundImage: 'url("../../../public/assets/st.jpg")', // Replace with your image URL
+      backgroundImage: 'url("../../../public/assets/pp.webp")', // Replace with your image URL
       backgroundSize: 'cover',
       backgroundOrigin: 'center',
       backgroundPosition: 'center',
@@ -24,14 +24,13 @@ const Header = () => {
     <HeaderBackground>
       <Container maxWidth="md" id="Home">
         <Grid container
-          justifyContent="center"
           spacing={2}
-          pt={18}
+          pt={10}
           pb={10}>
-          <Grid item xs={12} className={animateOnLoad ? 'move-up' : ''}>
-            <Typography variant="h3" color={"#fefefe"}  >Hi There,</Typography>
-            <Typography variant="h2" color={"#fefefe"}>I'm Hussein <span className='text-purple-500'>Nasrallah</span> </Typography>
-            <Typography variant="h5" color={"#aaa"} >I'm a Software Developer</Typography>
+          <Grid item xs={12} className={animateOnLoad ? 'move-up' : ''} color={'#fefefe'} >
+            <Typography variant="h3"  >Hi There,</Typography>
+            <Typography variant="h2" >I'm Hussein <Box component={'span'}  className='text-yellow-500'>Nasrallah</Box> </Typography>
+            <Typography variant="h5" >I'm a Software Developer</Typography>
             <br />
             <Button variant="contained" color="secondary">
               <Link to="About" smooth={true} duration={500}>

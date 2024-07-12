@@ -11,22 +11,22 @@ const About = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [animationTriggered, setAnimationTriggered] = useState(false);
 
-  const handleScroll = () => {
-    setScrollPosition(window.scrollY);
-    if (window.scrollY > 160 && !animationTriggered) {
-      setAnimateOnLoad(true);
-      setAnimationTriggered(true);
-    }
-  };
-  const position = scrollPosition > 160 && animateOnLoad;
-
+  
   useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+      if (window.scrollY > 160 && !animationTriggered) {
+        setAnimateOnLoad(true);
+        setAnimationTriggered(true);
+      }
+    };
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrollPosition, animateOnLoad, animationTriggered]);
-
+  }, [animateOnLoad, animationTriggered]);
+  
+  const position = scrollPosition > 160 && animateOnLoad;
 
   const calculateAge = ({ birthYear, currentYear }: AgeProps) => {
     return currentYear - birthYear;
@@ -40,7 +40,7 @@ const About = () => {
         About Me
       </Typography>
       <Box className="flex sm:flex-row flex-col" gap={5}>
-        <Box width={'100%'} className={`${position ? 'move-left' : ''}`}>
+        <Box width={'100%'} className={`${position  ? 'move-left' : ''} sm:grid`}>
           <Typography variant="body1" paragraph color={"#8e8e8e"}>
             Hello, I'm Hussein Nasrallah, a {age}-year-old Lebanese Full Stack Developer passionate about creating innovative digital solutions.
             I began programming at 18 and have developed skills to create dynamic, user-friendly web applications.

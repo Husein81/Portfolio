@@ -11,7 +11,7 @@ import {
   Toolbar, 
   Typography 
 } from "@mui/material"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu'; 
 import { Link } from 'react-scroll';
 
@@ -22,6 +22,19 @@ interface Item{
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+     window.scrollY > 120 ? setScrolled(true) : setScrolled(false);
+  }
+  
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   const menuItems: Item[] = [
     {name:'Home', path:'Home'},
     {name:'About', path:'About'},
@@ -40,10 +53,17 @@ const Navbar = () => {
       ))
   );
   const StyledAppBar = styled(AppBar)(() => ({
-    backgroundColor:'#fefefe',
-    color:'#242424',
+    backgroundColor:'transparent',
+    boxShadow:'none',
+    color:'#fefefe',
     padding:'4px 4px',
-    marginBottom:'180px'
+    marginBottom:'180px',
+
+    '&.scrolled': {
+      backgroundColor: '#fefefe',
+      boxShadow: '0 0 5px rgba(0,0,0,0.5)',
+      color:'#242424'
+    } 
   }));
   const StyledToolbar = styled(Toolbar)(() => ({
     display: 'flex',
@@ -52,6 +72,7 @@ const Navbar = () => {
     fontSize:'1.2rem',
     maxWidth:'980px',
    
+  
   }));
 
   const handleToggleOpen = () =>{
@@ -63,17 +84,17 @@ const Navbar = () => {
 
   
   return (
-    <StyledAppBar>
+    <StyledAppBar className={scrolled ? 'scrolled' : ''}>
         <StyledToolbar className="sm:mx-[15%]" >
           <Typography variant="h6" py={2}>Hussein <span className="text-purple-500">Nasrallah</span> </Typography>
           <Hidden smUp>
                 <IconButton
-                size='large'
-                edge='start'
-                aria-label="menu"
-                onClick={handleToggleOpen}
+                  size={'large'}
+                  edge='start'
+                  aria-label="menu"
+                  onClick={handleToggleOpen}
                 >
-                  <MenuIcon/>
+                  <MenuIcon fontSize={'large'}  className={scrolled ?'text-[#242424]': 'text-slate-50'} />
                 </IconButton>
             </Hidden>
           <List 
@@ -82,20 +103,20 @@ const Navbar = () => {
           </List>
         </StyledToolbar>
         <Drawer variant="temporary"
-        open={mobileOpen}
-        onClose={handleToggleClose}
-        ModalProps={{
-            keepMounted: true, // Mobile drawer should stay mounted
-        }}
-        sx={{
-          color:"#fefefe",
-          display: { xs: 'block', sm: 'none' },
-          '& .MuiDrawer-paper': { width: 240},
-          transition: '0.5s ease-in-out'
-        }}
+          open={mobileOpen}
+          onClose={handleToggleClose}
+          ModalProps={{
+              keepMounted: true, // Mobile drawer should stay mounted
+          }}
+          sx={{
+            color:"#fefefe",
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { width: 240},
+            transition: 'all 0.3s ease-in-out'
+          }}
         
         >
-          <Box px={2} my={5}>
+          <Box px={2} my={1}>
           <Typography variant="h6" py={2}>Hussein <span className="text-purple-500">Nasrallah</span> </Typography>
           {content}
         </Box>

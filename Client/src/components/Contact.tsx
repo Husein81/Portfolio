@@ -1,4 +1,4 @@
-import { Button, Container, FormControl, FormGroup, FormLabel, TextField, Typography } from "@mui/material"
+import { Button, Container, FormControl, FormGroup, FormLabel, TextField, Typography } from "@mui/material";
 import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 

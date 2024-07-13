@@ -1,7 +1,30 @@
 import React from 'react';
-import { Box, Container, Grid, Link, Typography } from '@mui/material';
+import { Box, Container, Grid, Link as NavLink, styled, Typography } from '@mui/material';
+import { Link } from 'react-scroll';
+
+
 
 const Footer: React.FC = () => {
+  const MUILink = styled(Link)(() => ({
+    display: 'block',
+    cursor:'pointer',
+    fontSize:14,
+    color: '#fefefe',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  }));
+  const NavLinkStyled = styled(NavLink)(() => ({
+    display: 'block',
+    cursor:'pointer',
+    fontSize:14,
+    color: '#fefefe',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+    },  
+  }))
   return (
     <Box 
       component="footer" 
@@ -17,57 +40,57 @@ const Footer: React.FC = () => {
             <Typography variant="h6" gutterBottom>
               Portfolio
             </Typography>
-            <Link href="#about" variant="body2" color="#fff" display="block">
+            <MUILink smooth={true} duration={500} to="About"  >
               About Me
-            </Link>
-            <Link href="#projects" variant="body2" color="#fff" display="block">
+            </MUILink>
+            <MUILink smooth={true} duration={500} to="Projects" >
               Projects
-            </Link>
-            <Link href="#skills" variant="body2" color="#fff" display="block">
+            </MUILink>
+            <MUILink smooth={true} duration={500} to="Skills" >
               Skills
-            </Link>
+            </MUILink>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6"  gutterBottom>
               Links
             </Typography>
-            <Link href="#blog" variant="body2" color="#fff" display="block">
+            <MUILink smooth={true} duration={500} to="#blog" >
               Blog
-            </Link>
-            <Link href="#contact" variant="body2" color="#fff" display="block">
+            </MUILink>
+            <MUILink smooth={true} duration={500} to="Contact" >
               Contact
-            </Link>
-            <Link href="/resume.pdf" variant="body2" color="#fff" display="block">
+            </MUILink>
+            <NavLinkStyled href="/Hussein-CV.pdf" download={true} >
               Resume
-            </Link>
+            </NavLinkStyled>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6"  gutterBottom>
               Social
             </Typography>
-            <Link href="https://github.com/yourusername" target="_blank" rel="noopener" variant="body2" color="#fff" display="block">
+            <NavLinkStyled href="https://github.com/Husein81"  >
               GitHub
-            </Link>
-            <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" variant="body2" color="#fff" display="block">
+            </NavLinkStyled>
+            <NavLinkStyled href="https://www.linkedin.com/in/hussein-nasrallah-645559235"  >
               LinkedIn
-            </Link>
-            <Link href="https://twitter.com/yourusername" target="_blank" rel="noopener" variant="body2" color="#fff" display="block">
+            </NavLinkStyled>
+            <NavLinkStyled href="https://twitter.com/yourusername">
               Twitter
-            </Link>
+            </NavLinkStyled>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6"  gutterBottom>
               More
             </Typography>
-            <Link href="#testimonials" variant="body2" color="#fff" display="block">
+            <MUILink smooth={true} duration={500} to="testimonials" >
               Testimonials
-            </Link>
-            <Link href="#gallery" variant="body2" color="#fff" display="block">
+            </MUILink>
+            <MUILink smooth={true} duration={500} to="gallery" >
               Gallery
-            </Link>
-            <Link href="#faq" variant="body2" color="#fff" display="block">
+            </MUILink>
+            <MUILink smooth={true} duration={500} to="faq" >
               FAQ
-            </Link>
+            </MUILink>
           </Grid>
         </Grid>
         <Box mt={5}>

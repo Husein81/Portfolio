@@ -39,17 +39,17 @@ const Navbar = () => {
     {name:'Home', path:'Home'},
     {name:'About', path:'About'},
     {name:'Projects', path:'Projects'},
-    {name:'Services', path:'services'},
+    {name:'Skills', path:'Skills'},
     {name:'Contact', path:'Contact'}
   ]
 
   const content = (
       menuItems.map((item, index) => (
         <Link key={index} className="duration-200 hover:scale-105 " to={item.path} smooth={true} duration={500}>
-        <ListItem button >
-          <ListItemText primary={item.name}/>
-        </ListItem>
-      </Link> 
+          <ListItem button >
+            <ListItemText primary={item.name}/>
+          </ListItem>
+        </Link> 
       ))
   );
   const StyledAppBar = styled(AppBar)(() => ({

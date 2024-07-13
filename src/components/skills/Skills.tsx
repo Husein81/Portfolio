@@ -14,7 +14,7 @@ const Skills = () => {
         
     ]
   return (
-    <Container maxWidth="md" sx={{pt:12}}>
+    <Container maxWidth="md" id="Skills" sx={{pt:12}}>
         <Typography variant="h4" color={"gray"} component="h1" gutterBottom>
             Skills
         </Typography>

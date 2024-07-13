@@ -1,6 +1,6 @@
 import { Container,Typography } from "@mui/material"
 import SkillLists from "./SkillLists"
-import { Skill } from "../../app/models/skill"
+import { Skill } from "../../app/models/Skill"
 
 const Skills = () => {
     const skills: Skill[] = [

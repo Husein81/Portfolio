@@ -57,12 +57,12 @@ const Footer: React.FC = () => {
             <MUILink smooth={true} duration={500} to="#blog" >
               Blog
             </MUILink>
-            <MUILink smooth={true} duration={500} to="Contact" >
+            <MUILink smooth={true} duration={1000} to="Contact" >
               Contact
             </MUILink>
-            <NavLinkStyled href="/Hussein-CV.pdf" download={true} >
+            <MUILink smooth={true} duration={1000} to="CV"  >
               Resume
-            </NavLinkStyled>
+            </MUILink>
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6"  gutterBottom>

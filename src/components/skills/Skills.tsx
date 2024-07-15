@@ -1,6 +1,7 @@
-import { Container,Typography } from "@mui/material"
+import { Box, Button, Container,Typography } from "@mui/material"
 import SkillLists from "./SkillLists"
 import { Skill } from "../../app/models/Skill"
+import { Button as LinkButton } from "react-scroll"
 
 const Skills = () => {
     const skills: Skill[] = [
@@ -19,6 +20,10 @@ const Skills = () => {
             Skills
         </Typography>
         <SkillLists skills={skills} />
+        <Box display={'flex'} flexDirection={'column'} gap={1} py={4} mx='auto'>
+          <LinkButton to="Contact" className="capitalize border border-2 p-1 " smooth={true} duration={1000}>hire me</LinkButton>
+          <Button variant="contained" color="secondary" id="CV" download={true} href="/Hussein-CV.pdf">download cv</Button>
+        </Box>
     </Container>
   )
 }

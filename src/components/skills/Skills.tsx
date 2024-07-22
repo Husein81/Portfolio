@@ -5,17 +5,21 @@ import { Button as LinkButton } from "react-scroll"
 
 const Skills = () => {
     const skills: Skill[] = [
-        {name: 'React', imageUrl: '../../../public/assets/react.svg'},
-        {name: 'Node', imageUrl: '../../../public/assets/react.svg'},
-        {name: 'Express', imageUrl: '../../../public/assets/react.svg'},
-        {name:'TypeScript', imageUrl: '../../../public/assets/react.svg'},
-        {name:'Asp.Net', imageUrl: '../../../public/assets/react.svg'},
-        {name:'Asp.Net', imageUrl: '../../../public/assets/react.svg'},
-        {name:'Asp.Net', imageUrl: '../../../public/assets/react.svg'},
+        {name:'Asp.Net', imageUrl: '../../../public/assets/skills/ASP.png'},
+        {name:'React', imageUrl: '../../../public/assets/skills/react.png'},
+        {name:'React Native', imageUrl: '../../../public/assets/skills/reactNative.jpg'},
+        {name:'TypeScript', imageUrl: '../../../public/assets/skills/TS.png'},
+        {name:"Tailwind CSS", imageUrl: '../../../public/assets/skills/tailwind.png'},
+        {name:'Java', imageUrl: '../../../public/assets/skills/Java.png'},
+        {name:"Kotlin", imageUrl:'../../../public/assets/skills/kotlin.jpg'},
+        {name:'Node', imageUrl: '../../../public/assets/skills/node.png'},
+        {name:'MongoDB', imageUrl: '../../../public/assets/skills/MongoDB.png'},
+        {name:'MySQL', imageUrl: '../../../public/assets/skills/mysSQL.png'},
+        {name:"Git and Github", imageUrl: '../../../public/assets/skills/git.jpg'},
         
     ]
   return (
-    <Container maxWidth="md" id="Skills" sx={{pt:12 ,gap:2    }}>
+    <Container maxWidth="md" id="Skills" sx={{pt:12 ,gap:2}}>
         <Typography variant="h4" color={"gray"} component="h1" gutterBottom>
             Skills
         </Typography>

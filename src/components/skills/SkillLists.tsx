@@ -9,11 +9,11 @@ interface SkillProps {
 const SkillLists: React.FC<SkillProps> = ({ skills }) => {
   return (
     <Box className='grid grid-cols-1 sm:grid-cols-4 gap-5 '>
-            {skills.map((skill, index) => (
-                <Box flexWrap={'wrap'} key={index} className="flex items-center gap-5">
-                   <SkillCard name={skill.name} image={skill.imageUrl} />
-                </Box>
-            ))}
+      {skills.map((skill, index) => (
+          <Box flexWrap={'wrap'} key={index} className="flex items-center gap-5">
+              <SkillCard name={skill.name} image={skill.imageUrl} />
+          </Box>
+      ))}
     </Box>
   )
 }

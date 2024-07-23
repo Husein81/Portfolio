@@ -111,8 +111,10 @@ const Navbar = () => {
           sx={{
             color:"#fefefe",
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { width: 240},
-            transition: 'all 0.3s ease-in-out'
+            '& .MuiDrawer-paper': { 
+              transition: 'transform .8s ease-in-out',
+              width: 240,
+            },
           }}
         
         >

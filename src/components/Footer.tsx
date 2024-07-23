@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
       className='text-slate-50 bg-[#444]'
     >
       <Container maxWidth="lg">
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={6} justifyContent="center">
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" gutterBottom>
               Portfolio
@@ -74,23 +74,9 @@ const Footer: React.FC = () => {
             <NavLinkStyled href="https://www.linkedin.com/in/hussein-nasrallah-645559235"  >
               LinkedIn
             </NavLinkStyled>
-            <NavLinkStyled href="https://twitter.com/yourusername">
+            <NavLinkStyled href="https://x.com/husein_nasralah">
               Twitter
             </NavLinkStyled>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h6"  gutterBottom>
-              More
-            </Typography>
-            <MUILink smooth={true} duration={500} to="testimonials" >
-              Testimonials
-            </MUILink>
-            <MUILink smooth={true} duration={500} to="gallery" >
-              Gallery
-            </MUILink>
-            <MUILink smooth={true} duration={500} to="faq" >
-              FAQ
-            </MUILink>
           </Grid>
         </Grid>
         <Box mt={5}>

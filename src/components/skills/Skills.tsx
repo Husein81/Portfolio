@@ -7,13 +7,12 @@ const Skills = () => {
     const skills: Skill[] = [
         {name:'Asp.Net', imageUrl: '/assets/skills/ASP.png'},
         {name:'React', imageUrl: '/assets/skills/react.png'},
-        {name:'React Native', imageUrl: '/assets/skills/reactNative.png'},
         {name:'TypeScript', imageUrl: '/assets/skills/TS.png'},
-        {name:"Tailwind CSS", imageUrl: '/assets/skills/Tailwind.png'},
-        {name:'Java', imageUrl: '/assets/skills/Java.png'},
-        {name:"Kotlin", imageUrl:'/assets/skills/kotlin.png'},
         {name:'Node', imageUrl: '/assets/skills/node.png'},
-        {name:'MongoDB', imageUrl: '/assets/skills/MongoDB.png'},
+        {name:"Tailwind CSS", imageUrl: '/assets/skills/Tailwind.png'},
+        {name:'React Native', imageUrl: '/assets/skills/reactNative.png'},
+        {name:'Java', imageUrl: '/assets/skills/Java.png'},
+        {name:'MongoDB', imageUrl: '/assets/skills/MongoDB.png'}, 
         {name:'MySQL', imageUrl: '/assets/skills/mysSQL.png'},
         {name:"Git and Github", imageUrl: '/assets/skills/git.png'},
         

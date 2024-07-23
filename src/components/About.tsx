@@ -54,7 +54,7 @@ const About = () => {
           </Typography>
         </Box>
         <Box className={`${position ? 'move-right' : ''}`}>
-          <img className="rounded" src="../../../public/assets/others/photo_2024-06-19_09-14-46.jpg" alt=""/>
+          <img className="rounded" src="/assets/others/photo_2024-06-19_09-14-46.jpg" alt=""/>
         </Box>
       </Box>
     </Container>

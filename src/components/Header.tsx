@@ -11,7 +11,7 @@ const Header = () => {
     }, []);
 
     const HeaderBackground = styled(Box)({
-      backgroundImage: 'url("../../../public/assets/others/pp.webp")', // Replace with your image URL
+      backgroundImage: 'url("/assets/others/pp.webp")', // Replace with your image URL
       backgroundSize: 'cover',
       backgroundOrigin: 'center',
       backgroundPosition: 'center',

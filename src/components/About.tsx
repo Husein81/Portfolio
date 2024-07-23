@@ -42,15 +42,13 @@ const About = () => {
       <Box className="flex sm:flex-row flex-col" gap={5}>
         <Box width={'100%'} className={`${position  ? 'move-left' : ''} sm:grid`}>
           <Typography variant="body1" paragraph color={"#8e8e8e"}>
-            Hello, I'm Hussein Nasrallah, a {age}-year-old Lebanese Full Stack Developer passionate about creating innovative digital solutions.
-            I began programming at 18 and have developed skills to create dynamic, user-friendly web applications.
-          </Typography>
-          <Typography variant="body1" paragraph color={"#8e8e8e"}>
-            I've worked on various projects, including e-commerce platforms and social networking apps,
-            excelling in both front-end and back-end development.
-            My commitment to technology is driven by its potential to empower and transform lives.
-            As a lifelong learner, I stay updated with industry trends and technologies, enabling me to deliver cutting-edge solutions.
-            I'm eager to continue contributing to the digital landscape as a Full Stack Developer.
+          Hello, I'm Hussein Nasrallah, a {age}-year-old Lebanese Software Developer. 
+          I started programming at 18 and specialize in creating dynamic, 
+          user-friendly web and mobile applications. 
+          With experience in e-commerce platforms, social networking apps, and mobile apps, 
+          I excel in both front-end and back-end development. 
+          Passionate about technology's transformative power, I stay updated with industry trends to deliver innovative solutions. 
+          I'm dedicated to advancing the digital landscape as a Software Developer.
           </Typography>
         </Box>
         <Box className={`${position ? 'move-right' : ''}`}>

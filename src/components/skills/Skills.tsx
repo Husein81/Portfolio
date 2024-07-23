@@ -5,17 +5,17 @@ import { Button as LinkButton } from "react-scroll"
 
 const Skills = () => {
     const skills: Skill[] = [
-        {name:'Asp.Net', imageUrl: '../../../public/assets/skills/ASP.png'},
-        {name:'React', imageUrl: '../../../public/assets/skills/react.png'},
-        {name:'React Native', imageUrl: '../../../public/assets/skills/reactNative.png'},
-        {name:'TypeScript', imageUrl: '../../../public/assets/skills/TS.png'},
-        {name:"Tailwind CSS", imageUrl: '../../../public/assets/skills/tailwind.png'},
-        {name:'Java', imageUrl: '../../../public/assets/skills/Java.png'},
-        {name:"Kotlin", imageUrl:'../../../public/assets/skills/kotlin.png'},
-        {name:'Node', imageUrl: '../../../public/assets/skills/node.png'},
-        {name:'MongoDB', imageUrl: '../../../public/assets/skills/MongoDB.png'},
-        {name:'MySQL', imageUrl: '../../../public/assets/skills/mysSQL.png'},
-        {name:"Git and Github", imageUrl: '../../../public/assets/skills/git.png'},
+        {name:'Asp.Net', imageUrl: '/assets/skills/ASP.png'},
+        {name:'React', imageUrl: '/assets/skills/react.png'},
+        {name:'React Native', imageUrl: '/assets/skills/reactNative.png'},
+        {name:'TypeScript', imageUrl: '/assets/skills/TS.png'},
+        {name:"Tailwind CSS", imageUrl: '/assets/skills/Tailwind.png'},
+        {name:'Java', imageUrl: '/assets/skills/Java.png'},
+        {name:"Kotlin", imageUrl:'/assets/skills/kotlin.png'},
+        {name:'Node', imageUrl: '/assets/skills/node.png'},
+        {name:'MongoDB', imageUrl: '/assets/skills/MongoDB.png'},
+        {name:'MySQL', imageUrl: '/assets/skills/mysSQL.png'},
+        {name:"Git and Github", imageUrl: '/assets/skills/git.png'},
         
     ]
   return (

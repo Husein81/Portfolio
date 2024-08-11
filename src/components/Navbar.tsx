@@ -102,22 +102,20 @@ const Navbar = () => {
             {content}
           </List>
         </StyledToolbar>
-        <Drawer variant="temporary"
+        
+
+        <Drawer 
           open={mobileOpen}
           onClose={handleToggleClose}
-          ModalProps={{
-              keepMounted: true, // Mobile drawer should stay mounted
-          }}
           sx={{
-            color:"#fefefe",
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { 
-              transition: 'transform .8s ease-in-out',
+            "& .MuiDrawer-paper": {
               width: 240,
+              transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out",
+              transform: mobileOpen ? "translateX(0)" : "translateX(-100%)",
+              opacity: mobileOpen ? 1 : 0,
             },
-          }}
-        
-        >
+          }}>
           <Box px={2} my={1}>
           <Typography variant="h6" py={2}>Hussein <span className="text-purple-500">Nasrallah</span> </Typography>
           {content}

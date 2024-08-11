@@ -42,13 +42,13 @@ const About = () => {
       <Box className="flex sm:flex-row flex-col" gap={5}>
         <Box width={'100%'} className={`${position  ? 'move-left' : ''} sm:grid`}>
           <Typography variant="body1" paragraph color={"#8e8e8e"}>
-          Hello, I'm Hussein Nasrallah, a {age}-year-old Lebanese Software Developer. 
-          I started programming at 18 and specialize in creating dynamic, 
-          user-friendly web and mobile applications. 
-          With experience in e-commerce platforms, social networking apps, and mobile apps, 
-          I excel in both front-end and back-end development. 
-          Passionate about technology's transformative power, I stay updated with industry trends to deliver innovative solutions. 
-          I'm dedicated to advancing the digital landscape as a Software Developer.
+            Hello, I'm Hussein Nasrallah, a {age}-year-old Lebanese Software Developer. 
+            I started programming at 18 and specialize in creating dynamic, 
+            user-friendly web and mobile applications. 
+            With experience in e-commerce platforms, social networking apps, and mobile apps, 
+            I excel in both front-end and back-end development. 
+            Passionate about technology's transformative power, I stay updated with industry trends to deliver innovative solutions. 
+            I'm dedicated to advancing the digital landscape as a Software Developer.
           </Typography>
         </Box>
         <Box className={`${position ? 'move-right' : ''}`}>

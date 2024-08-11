@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material"
+import { Box, Card, CardContent, Typography } from "@mui/material"
 
 interface ProjectCardProps{
     title: string;
@@ -6,15 +6,15 @@ interface ProjectCardProps{
 }
 const ProjectCard: React.FC<ProjectCardProps> = ({title, imageUrl}) => {
   return (
-    <Card className="shadow overflow-hidden">
-        <CardMedia
+    <Card className="rounded shadow overflow-hidden">
+        <Box
           component="img"
           className="hover:scale-105 duration-200"
-          sx={{borderRadius: '20px', cursor:'pointer'}}
-          image={imageUrl}
+          sx={{borderRadius:1, cursor:'pointer', height: 150,}}
+          src={imageUrl}
           alt=""/>
           <CardContent>
-            <Typography variant="h5">{title}</Typography>
+            <Typography variant="body1">{title}</Typography>
           </CardContent>
     </Card>
   )

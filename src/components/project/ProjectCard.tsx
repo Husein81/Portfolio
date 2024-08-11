@@ -9,8 +9,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({title, imageUrl}) => {
     <Card className="rounded shadow overflow-hidden">
         <Box
           component="img"
-          className="hover:scale-105 duration-200"
-          sx={{borderRadius:1, cursor:'pointer', height: 150,}}
+          className="hover:scale-105 duration-200 h-full sm:h-[150px]  "
+          sx={{borderRadius:1, cursor:'pointer'}}
           src={imageUrl}
           alt=""/>
           <CardContent>

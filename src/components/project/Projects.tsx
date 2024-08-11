@@ -3,8 +3,8 @@ import ProjectCard from "./ProjectCard"
 
 const Projects = () => {
     const projects = [
-        {title:'Inventory Management System', imageUrl:'../../../public/assets/projects/dashboard.png'},
-        {title:'The Spot', imageUrl:'../../../public/assets/projects/theSpot.png'},
+        {title:'Inventory Management System', imageUrl:'/public/assets/projects/dashboard.png'},
+        {title:'The Spot', imageUrl:'/public/assets/projects/theSpot.png'},
     ]
   return (
     <Container maxWidth="md" id={"Projects"}sx={{pt:13}}>

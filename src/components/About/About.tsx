@@ -35,7 +35,7 @@ const About = () => {
   const age: number = calculateAge({ birthYear: 2002, currentYear: new Date().getFullYear() });
 
   return (
-    <Container maxWidth="md" sx={{ pt: 10 }} id="About">
+    <Container sx={{ pt: 10 }} id="About">
       <Typography variant="h4" color={"gray"} component="h1" gutterBottom>
         About Me
       </Typography>
@@ -52,7 +52,7 @@ const About = () => {
           </Typography>
         </Box>
         <Box className={`${position ? 'move-right' : ''}`}>
-          <img className="rounded" src="/assets/others/photo_2024-06-19_09-14-46.jpg" alt=""/>
+          <Box component={'img'} borderRadius={2} src="/assets/others/photo_2024-06-19_09-14-46.jpg" alt=""/>
         </Box>
       </Box>
     </Container>

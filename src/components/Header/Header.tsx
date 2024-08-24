@@ -22,7 +22,7 @@ const Header = () => {
     });
   return (
     <HeaderBackground>
-      <Container maxWidth="md" id="Home">
+      <Container id="Home">
         <Grid container
           spacing={2}
           pt={10}

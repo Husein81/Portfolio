@@ -70,7 +70,7 @@ const Navbar = () => {
     alignItems: 'center',
     justifyContent: 'space-between',
     fontSize:'1.2rem',
-    maxWidth:'980px',
+ 
    
   
   }));
@@ -85,7 +85,7 @@ const Navbar = () => {
   
   return (
     <StyledAppBar className={scrolled ? 'scrolled' : ''}>
-        <StyledToolbar className="sm:mx-[15%]" >
+        <StyledToolbar className="sm:mx-[10%]" >
           <Typography variant="h6" py={2}>Hussein <span className="text-purple-500">Nasrallah</span> </Typography>
           <Hidden smUp>
                 <IconButton
@@ -98,12 +98,11 @@ const Navbar = () => {
                 </IconButton>
             </Hidden>
           <List 
-          className="hidden sm:flex ">
+          className="hidden sm:flex">
             {content}
           </List>
         </StyledToolbar>
         
-
         <Drawer 
           open={mobileOpen}
           onClose={handleToggleClose}

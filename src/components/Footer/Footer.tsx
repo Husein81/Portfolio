@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
       }}
       className='text-slate-50 bg-[#444]'
     >
-      <Container maxWidth="lg">
+      <Container>
         <Grid container spacing={6} justifyContent="center">
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" gutterBottom>

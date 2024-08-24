@@ -18,14 +18,14 @@ const Skills = () => {
         
     ]
   return (
-    <Container maxWidth="md" id="Skills" sx={{pt:12 ,gap:2}}>
+    <Container  id="Skills" sx={{pt:12 ,gap:2}}>
         <Typography variant="h4" color={"gray"} component="h1" gutterBottom>
             Skills
         </Typography>
         <SkillLists skills={skills}  />
         <Box display={'flex'} id="CV" flexDirection={'column'} gap={1} py={4} mx='auto' >
           <LinkButton to="Contact" className="capitalize border border-2 p-1 " smooth={true} duration={1000}>hire me</LinkButton>
-          <Button variant="contained" color="secondary" download={true} href="/public/assets/Hussein-CV.pdf">download cv</Button>
+          <Button variant="contained" color="secondary" download={true} href="/public/Hussein-CV.pdf">download cv</Button>
         </Box>
     </Container>
   )

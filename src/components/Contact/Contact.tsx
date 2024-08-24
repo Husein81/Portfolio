@@ -33,7 +33,7 @@ const Contact = () => {
   };
 
   return (
-    <Container component={"form"} ref={form} id="Contact" maxWidth="md" sx={{py:10}} onSubmit={sendEmail}>
+    <Container component={"form"} ref={form} id="Contact"  sx={{py:10}} onSubmit={sendEmail}>
         <FormControl component={"fieldset"} variant="standard" fullWidth>  
             <FormLabel component="legend">
                 <Typography variant="h4" color="gray" component="h1" gutterBottom>

@@ -7,7 +7,7 @@ const Projects = () => {
         {title:'The Spot', imageUrl:'/assets/projects/theSpot.png'},
     ]
   return (
-    <Container maxWidth="md" id={"Projects"}sx={{pt:13}}>
+    <Container  id={"Projects"}sx={{pt:13}}>
         <Typography variant="h4"color={"gray"} component="h1" gutterBottom>
             Projects
         </Typography>

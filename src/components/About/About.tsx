@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface AgeProps {
   birthYear: number;
@@ -7,26 +7,25 @@ interface AgeProps {
 }
 
 const About = () => {
+  const scrollPositionRef = useRef(0);
   const [animateOnLoad, setAnimateOnLoad] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [animationTriggered, setAnimationTriggered] = useState(false);
-
+  const animationTriggeredRef = useRef(false);
   
+  const handleScroll = () => {
+    scrollPositionRef.current = window.scrollY;
+    if (scrollPositionRef.current> 160 && !animationTriggeredRef.current) {
+      setAnimateOnLoad(true);
+      animationTriggeredRef.current = true;
+    }
+  };
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollPosition(window.scrollY);
-      if (window.scrollY > 160 && !animationTriggered) {
-        setAnimateOnLoad(true);
-        setAnimationTriggered(true);
-      }
-    };
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [animateOnLoad, animationTriggered]);
+  }, []);
   
-  const position = scrollPosition > 160 && animateOnLoad;
+  const position = scrollPositionRef.current > 160 && animateOnLoad;
 
   const calculateAge = ({ birthYear, currentYear }: AgeProps) => {
     return currentYear - birthYear;

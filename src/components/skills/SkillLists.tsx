@@ -1,20 +1,19 @@
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Skill } from "../../app/models/Skill";
 import SkillCard from "./SkillCard";
 
-
 interface SkillProps {
-    skills: Skill[]
+  skills: Skill[];
 }
 const SkillLists: React.FC<SkillProps> = ({ skills }) => {
   return (
-    <Box className='grid grid-cols-1 sm:grid-cols-4 gap-5 '>
+    <Grid container spacing={2}>
       {skills.map((skill, index) => (
-          <Box flexWrap={'wrap'} key={index} className="flex items-center gap-5">
-              <SkillCard name={skill.name} image={skill.imageUrl} />
-          </Box>
+        <Grid item xs={6} sm={3} key={index}>
+          <SkillCard name={skill.name} image={skill.imageUrl} />
+        </Grid>
       ))}
-    </Box>
-  )
-}
-export default SkillLists
+    </Grid>
+  );
+};
+export default SkillLists;

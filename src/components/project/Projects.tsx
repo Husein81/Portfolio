@@ -1,24 +1,22 @@
-import { Container, Grid, Typography } from "@mui/material"
-import ProjectCard from "./ProjectCard"
+import { Container, Typography } from "@mui/material";
+import { Project } from "../../app/models/Project";
+import ProjectList from "./ProjectList";
 
 const Projects = () => {
-    const projects = [
-        {title:'Inventory Management System', imageUrl:'/assets/projects/dashboard.png'},
-        {title:'The Spot', imageUrl:'/assets/projects/theSpot.png'},
-    ]
+  const projects: Project[] = [
+    {
+      title: "Inventory Management System",
+      imageUrl: "/assets/projects/dashboard.png",
+    },
+    { title: "The Spot", imageUrl: "/assets/projects/theSpot.png" },
+  ];
   return (
-    <Container  id={"Projects"}sx={{pt:13}}>
-        <Typography variant="h4"color={"gray"} component="h1" gutterBottom>
-            Projects
-        </Typography>
-        <Grid container spacing={2}>
-            {projects.map((project,index) => (
-                <Grid item xs={12} sm={4} key={index}>
-                    <ProjectCard title={project.title} imageUrl={project.imageUrl}/>
-                </Grid>
-            ))}
-        </Grid>
+    <Container id={"Projects"} sx={{ pt: 13 }}>
+      <Typography variant="h4" color={"gray"} component="h1" gutterBottom>
+        Projects
+      </Typography>
+      <ProjectList projects={projects} />
     </Container>
-  )
-}
-export default Projects
+  );
+};
+export default Projects;

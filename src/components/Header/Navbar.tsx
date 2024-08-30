@@ -58,7 +58,7 @@ const Navbar = () => {
       smooth={true}
       duration={500}
     >
-      <ListItem button sx={{ gap: 1 }}>
+      <ListItem button sx={{ gap: 1 }} onClick={() => setMobileOpen(false)}>
         <Box sx={{ display: { xs: "block", sm: "none" } }}>{item.icon}</Box>
         <ListItemText primary={item.name} />
       </ListItem>

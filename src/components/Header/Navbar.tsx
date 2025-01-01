@@ -15,7 +15,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-scroll";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import {
-  Close,
   EmailOutlined,
   FolderOutlined,
   InfoOutlined,
@@ -32,6 +31,7 @@ interface Item {
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -120,16 +120,10 @@ const Navbar = () => {
             aria-label="menu"
             onClick={handleToggle}
           >
-            {mobileOpen ? (
-              <Close
-                className={scrolled ? "text-[#242424]" : "text-slate-50"}
-              />
-            ) : (
-              <MenuIcon
-                fontSize={"large"}
-                className={scrolled ? "text-[#242424]" : "text-slate-50"}
-              />
-            )}
+            <MenuIcon
+              fontSize={"large"}
+              className={scrolled ? "text-[#242424]" : "text-slate-50"}
+            />
           </IconButton>
         </Hidden>
         <List className="hidden sm:flex">{content}</List>

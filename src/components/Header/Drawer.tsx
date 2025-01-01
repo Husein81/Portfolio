@@ -17,7 +17,7 @@ const Drawer = ({ content, onClose }: Props) => {
         animate={{ x: ["-20rem", 0], opacity: 1 }}
         exit={{ x: [0, "-20rem"], opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="bg-white h-screen block sm:hidden w-60"
+        className="bg-white h-screen block sm:hidden w-60 p-1"
         onClick={(e) => e.stopPropagation()}
       >
         <Box>

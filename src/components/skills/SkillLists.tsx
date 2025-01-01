@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import { Skill } from "../../app/models/Skill";
 import SkillCard from "./SkillCard";
 
@@ -7,13 +6,11 @@ interface SkillProps {
 }
 const SkillLists: React.FC<SkillProps> = ({ skills }) => {
   return (
-    <Grid container spacing={2}>
-      {skills.map((skill, index) => (
-        <Grid item xs={6} sm={3} key={index}>
-          <SkillCard name={skill.name} image={skill.imageUrl} />
-        </Grid>
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      {skills.map((skill) => (
+        <SkillCard key={skill.id} name={skill.name} image={skill.imageUrl} />
       ))}
-    </Grid>
+    </div>
   );
 };
 export default SkillLists;

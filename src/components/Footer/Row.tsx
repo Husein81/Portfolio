@@ -30,6 +30,7 @@ const NavLinkStyled = ({
 }) => (
   <a
     href={href}
+    target="blank"
     className="block cursor-pointer text-sm text-gray-400 no-underline hover:underline"
   >
     {children}
@@ -37,9 +38,10 @@ const NavLinkStyled = ({
 );
 
 const Row = ({ row }: Props) => {
+  console.log(row);
   return (
     <div>
-      {row.columnId === "3" ? (
+      {row.link.includes("pdf") || row.columnId === "3" ? (
         <NavLinkStyled href={row.link}>
           <h3 className="font-medium text-neutral-100">{row.title}</h3>
         </NavLinkStyled>

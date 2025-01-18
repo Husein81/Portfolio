@@ -9,8 +9,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fefefe;
-  color: #242424;
+  background-color: #242424;
+  color: #fefefe;
 }
 h1 {
     font-family: 'Poppins', sans-serif;
@@ -36,6 +36,8 @@ h6 {
     font-family: 'Poppins', sans-serif;
     font-size: 14
 }
+
+
 
 /* Header.css */
 

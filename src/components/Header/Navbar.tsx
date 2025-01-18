@@ -65,16 +65,13 @@ const Navbar = () => {
         <Box
           sx={{
             display: { xs: "block", sm: "none" },
-            color: { xs: "#1a1a1a", sm: "#fff" },
+            color: "#8e8e8e",
           }}
         >
           {" "}
           {item.icon}
         </Box>
-        <ListItemText
-          primary={item.name}
-          sx={{ color: { xs: "#1a1a1a", sm: scrolled ? "#242424" : "#fff" } }}
-        />
+        <ListItemText primary={item.name} sx={{ color: "#8e8e8e" }} />
       </ListItem>
     </Link>
   ));
@@ -82,13 +79,13 @@ const Navbar = () => {
   const StyledAppBar = styled(AppBar)(() => ({
     backgroundColor: "transparent",
     boxShadow: "none",
-    color: "#fefefe",
+    color: "#8e8e8e",
     padding: "4px 4px",
     marginBottom: "180px",
     "&.scrolled": {
-      backgroundColor: "#fefefe",
+      backgroundColor: "#2a2a2a",
       boxShadow: "0 0 5px rgba(0,0,0,0.5)",
-      color: "#242424",
+      color: "#8e8e8e",
     },
   }));
 
@@ -111,7 +108,7 @@ const Navbar = () => {
     <StyledAppBar className={scrolled ? "scrolled" : ""}>
       <StyledToolbar className="sm:mx-[10%]">
         <Typography variant="h6" py={2}>
-          Hussein <span className="text-purple-500">Nasrallah</span>
+          Hussein <span className="text-mountainMeadow">Nasrallah</span>
         </Typography>
         <Hidden smUp>
           <IconButton
@@ -122,7 +119,7 @@ const Navbar = () => {
           >
             <MenuIcon
               fontSize={"large"}
-              className={scrolled ? "text-[#242424]" : "text-slate-50"}
+              className={scrolled ? "text-slate-50" : "text-slate-50"}
             />
           </IconButton>
         </Hidden>

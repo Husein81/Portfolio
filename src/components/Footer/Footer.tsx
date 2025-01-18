@@ -14,17 +14,18 @@ const Footer: React.FC = () => {
     display: "block",
     cursor: "pointer",
     fontSize: 14,
-    color: "#fefefe",
+    color: "#8e8e8e",
     textDecoration: "none",
     "&:hover": {
       textDecoration: "underline",
     },
   }));
+
   const NavLinkStyled = styled(NavLink)(() => ({
     display: "block",
     cursor: "pointer",
     fontSize: 14,
-    color: "#fefefe",
+    color: "#8e8e8e",
     textDecoration: "none",
     "&:hover": {
       textDecoration: "underline",
@@ -37,7 +38,7 @@ const Footer: React.FC = () => {
         py: 5,
         px: 2,
       }}
-      className="text-slate-50 bg-[#1a1a1a]"
+      className="text-iron bg-shark"
     >
       <Container>
         <Grid container spacing={6} justifyContent="center">
@@ -85,7 +86,7 @@ const Footer: React.FC = () => {
           </Grid>
         </Grid>
         <Box mt={5}>
-          <Typography variant="body2" color="#fff" align="center">
+          <Typography variant="body2" className="text-iron" align="center">
             © {new Date().getFullYear()} Hussein Nasrallah. All rights reserved.
           </Typography>
         </Box>

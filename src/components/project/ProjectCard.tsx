@@ -6,7 +6,10 @@ interface ProjectCardProps {
 }
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl }) => {
   return (
-    <Card className="rounded shadow overflow-hidden">
+    <Card
+      className="rounded shadow overflow-hidden "
+      sx={{ bgcolor: "#2a2a2a" }}
+    >
       <Box
         component="img"
         className="hover:scale-105 duration-200 h-full sm:h-[150px] "
@@ -15,7 +18,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl }) => {
         alt=""
       />
       <CardContent>
-        <Typography variant="body1">{title}</Typography>
+        <Typography variant="body1" color={"white"}>
+          {title}
+        </Typography>
       </CardContent>
     </Card>
   );

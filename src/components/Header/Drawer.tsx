@@ -17,7 +17,7 @@ const Drawer = ({ content, onClose }: Props) => {
         animate={{ x: ["-20rem", 0], opacity: 1 }}
         exit={{ x: [0, "-20rem"], opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="bg-white h-screen block sm:hidden w-60 p-1"
+        className="bg-shark h-screen block sm:hidden w-60 p-1"
         onClick={(e) => e.stopPropagation()}
       >
         <Box>
@@ -26,17 +26,17 @@ const Drawer = ({ content, onClose }: Props) => {
               <Typography
                 variant="body1"
                 p={2}
-                color="#1a1a1a"
+                color="#8e8e8"
                 sx={{ width: "100%" }}
               >
-                Hussein{" "}
+                Hussein
                 <Box component={"span"} className="text-purple-500">
                   Nasrallah
                 </Box>{" "}
               </Typography>
               <Box>
                 <IconButton onClick={onClose}>
-                  <Close />
+                  <Close sx={{ color: "#8e8e8" }} />
                 </IconButton>
               </Box>
             </Box>

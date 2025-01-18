@@ -1,12 +1,3 @@
-import {
-  Button,
-  Container,
-  FormControl,
-  FormGroup,
-  FormLabel,
-  TextField,
-  Typography,
-} from "@mui/material";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -15,8 +6,8 @@ const Contact = () => {
   const USER_ID = import.meta.env.VITE_USER_ID;
   const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
   const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
-  const [status, setStatus] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -26,92 +17,55 @@ const Contact = () => {
         (result) => {
           setLoading(false);
           console.log(result.text);
-          setStatus(true);
         },
         (error) => {
-          setStatus(false);
           console.log(error);
+          setLoading(false);
         }
       );
-      setStatus(false);
     }
   };
 
   return (
-    <Container
-      component={"form"}
+    <form
       ref={form}
       id="Contact"
-      sx={{ py: 10 }}
+      className="container mx-auto my-10 p-4"
       onSubmit={sendEmail}
     >
-      <FormControl component={"fieldset"} variant="standard" fullWidth>
-        <FormLabel component="legend">
-          <Typography variant="h4" color="gray" component="h1" gutterBottom>
-            Contact Me
-          </Typography>
-        </FormLabel>
-        <FormGroup>
-          <TextField
-            margin="normal"
-            label="Name"
-            variant="outlined"
+      <fieldset className="w-full">
+        <legend>
+          <h1 className="text-4xl text-iron mb-4">Contact Me</h1>
+        </legend>
+        <div className="flex flex-col space-y-4">
+          <input
+            type="text"
             name="name"
-            color="secondary"
-            sx={{
-              "& .MuiInputBase-root": {
-                color: "#8e8e8e",
-              },
-              "& .MuiOutlinedInput-notchedOutline ": {
-                borderColor: "#8e8e8e",
-              },
-            }}
-            InputLabelProps={{ style: { color: "#8e8e8e " } }}
+            placeholder="Name"
+            className="p-2 border bg-primary outline-none border-iron rounded text-gray-700"
           />
-          <TextField
-            color="secondary"
-            sx={{
-              "& .MuiInputBase-root": {
-                color: "#8e8e8e",
-              },
-              "& .MuiOutlinedInput-notchedOutline ": {
-                borderColor: "#8e8e8e",
-              },
-            }}
-            InputLabelProps={{ style: { color: "#8e8e8e " } }}
-            margin="normal"
-            label="Email"
-            variant="outlined"
+          <input
+            type="email"
             name="email"
+            placeholder="Email"
+            className="p-2 bg-primary outline-none border border-iron rounded text-gray-700"
           />
-          <TextField
-            color="secondary"
-            margin="normal"
-            multiline
-            rows={4}
-            label="Message"
-            variant="outlined"
+          <textarea
             name="message"
-            sx={{
-              "& .MuiInputBase-root": {
-                color: "#8e8e8e",
-              },
-              "& .MuiOutlinedInput-notchedOutline ": {
-                borderColor: "#8e8e8e",
-              },
-            }}
-            InputLabelProps={{ style: { color: "#8e8e8e " } }}
+            rows={4}
+            placeholder="Message"
+            className="p-2 bg-primary outline-none border border-iron rounded text-gray-700"
           />
-          <Button
-            variant="contained"
+          <button
             type="submit"
-            color={status ? `success` : "secondary"}
+            className={`p-2 rounded bg-mountainMeadow/65 hover:bg-mountainMeadow  text-white`}
           >
             {loading ? "Sending..." : "Send"}
-          </Button>
-        </FormGroup>
-      </FormControl>
-    </Container>
+          </button>
+        </div>
+      </fieldset>
+    </form>
   );
 };
+
 export default Contact;

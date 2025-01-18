@@ -1,17 +1,4 @@
-import {
-  AppBar,
-  Box,
-  Hidden,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  styled,
-  Toolbar,
-  Typography,
-} from "@mui/material";
 import { useEffect, useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-scroll";
 import HomeIcon from "@mui/icons-material/HomeOutlined";
 import {
@@ -19,6 +6,7 @@ import {
   FolderOutlined,
   InfoOutlined,
   PsychologyOutlined,
+  Menu as MenuIcon,
 } from "@mui/icons-material";
 import { AnimatePresence } from "framer-motion";
 import Drawer from "./Drawer";
@@ -31,7 +19,6 @@ interface Item {
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -56,45 +43,20 @@ const Navbar = () => {
   const content = menuItems.map((item, index) => (
     <Link
       key={index}
-      className="duration-200 hover:scale-105"
+      className="duration-200 hover:scale-110"
       to={item.path}
       smooth={true}
       duration={500}
     >
-      <ListItem button sx={{ gap: 1 }} onClick={() => setMobileOpen(false)}>
-        <Box
-          sx={{
-            display: { xs: "block", sm: "none" },
-            color: "#8e8e8e",
-          }}
-        >
-          {" "}
-          {item.icon}
-        </Box>
-        <ListItemText primary={item.name} sx={{ color: "#8e8e8e" }} />
-      </ListItem>
+      <li
+        className="flex items-center gap-2 p-2 text-iron cursor-pointer"
+        onClick={() => setMobileOpen(false)}
+      >
+        <div className="block sm:hidden">{item.icon}</div>
+        <span>{item.name}</span>
+      </li>
     </Link>
   ));
-
-  const StyledAppBar = styled(AppBar)(() => ({
-    backgroundColor: "transparent",
-    boxShadow: "none",
-    color: "#8e8e8e",
-    padding: "4px 4px",
-    marginBottom: "180px",
-    "&.scrolled": {
-      backgroundColor: "#2a2a2a",
-      boxShadow: "0 0 5px rgba(0,0,0,0.5)",
-      color: "#8e8e8e",
-    },
-  }));
-
-  const StyledToolbar = styled(Toolbar)(() => ({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    fontSize: "1.2rem",
-  }));
 
   const handleToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -105,32 +67,28 @@ const Navbar = () => {
   };
 
   return (
-    <StyledAppBar className={scrolled ? "scrolled" : ""}>
-      <StyledToolbar className="sm:mx-[10%]">
-        <Typography variant="h6" py={2}>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-primary shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between px-4 py-2 sm:mx-[10%]">
+        <h1 className="text-xl py-2">
           Hussein <span className="text-mountainMeadow">Nasrallah</span>
-        </Typography>
-        <Hidden smUp>
-          <IconButton
-            size={"large"}
-            edge="start"
-            aria-label="menu"
-            onClick={handleToggle}
-          >
-            <MenuIcon
-              fontSize={"large"}
-              className={scrolled ? "text-slate-50" : "text-slate-50"}
-            />
-          </IconButton>
-        </Hidden>
-        <List className="hidden sm:flex">{content}</List>
-      </StyledToolbar>
+        </h1>
+        <div className="sm:hidden">
+          <button onClick={handleToggle} aria-label="menu">
+            <MenuIcon fontSize="large" className="text-slate-50" />
+          </button>
+        </div>
+        <ul className="hidden sm:flex">{content}</ul>
+      </div>
 
       {/* Animated Drawer */}
       <AnimatePresence mode="wait">
         {mobileOpen && <Drawer content={content} onClose={handleToggleClose} />}
       </AnimatePresence>
-    </StyledAppBar>
+    </nav>
   );
 };
 

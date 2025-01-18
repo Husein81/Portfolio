@@ -1,28 +1,33 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Project } from "../../app/models/Project";
 
-interface ProjectCardProps {
-  title: string;
-  imageUrl: string;
+interface Props {
+  project: Project;
 }
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, imageUrl }) => {
+const ProjectCard = ({ project }: Props) => {
   return (
-    <Card
-      className="rounded shadow overflow-hidden "
-      sx={{ bgcolor: "#2a2a2a" }}
-    >
-      <Box
-        component="img"
-        className="hover:scale-105 duration-200 h-full sm:h-[150px] "
-        sx={{ borderRadius: 1, cursor: "pointer" }}
-        src={imageUrl}
-        alt=""
+    <div className="rounded shadow overflow-hidden bg-primary">
+      <img
+        className="hover:scale-105 duration-200 h-full rounded cursor-pointer sm:h-[150px] "
+        src={project.imageUrl}
+        alt={project.title}
       />
-      <CardContent>
-        <Typography variant="body1" color={"white"}>
-          {title}
-        </Typography>
-      </CardContent>
-    </Card>
+      <div className="p-4">
+        <p className="text-iron">{project.title}</p>
+        {project.sourceCodeUrl && (
+          <div className="mt-2">
+            <span className="text-iron capitalize text-sm ">
+              source code:{" "}
+              <a
+                href={project.sourceCodeUrl}
+                className="hover:underline hover:text-blue-500 capitalize"
+              >
+                view
+              </a>
+            </span>
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 export default ProjectCard;

@@ -1,20 +1,18 @@
-import { Grid } from "@mui/material";
 import { Project } from "../../app/models/Project";
-import { FC } from "react";
 import ProjectCard from "./ProjectCard";
 
 type Props = {
   projects: Project[];
 };
-const ProjectList: FC<Props> = ({ projects }) => {
+const ProjectList = ({ projects }: Props) => {
   return (
-    <Grid container spacing={2}>
-      {projects.map((project, index) => (
-        <Grid item xs={12} sm={3} key={index}>
-          <ProjectCard title={project.title} imageUrl={project.imageUrl} />
-        </Grid>
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 space-x-4">
+      {projects.map((project) => (
+        <div key={project.title}>
+          <ProjectCard project={project} />
+        </div>
       ))}
-    </Grid>
+    </div>
   );
 };
 export default ProjectList;

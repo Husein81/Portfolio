@@ -1,24 +1,14 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { Link } from "react-scroll";
-import { styled } from "@mui/system";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Header = () => {
-  const HeaderBackground = styled(Box)({
-    backgroundImage: 'url("/OIP.jpg")', // Replace with your image URL
-    backgroundSize: "cover",
-    backgroundOrigin: "center",
-    backgroundPosition: "center",
-    height: "100vh",
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-  });
-
   return (
-    <HeaderBackground>
-      <Container id="Home">
-        <Grid container spacing={2} pt={10} pb={10}>
+    <div
+      className="bg-cover bg-center h-screen flex items-center"
+      style={{ backgroundImage: 'url("/OIP.jpg")' }}
+    >
+      <div id="Home" className="container mx-auto px-4">
+        <div className="grid grid-cols-1 gap-4 py-10">
           <AnimatePresence>
             <motion.div
               initial={{ opacity: 0, y: "15rem" }}
@@ -26,27 +16,25 @@ const Header = () => {
               transition={{ duration: 1 }}
               className="bg-opacity-50 p-5 rounded-lg"
             >
-              <Grid item xs={12} color={"#8e8e8e"}>
-                <Typography variant="h3">Hello There,</Typography>
-                <Typography variant="h2">
+              <div className="text-white">
+                <h3 className="text-3xl">Hello There,</h3>
+                <h2 className="text-4xl">
                   I'm Hussein{" "}
-                  <Box component={"span"} className="text-mountainMeadow">
-                    Nasrallah
-                  </Box>{" "}
-                </Typography>
-                <Typography variant="h5">I'm a Software Developer</Typography>
+                  <span className="text-mountainMeadow">Nasrallah</span>
+                </h2>
+                <h5 className="text-xl">I'm a Software Developer</h5>
                 <br />
-                <Button variant="contained" color="secondary">
+                <button className="bg-mountainMeadow/65 hover:bg-mountainMeadow text-white py-2 px-4 rounded">
                   <Link to="About" smooth={true} duration={500}>
                     About Me
                   </Link>
-                </Button>
-              </Grid>
+                </button>
+              </div>
             </motion.div>
           </AnimatePresence>
-        </Grid>
-      </Container>
-    </HeaderBackground>
+        </div>
+      </div>
+    </div>
   );
 };
 

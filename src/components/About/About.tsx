@@ -1,4 +1,3 @@
-import { Box, Container, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -8,7 +7,7 @@ interface AgeProps {
 }
 
 const About = () => {
-  const scrollPositionRef = useRef(0);
+  const scrollPositionRef = useRef<number>(0);
   const [animateOnLoad, setAnimateOnLoad] = useState(false);
   const animationTriggeredRef = useRef(false);
 
@@ -46,40 +45,37 @@ const About = () => {
             trends to deliver innovative solutions. I'm dedicated to advancing
             the digital landscape as a Software Developer.`;
   return (
-    <Container sx={{ pt: 10 }} id="About">
-      <Typography variant="h4" color={"gray"} component="h1" gutterBottom>
-        About Me
-      </Typography>
-      <Box className="flex sm:flex-row flex-col" gap={5}>
+    <div className={"container mx-auto p-4 mt-12"} id="About">
+      <h1 className="text-4xl text-iron mb-4">About Me</h1>
+      <div className="flex sm:flex-row flex-col gap-4">
         {position && (
           <AnimatePresence mode="wait">
             <motion.div
-              initial={{ x: "-7rem" }}
+              key="left"
+              initial={{ x: "-3rem" }}
               animate={{ x: 0 }}
               transition={{ duration: 1 }}
               className="w-full"
             >
-              <Typography variant="body1" paragraph color={"#8e8e8e"}>
-                {text}
-              </Typography>
+              <p className="text-iron text-lg">{text}</p>
             </motion.div>
             <motion.div
-              initial={{ x: "7rem" }}
+              key="right"
+              initial={{ x: "3rem" }}
               animate={{ x: 0 }}
               transition={{ duration: 1 }}
               className="w-full"
             >
-              <Box
-                component={"img"}
-                borderRadius={2}
+              <img
+                className="rounded-lg"
                 src="/assets/others/photo_2024-06-19_09-14-46.jpg"
-                alt=""
+                alt={"HN"}
               />
             </motion.div>
           </AnimatePresence>
         )}
-      </Box>
-    </Container>
+      </div>
+    </div>
   );
 };
 

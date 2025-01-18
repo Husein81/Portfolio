@@ -8,7 +8,7 @@ interface SkillProps {
 
 const SkillList: React.FC<SkillProps> = ({ skills }) => {
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {skills.map((skill) => (
         <DroppableArea id={skill.id as string} key={skill.id}>
           <SkillCard skill={skill} />

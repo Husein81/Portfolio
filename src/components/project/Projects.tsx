@@ -1,4 +1,3 @@
-import { Container, Typography } from "@mui/material";
 import { Project } from "../../app/models/Project";
 import ProjectList from "./ProjectList";
 
@@ -7,16 +6,19 @@ const Projects = () => {
     {
       title: "Inventory Management System",
       imageUrl: "/assets/projects/dashboard.png",
+      sourceCodeUrl: "/",
     },
-    { title: "The Spot", imageUrl: "/assets/projects/theSpot.png" },
+    {
+      title: "The Spot",
+      imageUrl: "/assets/projects/theSpot.png",
+      sourceCodeUrl: "",
+    },
   ];
   return (
-    <Container id={"Projects"} sx={{ pt: 13 }}>
-      <Typography variant="h4" color={"gray"} component="h1" gutterBottom>
-        Projects
-      </Typography>
+    <div className="container mx-auto mt-12 gap-2 p-4" id="Projects">
+      <h1 className="text-4xl text-iron mb-4">Projects</h1>
       <ProjectList projects={projects} />
-    </Container>
+    </div>
   );
 };
 export default Projects;

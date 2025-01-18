@@ -1,5 +1,4 @@
 import { useDraggable } from "@dnd-kit/core";
-import { Box, Card, CardContent, Typography } from "@mui/material";
 import { Skill } from "../../app/models/Skill";
 
 interface SkillCardProps {
@@ -13,29 +12,24 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
     ? { transform: `translate(${transform.x}px, ${transform.y}px)` }
     : undefined;
   return (
-    <Box
+    <div
       ref={setNodeRef}
       {...listeners}
       {...attributes}
       style={style}
-      className={`shadow rounded ${
+      className={`shadow rounded bg-primary  ${
         transform ? "cursor-grabbing" : "cursor-grab"
-      }  shadow-mountainMeadow  w-full`}
+      }  shadow-mountainMeadow  w-full `}
     >
-      <Card sx={{ width: "100%", backgroundColor: "#2a2a2a" }}>
-        <Box
-          component={"img"}
-          className="hover:scale-105 duration-200 object-contain h-32 sm:h-24 mx-auto w-20 rounded"
-          src={skill.imageUrl}
-          alt=""
-        />
-        <CardContent>
-          <Typography variant="h6" color={"gray"} component="h1" gutterBottom>
-            {skill.name}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Box>
+      <img
+        className="hover:scale-105 duration-200 object-contain h-32 sm:h-24 mx-auto w-20 rounded"
+        src={skill.imageUrl}
+        alt=""
+      />
+      <div className="p-4">
+        <span className="text-iron text-center">{skill.name}</span>
+      </div>
+    </div>
   );
 };
 export default SkillCard;

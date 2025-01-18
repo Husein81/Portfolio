@@ -38,7 +38,6 @@ const NavLinkStyled = ({
 );
 
 const Row = ({ row }: Props) => {
-  console.log(row);
   return (
     <div>
       {row.link.includes("pdf") || row.columnId === "3" ? (

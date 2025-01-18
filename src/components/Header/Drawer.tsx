@@ -1,5 +1,4 @@
 import { Close } from "@mui/icons-material";
-import { Box, IconButton, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
 interface Props {
@@ -8,7 +7,7 @@ interface Props {
 }
 const Drawer = ({ content, onClose }: Props) => {
   return (
-    <Box
+    <div
       className="fixed inset-0 bg-black bg-opacity-50 w-screen flex items-center justify-start"
       onClick={onClose}
     >
@@ -17,34 +16,27 @@ const Drawer = ({ content, onClose }: Props) => {
         animate={{ x: ["-20rem", 0], opacity: 1 }}
         exit={{ x: [0, "-20rem"], opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="bg-shark h-screen block sm:hidden w-60 p-1"
-        onClick={(e: React.ChangeEvent) => e.stopPropagation()}
+        className="bg-shark h-screen block  sm:hidden w-60 p-1"
+        onClick={(e: React.FormEvent) => e.stopPropagation()}
       >
-        <Box>
-          <Box my={2}>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography
-                variant="body1"
-                p={2}
-                color="#8e8e8"
-                sx={{ width: "100%" }}
-              >
-                Hussein
-                <Box component={"span"} className="text-mountainMeadow">
-                  Nasrallah
-                </Box>{" "}
-              </Typography>
-              <Box>
-                <IconButton sx={{ color: "#8e8e8e" }} onClick={onClose}>
-                  <Close />
-                </IconButton>
-              </Box>
-            </Box>
+        <div>
+          <div className="my-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between p-2 text-iron w-full">
+                <span className="text-iron ">
+                  Hussein
+                  <span className="text-mountainMeadow"> Nasrallah</span>
+                </span>
+              </div>
+              <button className="text-iron" onClick={onClose}>
+                <Close />
+              </button>
+            </div>
             {content}
-          </Box>
-        </Box>
+          </div>
+        </div>
       </motion.div>
-    </Box>
+    </div>
   );
 };
 export default Drawer;

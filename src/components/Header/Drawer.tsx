@@ -21,7 +21,7 @@ const Drawer = ({ content, onClose }: Props) => {
         onClick={(e) => e.stopPropagation()}
       >
         <Box>
-          <Box my={1}>
+          <Box my={2}>
             <Box display={"flex"} justifyContent={"space-between"}>
               <Typography
                 variant="body1"
@@ -30,13 +30,13 @@ const Drawer = ({ content, onClose }: Props) => {
                 sx={{ width: "100%" }}
               >
                 Hussein
-                <Box component={"span"} className="text-purple-500">
+                <Box component={"span"} className="text-mountainMeadow">
                   Nasrallah
                 </Box>{" "}
               </Typography>
               <Box>
-                <IconButton onClick={onClose}>
-                  <Close sx={{ color: "#8e8e8" }} />
+                <IconButton sx={{ color: "#8e8e8e" }} onClick={onClose}>
+                  <Close />
                 </IconButton>
               </Box>
             </Box>

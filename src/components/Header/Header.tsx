@@ -30,7 +30,7 @@ const Header = () => {
                 <Typography variant="h3">Hello There,</Typography>
                 <Typography variant="h2">
                   I'm Hussein{" "}
-                  <Box component={"span"} className="text-yellow-500">
+                  <Box component={"span"} className="text-mountainMeadow">
                     Nasrallah
                   </Box>{" "}
                 </Typography>

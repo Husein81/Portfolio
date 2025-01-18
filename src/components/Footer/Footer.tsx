@@ -1,79 +1,47 @@
-import React from "react";
-import {
-  Box,
-  Container,
-  Grid,
-  Link as NavLink,
-  styled,
-  Typography,
-} from "@mui/material";
-import { Link } from "react-scroll";
+import React, { useMemo } from "react";
+import { Column as ColumType, Row } from "../../app/models/types";
+import Column from "./Column";
 
+const columns: ColumType[] = [
+  { id: "1", title: "Portfolio" },
+  { id: "2", title: "Links" },
+  { id: "3", title: "Social" },
+];
+
+const rows: Row[] = [
+  { id: "1", title: "About Me", link: "About", columnId: "1" },
+  { id: "2", title: "Projects", link: "Projects", columnId: "1" },
+  { id: "3", title: "Skills", link: "Skills", columnId: "1" },
+  { id: "4", title: "Contact", link: "Contact", columnId: "2" },
+  { id: "5", title: "Resume", link: "CV", columnId: "2" },
+  { id: "6", title: "GitHub", link: "GitHub", columnId: "3" },
+  { id: "7", title: "LinkedIn", link: "LinkedIn", columnId: "3" },
+  { id: "8", title: "Twitter", link: "Twitter", columnId: "3" },
+];
 const Footer: React.FC = () => {
-  const MUILink = styled(Link)(() => ({
-    display: "block",
-    cursor: "pointer",
-    fontSize: 14,
-    color: "#8e8e8e",
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  }));
+  const memoRows = useMemo(() => {
+    const rowsPerColumn = (column: ColumType) =>
+      rows.filter((row) => row.columnId === column.id);
+    return rowsPerColumn;
+  }, []);
 
-  const NavLinkStyled = styled(NavLink)(() => ({
-    display: "block",
-    cursor: "pointer",
-    fontSize: 14,
-    color: "#8e8e8e",
-    textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline",
-    },
-  }));
   return (
-    <Box
-      component="footer"
-      sx={{
-        py: 5,
-        px: 2,
-      }}
-      className="text-iron bg-shark"
-    >
-      <Container>
-        <Grid container spacing={6} justifyContent="center">
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h6" gutterBottom>
-              Portfolio
-            </Typography>
-            <MUILink smooth={true} duration={500} to="About">
-              About Me
-            </MUILink>
-            <MUILink smooth={true} duration={500} to="Projects">
-              Projects
-            </MUILink>
-            <MUILink smooth={true} duration={500} to="Skills">
-              Skills
-            </MUILink>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h6" gutterBottom>
-              Links
-            </Typography>
-            <MUILink smooth={true} duration={500} to="#blog">
-              Blog
-            </MUILink>
-            <MUILink smooth={true} duration={1000} to="Contact">
-              Contact
-            </MUILink>
-            <MUILink smooth={true} duration={1000} to="CV">
-              Resume
-            </MUILink>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Typography variant="h6" gutterBottom>
-              Social
-            </Typography>
+    <footer className="py-10 bg-shark text-gray-400">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex justify-center gap-6 flex-wrap">
+          {/* <div className="flex-1 min-w-[200px]">
+            <h6 className="mb-4">Portfolio</h6>
+            <ScrollLink to="About">About Me</ScrollLink>
+            <ScrollLink to="Projects">Projects</ScrollLink>
+            <ScrollLink to="Skills">Skills</ScrollLink>
+          </div>
+          <div className="flex-1 min-w-[200px]">
+            <h6 className="mb-4">Links</h6>
+            <ScrollLink to="Contact">Contact</ScrollLink>
+            <ScrollLink to="CV">Resume</ScrollLink>
+          </div>
+          <div className="flex-1 min-w-[200px]">
+            <h6 className="mb-4">Social</h6>
             <NavLinkStyled href="https://github.com/Husein81">
               GitHub
             </NavLinkStyled>
@@ -83,15 +51,18 @@ const Footer: React.FC = () => {
             <NavLinkStyled href="https://x.com/husein_nasralah">
               Twitter
             </NavLinkStyled>
-          </Grid>
-        </Grid>
-        <Box mt={5}>
-          <Typography variant="body2" className="text-iron" align="center">
+          </div> */}
+          {columns.map((column) => (
+            <Column column={column} rows={memoRows(column)} />
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <p className="m-0">
             © {new Date().getFullYear()} Hussein Nasrallah. All rights reserved.
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 

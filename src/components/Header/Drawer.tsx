@@ -18,7 +18,7 @@ const Drawer = ({ content, onClose }: Props) => {
         exit={{ x: [0, "-20rem"], opacity: 0 }}
         transition={{ duration: 0.3 }}
         className="bg-shark h-screen block sm:hidden w-60 p-1"
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e: React.ChangeEvent) => e.stopPropagation()}
       >
         <Box>
           <Box my={2}>

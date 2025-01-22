@@ -17,7 +17,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
       {...listeners}
       {...attributes}
       style={style}
-      className={`shadow rounded bg-primary  ${
+      className={`shadow-md rounded bg-primary  ${
         transform ? "cursor-grabbing" : "cursor-grab"
       }  shadow-mountainMeadow  w-full `}
     >

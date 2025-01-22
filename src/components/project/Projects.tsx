@@ -6,12 +6,12 @@ const Projects = () => {
     {
       title: "Inventory Management System",
       imageUrl: "/assets/projects/dashboard.png",
-      sourceCodeUrl: "/",
+      sourceCodeUrl: "Inventory-Management-System.API",
     },
     {
       title: "The Spot",
       imageUrl: "/assets/projects/theSpot.png",
-      sourceCodeUrl: "",
+      sourceCodeUrl: "The-Spot",
     },
   ];
   return (

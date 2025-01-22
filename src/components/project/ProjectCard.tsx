@@ -5,27 +5,24 @@ interface Props {
 }
 const ProjectCard = ({ project }: Props) => {
   return (
-    <div className="rounded shadow overflow-hidden bg-primary">
+    <div className="rounded shadow-md shadow-mountainMeadow overflow-hidden bg-primary">
       <img
-        className="hover:scale-105 duration-200 h-full rounded cursor-pointer sm:h-[150px] "
+        className="hover:scale-105 duration-200 h-full w-full rounded cursor-pointer sm:h-[150px] "
         src={project.imageUrl}
         alt={project.title}
       />
-      <div className="p-4">
-        <p className="text-iron">{project.title}</p>
-        {project.sourceCodeUrl && (
-          <div className="mt-2">
-            <span className="text-iron capitalize text-sm ">
-              source code:{" "}
-              <a
-                href={project.sourceCodeUrl}
-                className="hover:underline hover:text-blue-500 capitalize"
-              >
-                view
-              </a>
-            </span>
-          </div>
-        )}
+      <div className="p-4 text-white">
+        <h2>{project.title}</h2>
+        <p className="text-sm mt-2">{project.description}</p>
+        <div className="mt-2">
+          <a
+            target="blank"
+            href={"https://github.com/Husein81/" + project.sourceCodeUrl}
+            className="border px-4 py-2 bg-transparent rounded-lg capitalize"
+          >
+            view in github
+          </a>
+        </div>
       </div>
     </div>
   );

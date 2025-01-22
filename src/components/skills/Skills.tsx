@@ -61,14 +61,14 @@ const Skills = () => {
       >
         <LinkButton
           to="Contact"
-          className="capitalize border p-1 "
+          className="capitalize border rounded p-1 "
           smooth={true}
           duration={1000}
         >
           hire me
         </LinkButton>
         <a
-          className="capitalize ring-1 ring-mountainMeadow text-center  p-1 bg-mountainMeadow/65 hover:bg-mountainMeadow"
+          className="capitalize ring-1 rounded ring-mountainMeadow text-center  p-1 bg-mountainMeadow/65 hover:bg-mountainMeadow"
           download
           href="/public/Hussein-CV.pdf"
         >

@@ -43,7 +43,7 @@ const Drawer = ({ content, onClose }: Props) => {
               transition={{ delay: 0.2, duration: 0.3 }}
               className="flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-mountain-meadow to-secondary flex items-center justify-center">
+              <div className="size-12 rounded-full bg-gradient-to-r from-mountain-meadow to-secondary flex items-center justify-center">
                 <img
                   src="/assets/others/profile.png"
                   alt="H"

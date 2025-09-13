@@ -19,7 +19,7 @@ const Header = () => {
     <div className="modern-hero-bg min-h-screen flex items-center relative overflow-hidden">
       {/* Animated Tech Stack Visualization */}
       <motion.div
-        className="absolute w-full h-full md:h-[calc(100vh-4rem)] 2xl:h-[calc(100vh-8rem)] mt-24 tech-constellation"
+        className="fixed size-full tech-constellation"
         style={{
           rotate: constellationRotate,
           scale: iconScale,
@@ -30,9 +30,9 @@ const Header = () => {
       </motion.div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-5 grid-pattern"></div>
+      <div className="fixed inset-0 opacity-5 grid-pattern"></div>
 
-      <div id="Home" className="container mx-auto px-8 md:px-4 relative z-10">
+      <div id="Home" className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 py-10 ">
           <AnimatePresence>
             <motion.div

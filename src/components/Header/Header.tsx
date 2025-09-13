@@ -44,7 +44,7 @@ const Header = () => {
               <div className="grid md:flex gap-12 items-center lg:justify-evenly">
                 <div className="order-2 md:order-1 lg:max-w-2xl">
                   <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
-                    <motion.h1
+                    <motion.h3
                       className="text-4xl flex gap-2 items-center md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent"
                       initial={{ opacity: 0, y: 50 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ const Header = () => {
                           className="rounded-full size-full object-cover"
                         />
                       </div>
-                    </motion.h1>
+                    </motion.h3>
 
                     <motion.p
                       className="text-xl md:text-2xl text-iron mb-8 leading-relaxed"

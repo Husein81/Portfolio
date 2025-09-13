@@ -71,7 +71,7 @@ const Navbar = () => {
       }`}
     >
       <div className="flex items-center justify-between px-4 py-2 mx-auto">
-        <span className="md:text-xl py-2 font-semibold">
+        <span className="text-xl py-2 font-semibold">
           Hussein{" "}
           <span className="bg-gradient-to-r from-mountain-meadow to-secondary bg-clip-text text-transparent">
             Nasrallah

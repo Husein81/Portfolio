@@ -51,7 +51,7 @@ const Drawer = ({ content, onClose }: Props) => {
                 />
               </div>
               <div>
-                <h3 className="text-white font-semibold text-lg">
+                <h3 className="text-white font-semibold">
                   Hussein{" "}
                   <span className="bg-gradient-to-r from-mountain-meadow to-secondary bg-clip-text text-transparent">
                     Nasrallah

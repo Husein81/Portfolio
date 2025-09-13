@@ -136,7 +136,7 @@ const About = () => {
                 className="space-y-8"
               >
                 {/* Profile Image */}
-                <div className="relative group">
+                <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-mountain-meadow to-secondary rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                   <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 text-center">
                     <div className="size-32 mx-auto mb-4 relative">
@@ -155,7 +155,7 @@ const About = () => {
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-6">
                   {highlights.map((highlight, index) => (
                     <motion.div
                       key={highlight.label}

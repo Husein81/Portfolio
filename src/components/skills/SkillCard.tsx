@@ -25,9 +25,9 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
         </div>
 
         {/* Skill Name */}
-        <h3 className="text-white font-medium text-sm text-center  transition-colors duration-300">
+        <span className="text-white font-medium text-sm text-center  transition-colors duration-300">
           {skill.name}
-        </h3>
+        </span>
       </div>
 
       {/* Animated border */}

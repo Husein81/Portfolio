@@ -15,7 +15,7 @@ const ScrollLink = ({
     to={to}
     smooth={true}
     duration={500}
-    className="block cursor-pointer text-sm text-gray-400 no-underline hover:underline"
+    className="flex cursor-pointer text-sm text-gray-400 no-underline hover:underline"
   >
     {children}
   </Link>
@@ -31,7 +31,7 @@ const NavLinkStyled = ({
   <a
     href={href}
     target="blank"
-    className="block cursor-pointer text-sm text-gray-400 no-underline hover:underline"
+    className="flex cursor-pointer text-sm text-gray-400 no-underline hover:underline"
   >
     {children}
   </a>

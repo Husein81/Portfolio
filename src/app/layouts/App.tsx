@@ -15,9 +15,12 @@ const App = () => {
       <Header />
       <About />
       <Projects />
+
       <Skills />
-      <Contact />
-      <Footer />
+      <div className="z-50  relative">
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -19,7 +19,7 @@ const Header = () => {
     <div className="modern-hero-bg min-h-screen flex items-center relative overflow-hidden">
       {/* Animated Tech Stack Visualization */}
       <motion.div
-        className="fixed size-full tech-constellation"
+        className="absolute inset-0  tech-constellation"
         style={{
           rotate: constellationRotate,
           scale: iconScale,
@@ -80,7 +80,7 @@ const Header = () => {
                         to="Contact"
                         smooth={true}
                         duration={500}
-                        className="bg-gradient-to-r from-mountain-meadow to-secondary px-8 py-4 rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-mountain-meadow/25 transition-all duration-300 cursor-pointer text-center"
+                        className="bg-gradient-to-r from-mountain-meadow to-secondary px-4 py-2 rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-mountain-meadow/25 transition-all duration-300 cursor-pointer text-center"
                       >
                         Get In Touch
                       </Link>
@@ -89,7 +89,7 @@ const Header = () => {
                         to="Projects"
                         smooth={true}
                         duration={500}
-                        className="border border-mountain-meadow/30 px-8 py-4 rounded-xl text-mountain-meadow font-semibold hover:bg-mountain-meadow/10 transition-all duration-300 cursor-pointer text-center"
+                        className="border border-mountain-meadow/30 px-4 py-2 rounded-xl text-mountain-meadow font-semibold hover:bg-mountain-meadow/10 transition-all duration-300 cursor-pointer text-center"
                       >
                         View Projects
                       </Link>
@@ -113,8 +113,8 @@ const Header = () => {
                     </div>
 
                     {/* Floating accent elements */}
-                    <div className="absolute hidden md:-top-4 md:-right-4 w-8 h-8 bg-accent rounded-full animate-bounce"></div>
-                    <div className="absolute hidden md:-bottom-4 md:-left-4 w-6 h-6 bg-secondary rounded-full animate-pulse"></div>
+                    <div className="absolute hidden md:flex -top-4 -right-4 w-8 h-8 bg-accent rounded-full animate-bounce"></div>
+                    <div className="absolute hidden md:flex -bottom-4 -left-4 w-6 h-6 bg-secondary rounded-full animate-pulse"></div>
                   </motion.div>
                 </div>
               </div>

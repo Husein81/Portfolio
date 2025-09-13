@@ -17,7 +17,7 @@ const App = () => {
       <Projects />
 
       <Skills />
-      <div className="z-50  relative">
+      <div className="z-40  relative">
         <Contact />
         <Footer />
       </div>

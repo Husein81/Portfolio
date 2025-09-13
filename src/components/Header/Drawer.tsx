@@ -51,12 +51,12 @@ const Drawer = ({ content, onClose }: Props) => {
                 />
               </div>
               <div>
-                <h3 className="text-white font-semibold">
+                <span className="text-white font-semibold">
                   Hussein{" "}
                   <span className="bg-gradient-to-r from-mountain-meadow to-secondary bg-clip-text text-transparent">
                     Nasrallah
                   </span>
-                </h3>
+                </span>
                 <p className="text-iron text-sm">Full Stack Developer</p>
               </div>
             </motion.div>

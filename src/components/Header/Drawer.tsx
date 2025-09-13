@@ -45,7 +45,7 @@ const Drawer = ({ content, onClose }: Props) => {
             >
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-mountain-meadow to-secondary flex items-center justify-center">
                 <img
-                  src="/public/assets/others/profile.png"
+                  src="/assets/others/profile.png"
                   alt="H"
                   className="rounded-full"
                 />

@@ -39,9 +39,9 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
     position: {
-      top: "1/2",
-      left: "1/2",
-      transform: "-translate-x-1/2 -translate-y-1/2",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)", // ✅ use real CSS transform
     },
     size: {
       container: "w-20 h-20",
@@ -59,8 +59,8 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     position: {
-      top: "20",
-      left: "20",
+      top: "20px", // ✅ px instead of "20"
+      left: "20px",
     },
     size: {
       container: "w-16 h-16",
@@ -79,9 +79,9 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
     position: {
-      top: "16",
-      left: "1/2",
-      transform: "-translate-x-1/2",
+      top: "16px",
+      left: "50%",
+      transform: "translateX(-50%)", // ✅ fixed
     },
     size: {
       container: "w-16 h-16",
@@ -100,8 +100,8 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     position: {
-      top: "20",
-      right: "20",
+      top: "20px",
+      right: "20px",
     },
     size: {
       container: "w-16 h-16",
@@ -121,9 +121,9 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
     position: {
-      top: "1/2",
-      left: "20",
-      transform: "-translate-y-1/2",
+      top: "50%",
+      left: "20px",
+      transform: "translateY(-50%)", // ✅ fixed
     },
     size: {
       container: "w-16 h-16",
@@ -142,9 +142,9 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     position: {
-      top: "1/2",
-      right: "20",
-      transform: "-translate-y-1/2",
+      top: "50%",
+      right: "20px",
+      transform: "translateY(-50%)",
     },
     size: {
       container: "w-16 h-16",
@@ -163,8 +163,8 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
     position: {
-      bottom: "20",
-      left: "20",
+      bottom: "20px",
+      left: "20px",
     },
     size: {
       container: "w-16 h-16",
@@ -183,9 +183,9 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
     position: {
-      bottom: "16",
-      left: "1/2",
-      transform: "-translate-x-1/2",
+      bottom: "16px",
+      left: "50%",
+      transform: "translateX(-50%)", // ✅ fixed
     },
     size: {
       container: "w-16 h-16",
@@ -204,8 +204,8 @@ export const techIconsConfig: TechIconConfig[] = [
     imageUrl:
       "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/docker-colored.svg",
     position: {
-      bottom: "20",
-      right: "20",
+      bottom: "20px",
+      right: "20px",
     },
     size: {
       container: "w-16 h-16",

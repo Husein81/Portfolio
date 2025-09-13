@@ -43,20 +43,20 @@ const AnimatedTechIcon = ({
   animation,
   cssAnimation,
 }: AnimatedTechIconProps) => {
-  // Convert position object to className
-  const positionClasses = Object.entries(position)
-    .map(([key, value]) => {
-      if (key === "transform") return value;
-      return `${key}-${value}`;
-    })
-    .join(" ");
-
   return (
     <motion.div
-      className={`absolute ${positionClasses} ${cssAnimation || ""}`}
+      className={`${cssAnimation || ""}`}
       whileInView={animation.whileInView}
       transition={animation.transition}
       viewport={{ once: true, amount: 0.3 }}
+      style={{
+        position: "absolute",
+        top: position.top,
+        bottom: position.bottom,
+        left: position.left,
+        right: position.right,
+        transform: position.transform,
+      }}
     >
       <div
         className={`${

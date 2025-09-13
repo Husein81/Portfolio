@@ -16,10 +16,10 @@ const Header = () => {
   const iconOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
 
   return (
-    <div className="modern-hero-bg h-screen flex items-center relative overflow-hidden">
+    <div className="modern-hero-bg min-h-screen flex items-center relative overflow-hidden">
       {/* Animated Tech Stack Visualization */}
       <motion.div
-        className="absolute inset-0 tech-constellation"
+        className="absolute w-full h-full md:h-[calc(100vh-4rem)] 2xl:h-[calc(100vh-8rem)] mt-24 tech-constellation"
         style={{
           rotate: constellationRotate,
           scale: iconScale,
@@ -32,7 +32,7 @@ const Header = () => {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 opacity-5 grid-pattern"></div>
 
-      <div id="Home" className="container mx-auto px-4 relative z-10">
+      <div id="Home" className="container mx-auto px-8 md:px-4 relative z-10">
         <div className="grid grid-cols-1 py-10 ">
           <AnimatePresence>
             <motion.div
@@ -41,8 +41,8 @@ const Header = () => {
               transition={{ duration: 1 }}
               className="relative z-10"
             >
-              <div className="grid lg:flex gap-12 items-center lg:justify-evenly">
-                <div className="order-2 lg:order-1 lg:max-w-2xl">
+              <div className="grid md:flex gap-12 items-center lg:justify-evenly">
+                <div className="order-2 md:order-1 lg:max-w-2xl">
                   <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
                     <motion.h1
                       className="text-4xl flex gap-2 items-center md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent"
@@ -53,7 +53,7 @@ const Header = () => {
                       Hussein Nasrallah
                       <div className="md:hidden w-full h-full rounded-full overflow-hidden border-4 border-gradient-to-r from-mountain-meadow to-secondary shadow-2xl shadow-mountain-meadow/20">
                         <img
-                          src="/public/assets/others/profile.png"
+                          src="/assets/others/profile.png"
                           alt="Hussein Nasrallah"
                           className="rounded-full size-full object-cover"
                         />
@@ -106,7 +106,7 @@ const Header = () => {
                   >
                     <div className="hidden md:flex size-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-mountain-meadow to-secondary shadow-2xl shadow-mountain-meadow/20">
                       <img
-                        src="/public/assets/others/profile.png"
+                        src="/assets/others/profile.png"
                         alt="Hussein Nasrallah"
                         className="w-full h-full object-cover"
                       />

@@ -42,11 +42,11 @@ const Row = ({ row }: Props) => {
     <div>
       {row.link.includes("pdf") || row.columnId === "3" ? (
         <NavLinkStyled href={row.link}>
-          <h3 className="font-medium text-neutral-100">{row.title}</h3>
+          <span className="text-neutral-100 ">{row.title}</span>
         </NavLinkStyled>
       ) : (
         <ScrollLink to={row.link}>
-          <h3 className="font-medium text-neutral-100">{row.title}</h3>
+          <span className="text-neutral-100 ">{row.title}</span>
         </ScrollLink>
       )}
     </div>

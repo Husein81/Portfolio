@@ -70,7 +70,7 @@ const Navbar = () => {
           : "bg-primary/75"
       }`}
     >
-      <div className="flex items-center justify-between px-4 py-2 max-w-7xl mx-auto">
+      <div className="flex items-center justify-between px-4 py-2 mx-auto">
         <h1 className="md:text-xl text-lg py-2 font-semibold">
           Hussein{" "}
           <span className="bg-gradient-to-r from-mountain-meadow to-secondary bg-clip-text text-transparent">

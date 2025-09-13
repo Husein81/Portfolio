@@ -7,7 +7,7 @@ import Icon from "../icon";
 interface Item {
   name: string;
   path: string;
-  icon: JSX.Element;
+  icon: string;
 }
 
 const Navbar = () => {
@@ -26,11 +26,11 @@ const Navbar = () => {
   }, []);
 
   const menuItems: Item[] = [
-    { name: "Home", path: "Home", icon: <Icon name="House" /> },
-    { name: "About", path: "About", icon: <Icon name="Info" /> },
-    { name: "Projects", path: "Projects", icon: <Icon name="Folder" /> },
-    { name: "Skills", path: "Skills", icon: <Icon name="CodeXml" /> },
-    { name: "Contact", path: "Contact", icon: <Icon name="Mails" /> },
+    { name: "Home", path: "Home", icon: "House" },
+    { name: "About", path: "About", icon: "Info" },
+    { name: "Projects", path: "Projects", icon: "Folder" },
+    { name: "Skills", path: "Skills", icon: "CodeXml" },
+    { name: "Contact", path: "Contact", icon: "Mails" },
   ];
 
   const content = menuItems.map((item, index) => (
@@ -45,6 +45,7 @@ const Navbar = () => {
         className="flex items-center gap-3 p-4 text-iron cursor-pointer hover:text-white rounded-xl transition-all duration-200"
         onClick={() => setMobileOpen(false)}
       >
+        <Icon name={item.icon} className="text-lg flex sm:hidden" />
         <span className="relative font-medium">
           {item.name}
           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-mountain-meadow to-secondary group-hover:w-full transition-all duration-300"></span>

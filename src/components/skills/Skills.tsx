@@ -3,33 +3,30 @@ import { Button as LinkButton } from "react-scroll";
 
 const Skills = () => {
   return (
-    <section className="relative container mt-16 mx-auto p-6" id="Skills">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-shark/50 via-transparent to-primary/30 rounded-3xl"></div>
-
+    <section className="relative py-12 md:py-20" id="Skills">
       {/* Content */}
-      <div className="relative z-10">
+      <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent mb-4">
             Skills & Expertise
           </h1>
-          <p className="text-iron text-lg max-w-2xl mx-auto">
+          <p className="text-iron text-base md:text-lg max-w-2xl mx-auto px-4">
             Technologies and tools I work with to bring ideas to life
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto mt-4 rounded-full"></div>
+          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto mt-4 rounded-full"></div>
         </div>
 
         {/* Skills Grid */}
-        <div className="mb-12">
+        <div className="mb-12 md:mb-16">
           <SkillLists />
         </div>
 
         {/* Action Buttons */}
-        <div className="flex justify-center flex-col sm:flex-row gap-4 mt-8">
+        <div className="flex justify-center flex-col sm:flex-row gap-4 mt-6 md:mt-8 px-4">
           <LinkButton
             to="Contact"
-            className="group relative px-8 py-3 bg-gradient-to-r from-mountain-meadow to-secondary  hover:from-mountain-meadow/80 hover:to-secondary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-none"
+            className="group relative px-6 md:px-8 py-3 bg-gradient-to-r from-mountain-meadow to-secondary hover:from-mountain-meadow/80 hover:to-secondary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-none text-center"
             smooth={true}
             duration={1000}
           >

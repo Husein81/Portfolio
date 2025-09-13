@@ -93,11 +93,7 @@ const AnimatedTechIcon = ({
       viewport={{ once: true, amount: 0.3 }}
     >
       <div
-        className={`${
-          size.container
-        } ${backgroundColor} backdrop-blur-sm border ${borderColor} rounded-xl flex items-center justify-center ${
-          name === "TypeScript" ? "animate-pulse" : ""
-        }`}
+        className={`${size.container} ${backgroundColor} backdrop-blur-sm border ${borderColor} rounded-xl flex items-center justify-center`}
       >
         <img src={imageUrl} alt={name} className={size.icon} />
       </div>

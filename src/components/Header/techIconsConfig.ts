@@ -67,7 +67,7 @@ export const techIconsConfig: TechIconConfig[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
     position: {
       top: "46%",
-      left: "46%",
+      left: "56%",
       transform: "-translate-x-1/2 -translate-y-1/2", // center
     },
     size: { container: "w-20 h-20", icon: "w-12 h-12" },

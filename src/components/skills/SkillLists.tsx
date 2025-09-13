@@ -1,12 +1,197 @@
 import SkillCard from "./SkillCard";
 import { SKILLS } from "../../lib/config";
+import { Skill } from "../../app/models/Skill";
+
+// Empty card component for keyboard spacing - responsive sizing
+const EmptyCard: React.FC = () => (
+  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 bg-gray-900/30 border border-gray-700/50 rounded-lg opacity-40"></div>
+);
 
 const SkillList: React.FC = () => {
+  // Calculate how many skills we need for each row
+  const topRowSkills = SKILLS.slice(0, 10);
+  const secondRowSkills = SKILLS.slice(10, 18);
+  const thirdRowSkills = SKILLS.slice(18, 26);
+  const bottomRowSkills = SKILLS.slice(26);
+
+  // Fill remaining slots with empty cards for keyboard effect, centering the skills
+  const centerSkillsInRow = (
+    skills: Skill[],
+    desktopPositions: number
+  ): (Skill | null)[] => {
+    // Use desktop layout as base
+    const totalPositions = desktopPositions;
+
+    if (skills.length >= totalPositions) {
+      return skills.slice(0, totalPositions);
+    }
+
+    const emptySlots = totalPositions - skills.length;
+    const leftEmpty = Math.floor(emptySlots / 2);
+    const rightEmpty = emptySlots - leftEmpty;
+
+    return [
+      ...Array(leftEmpty).fill(null),
+      ...skills,
+      ...Array(rightEmpty).fill(null),
+    ];
+  };
+
+  const topRowComplete = centerSkillsInRow(topRowSkills, 16);
+  const secondRowComplete = centerSkillsInRow(secondRowSkills, 14);
+  const thirdRowComplete = centerSkillsInRow(thirdRowSkills, 12);
+  const bottomRowComplete = centerSkillsInRow(bottomRowSkills, 10);
+
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-      {SKILLS.map((skill) => (
-        <SkillCard key={skill.id} skill={skill} />
-      ))}
+    <div className="w-full mx-auto space-y-2 md:space-y-4 flex flex-col items-center px-2 md:px-0">
+      {/* Mobile Layout - 3 per row */}
+      <div className="block md:hidden">
+        <div className="grid grid-cols-3 gap-3 mb-4">
+          {SKILLS.slice(0, 3).map((skill) => (
+            <SkillCard key={skill.id} skill={skill} />
+          ))}
+        </div>
+        <div className="grid grid-cols-3 gap-3 justify-items-center mb-4">
+          {SKILLS.slice(3, 6).map((skill) => (
+            <SkillCard key={skill.id} skill={skill} />
+          ))}
+        </div>
+        <div className="grid grid-cols-3 gap-3 justify-items-center mb-4">
+          {SKILLS.slice(6, 9).map((skill) => (
+            <SkillCard key={skill.id} skill={skill} />
+          ))}
+        </div>
+        <div className="grid grid-cols-3 gap-3 justify-items-center mb-4">
+          {SKILLS.slice(9, 12).map((skill) => (
+            <SkillCard key={skill.id} skill={skill} />
+          ))}
+        </div>
+        {SKILLS.length > 12 && (
+          <div className="grid grid-cols-3 gap-3 justify-items-center mb-4">
+            {SKILLS.slice(12, 15).map((skill) => (
+              <SkillCard key={skill.id} skill={skill} />
+            ))}
+          </div>
+        )}
+        {SKILLS.length > 15 && (
+          <div className="grid grid-cols-3 gap-3 justify-items-center">
+            {SKILLS.slice(15).map((skill) => (
+              <SkillCard key={skill.id} skill={skill} />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Desktop/Tablet Keyboard Layout */}
+      <div className="hidden md:block">
+        {/* Top row - responsive sizing */}
+        <div className="flex justify-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 overflow-x-auto pb-2 mb-2 md:mb-4">
+          <div className="flex gap-1 sm:gap-2 md:gap-3 lg:gap-4 min-w-fit">
+            {topRowComplete
+              .slice(0, 8)
+              .map((skill, index) =>
+                skill ? (
+                  <SkillCard key={skill.id} skill={skill} />
+                ) : (
+                  <EmptyCard key={`empty-top-${index}`} />
+                )
+              )}
+            {/* Show more on larger screens */}
+            <div className="hidden md:flex gap-3 lg:gap-4">
+              {topRowComplete
+                .slice(8)
+                .map((skill, index) =>
+                  skill ? (
+                    <SkillCard key={skill.id} skill={skill} />
+                  ) : (
+                    <EmptyCard key={`empty-top-extra-${index}`} />
+                  )
+                )}
+            </div>
+          </div>
+        </div>
+
+        {/* Second row - responsive sizing */}
+        <div className="flex justify-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 overflow-x-auto pb-2 mb-2 md:mb-4">
+          <div className="flex gap-1 sm:gap-2 md:gap-3 lg:gap-4 min-w-fit">
+            {secondRowComplete
+              .slice(0, 7)
+              .map((skill, index) =>
+                skill ? (
+                  <SkillCard key={skill.id} skill={skill} />
+                ) : (
+                  <EmptyCard key={`empty-second-${index}`} />
+                )
+              )}
+            {/* Show more on larger screens */}
+            <div className="hidden md:flex gap-3 lg:gap-4">
+              {secondRowComplete
+                .slice(7)
+                .map((skill, index) =>
+                  skill ? (
+                    <SkillCard key={skill.id} skill={skill} />
+                  ) : (
+                    <EmptyCard key={`empty-second-extra-${index}`} />
+                  )
+                )}
+            </div>
+          </div>
+        </div>
+
+        {/* Third row - responsive sizing */}
+        <div className="flex justify-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 overflow-x-auto pb-2 mb-2 md:mb-4">
+          <div className="flex gap-1 sm:gap-2 md:gap-3 lg:gap-4 min-w-fit">
+            {thirdRowComplete
+              .slice(0, 6)
+              .map((skill, index) =>
+                skill ? (
+                  <SkillCard key={skill.id} skill={skill} />
+                ) : (
+                  <EmptyCard key={`empty-third-${index}`} />
+                )
+              )}
+            {/* Show more on larger screens */}
+            <div className="hidden md:flex gap-3 lg:gap-4">
+              {thirdRowComplete
+                .slice(6)
+                .map((skill, index) =>
+                  skill ? (
+                    <SkillCard key={skill.id} skill={skill} />
+                  ) : (
+                    <EmptyCard key={`empty-third-extra-${index}`} />
+                  )
+                )}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom row - responsive sizing */}
+        <div className="flex justify-center gap-1 sm:gap-2 md:gap-3 lg:gap-4 overflow-x-auto pb-2">
+          <div className="flex gap-1 sm:gap-2 md:gap-3 lg:gap-4 min-w-fit">
+            {bottomRowComplete
+              .slice(0, 5)
+              .map((skill, index) =>
+                skill ? (
+                  <SkillCard key={skill.id} skill={skill} />
+                ) : (
+                  <EmptyCard key={`empty-bottom-${index}`} />
+                )
+              )}
+            {/* Show more on larger screens */}
+            <div className="hidden md:flex gap-3 lg:gap-4">
+              {bottomRowComplete
+                .slice(5)
+                .map((skill, index) =>
+                  skill ? (
+                    <SkillCard key={skill.id} skill={skill} />
+                  ) : (
+                    <EmptyCard key={`empty-bottom-extra-${index}`} />
+                  )
+                )}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

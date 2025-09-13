@@ -1,24 +1,30 @@
-import { Project } from "../../app/models/Project";
+import { PROJECTS } from "../../lib/config";
 import ProjectList from "./ProjectList";
 
 const Projects = () => {
-  const projects: Project[] = [
-    {
-      title: "Inventory Management System",
-      imageUrl: "/assets/projects/dashboard.png",
-      sourceCodeUrl: "Inventory-Management-System.API",
-    },
-    {
-      title: "The Spot",
-      imageUrl: "/assets/projects/theSpot.png",
-      sourceCodeUrl: "The-Spot",
-    },
-  ];
   return (
-    <div className="container mx-auto mt-12 gap-2 p-4" id="Projects">
-      <h1 className="text-4xl text-iron mb-4">Projects</h1>
-      <ProjectList projects={projects} />
-    </div>
+    <section className="relative container mx-auto mt-20 p-6" id="Projects">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-shark/30 via-transparent to-primary/20 rounded-3xl"></div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent mb-4">
+            Featured Projects
+          </h1>
+          <p className="text-iron text-lg max-w-3xl mx-auto mb-6">
+            Explore my portfolio of innovative projects showcasing modern
+            development practices and cutting-edge technologies
+          </p>
+          <div className="w-32 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto rounded-full"></div>
+        </div>
+
+        {/* Projects Grid */}
+        <ProjectList projects={PROJECTS} />
+      </div>
+    </section>
   );
 };
 export default Projects;

@@ -1,6 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-shark: #0f0f23;
+  --color-primary: #1a1a2e;
+  --color-mountain-meadow: #00d9ff;
+  --color-iron: #a8b2d1;
+  --color-accent: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-purple: #a8e6cf;
+  --color-gradient-start: #667eea;
+  --color-gradient-end: #764ba2;
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 *,*,*{
     box-sizing: border-box;
@@ -9,9 +37,127 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #242424;
-  color: #fefefe;
+  background: linear-gradient(135deg, var(--color-shark) 0%, var(--color-primary) 100%);
+  min-height: 100vh;
+  color: #f8fafc;
 }
+
+/* Modern Hero Background */
+.modern-hero-bg {
+  background: linear-gradient(135deg, 
+    var(--color-shark) 0%, 
+    var(--color-primary) 25%, 
+    var(--color-shark) 50%, 
+    var(--color-primary) 75%, 
+    var(--color-shark) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.grid-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.5) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Animation delays */
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Tech constellation animations */
+.tech-constellation {
+  animation: constellation-rotate 60s linear infinite;
+}
+
+@keyframes constellation-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(0.5deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-delay-1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float-delay-2 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes float-delay-3 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delay-1 {
+  animation: float-delay-1 7s ease-in-out infinite 1s;
+}
+
+.animate-float-delay-2 {
+  animation: float-delay-2 8s ease-in-out infinite 2s;
+}
+
+.animate-float-delay-3 {
+  animation: float-delay-3 6.5s ease-in-out infinite 3s;
+}
+
+/* SVG gradient classes */
+.line-gradient-start {
+  stop-color: #00d9ff;
+  stop-opacity: 0.3;
+}
+
+.line-gradient-end {
+  stop-color: #4ecdc4;
+  stop-opacity: 0.1;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Project card animations */
+.project-card-0 {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.project-card-1 {
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.project-card-2 {
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 40

@@ -6,4 +6,5 @@ export interface Project {
   sourceCodeUrl?: string;
   startDate?: string;
   endDate?: string;
+  technologies?: string[];
 }

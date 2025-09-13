@@ -42,25 +42,25 @@ const Contact = () => {
             type="text"
             name="name"
             placeholder="Name"
-            className="p-2 border bg-primary outline-none border-iron rounded text-gray-700"
+            className="p-2 border bg-primary outline-hidden border-iron rounded-sm text-gray-300 placeholder:text-gray-300"
           />
           <input
             type="email"
             name="email"
             placeholder="Email"
-            className="p-2 bg-primary outline-none border border-iron rounded text-gray-700"
+            className="p-2 bg-primary outline-hidden border border-iron rounded-sm text-gray-300 placeholder:text-gray-300"
           />
           <textarea
             name="message"
             rows={4}
             placeholder="Message"
-            className="p-2 bg-primary outline-none border border-iron rounded text-gray-700"
+            className="p-2 bg-primary outline-hidden border border-iron rounded-sm text-gray-300 placeholder:text-gray-300"
           />
           <button
             type="submit"
-            className={`p-2 rounded bg-mountainMeadow/65 hover:bg-mountainMeadow  text-white`}
+            className="group/btn text-center cursor-pointer items-center gap-2 px-4 py-2 bg-gradient-to-r from-mountain-meadow to-secondary hover:from-mountain-meadow/80 hover:to-secondary/80 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102"
           >
-            {loading ? "Sending..." : "Send"}
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </div>
       </fieldset>

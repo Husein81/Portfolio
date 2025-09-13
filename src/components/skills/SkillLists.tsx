@@ -1,18 +1,11 @@
-import { Skill } from "../../app/models/Skill";
 import SkillCard from "./SkillCard";
-import DroppableArea from "../DroppableArea";
+import { SKILLS } from "../../lib/config";
 
-interface SkillProps {
-  skills: Skill[];
-}
-
-const SkillList: React.FC<SkillProps> = ({ skills }) => {
+const SkillList: React.FC = () => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {skills.map((skill) => (
-        <DroppableArea id={skill.id as string} key={skill.id}>
-          <SkillCard skill={skill} />
-        </DroppableArea>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+      {SKILLS.map((skill) => (
+        <SkillCard key={skill.id} skill={skill} />
       ))}
     </div>
   );

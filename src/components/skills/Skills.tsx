@@ -1,81 +1,54 @@
 import SkillLists from "./SkillLists";
-import { Skill } from "../../app/models/Skill";
 import { Button as LinkButton } from "react-scroll";
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
-import { useState } from "react";
 
 const Skills = () => {
-  const [skills, setSkills] = useState<Skill[]>([
-    { id: "React", name: "React", imageUrl: "/assets/skills/react.png" },
-    { id: "TypeScript", name: "TypeScript", imageUrl: "/assets/skills/TS.png" },
-    { id: "Asp.Net", name: "Asp.Net", imageUrl: "/assets/skills/ASP.png" },
-    { id: "Node", name: "Node", imageUrl: "/assets/skills/node.png" },
-    {
-      id: "Tailwind CSS",
-      name: "Tailwind CSS",
-      imageUrl: "/assets/skills/Tailwind.png",
-    },
-    {
-      id: "React Native",
-      name: "React Native",
-      imageUrl: "/assets/skills/reactNative.png",
-    },
-    { id: "Java", name: "Java", imageUrl: "/assets/skills/Java.png" },
-    { id: "MongoDB", name: "MongoDB", imageUrl: "/assets/skills/MongoDB.png" },
-    { id: "MySQL", name: "MySQL", imageUrl: "/assets/skills/mysSQL.png" },
-    {
-      id: "Git and Github",
-      name: "Git and Github",
-      imageUrl: "/assets/skills/git.png",
-    },
-  ]);
-
-  const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
-    if (!over || active.id === over.id) return;
-
-    // Find indexes of active and over cards
-    const activeIndex = skills.findIndex((card) => card.id === active.id);
-    const overIndex = skills.findIndex((card) => card.id === over.id);
-
-    // Swap the skills
-    const updatedSkills = [...skills];
-    [updatedSkills[activeIndex], updatedSkills[overIndex]] = [
-      updatedSkills[overIndex],
-      updatedSkills[activeIndex],
-    ];
-
-    setSkills(updatedSkills);
-  };
-
   return (
-    <div className="container mt-12 gap-2 mx-auto p-4" id="Skills">
-      <h1 className="text-4xl text-iron mb-4">Skills</h1>
+    <section className="relative container mt-16 mx-auto p-6" id="Skills">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-shark/50 via-transparent to-primary/30 rounded-3xl"></div>
 
-      <DndContext onDragEnd={handleDragEnd}>
-        <SkillLists skills={skills} />
-      </DndContext>
-      <div
-        className="flex justify-center flex-col gap-2 mt-4 py-4 mx-auto"
-        id="CV"
-      >
-        <LinkButton
-          to="Contact"
-          className="capitalize border rounded p-1 "
-          smooth={true}
-          duration={1000}
-        >
-          hire me
-        </LinkButton>
-        <a
-          className="capitalize ring-1 rounded ring-mountainMeadow text-center  p-1 bg-mountainMeadow/65 hover:bg-mountainMeadow"
-          download
-          href="/public/Hussein-CV.pdf"
-        >
-          download cv
-        </a>
+      {/* Content */}
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent mb-4">
+            Skills & Expertise
+          </h1>
+          <p className="text-iron text-lg max-w-2xl mx-auto">
+            Technologies and tools I work with to bring ideas to life
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        {/* Skills Grid */}
+        <div className="mb-12">
+          <SkillLists />
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex justify-center flex-col sm:flex-row gap-4 mt-8">
+          <LinkButton
+            to="Contact"
+            className="group relative px-8 py-3 bg-gradient-to-r from-mountain-meadow to-secondary  hover:from-mountain-meadow/80 hover:to-secondary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer border-none"
+            smooth={true}
+            duration={1000}
+          >
+            <span className="relative z-10">Hire Me</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-mountain-meadow/40 to-secondary/40 rounded-xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          </LinkButton>
+
+          <a
+            className="group relative px-8 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105 text-center"
+            download
+            href="/Hussein-Nasrallah-CV.pdf"
+          >
+            <span className="relative z-10">Download CV</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/40 to-purple/40 rounded-xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
+
 export default Skills;

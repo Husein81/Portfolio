@@ -142,7 +142,7 @@ const Drawer = ({ content, onClose }: Props) => {
                 />
               </motion.a>
               <motion.a
-                href="mailto:hussein.nasrallah@example.com"
+                href={`mailto:${import.meta.env.VITE_EMAIL_ADDRESS}`}
                 className="p-2 hover:bg-white/10 rounded-lg transition-all duration-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}

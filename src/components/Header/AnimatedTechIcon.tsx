@@ -1,4 +1,9 @@
 import { motion } from "framer-motion";
+import {
+  adjustPositionForMobile,
+  getPositionValue,
+  getResponsiveSize,
+} from "../../lib/functions";
 
 interface AnimatedTechIconProps {
   name: string;
@@ -43,30 +48,25 @@ const AnimatedTechIcon = ({
   animation,
   cssAnimation,
 }: AnimatedTechIconProps) => {
-  // Convert position values to proper CSS values for inline styles
-  const getPositionValue = (value: string) => {
-    if (value === "1/2") return "50%";
-    if (value.includes("/")) return value.replace("1/2", "50%");
-    if (value.match(/^\d+$/)) return `${value}px`;
-    return value;
-  };
-
-  // Create inline styles for positioning to ensure consistency between dev and production
   const positionStyle: React.CSSProperties = {
     position: "absolute",
   };
 
   if (position.top) {
-    positionStyle.top = getPositionValue(position.top);
+    const adjustedTop = adjustPositionForMobile(position.top, "y");
+    positionStyle.top = getPositionValue(adjustedTop);
   }
   if (position.bottom) {
-    positionStyle.bottom = getPositionValue(position.bottom);
+    const adjustedBottom = adjustPositionForMobile(position.bottom, "y");
+    positionStyle.bottom = getPositionValue(adjustedBottom);
   }
   if (position.left) {
-    positionStyle.left = getPositionValue(position.left);
+    const adjustedLeft = adjustPositionForMobile(position.left, "x");
+    positionStyle.left = getPositionValue(adjustedLeft);
   }
   if (position.right) {
-    positionStyle.right = getPositionValue(position.right);
+    const adjustedRight = adjustPositionForMobile(position.right, "x");
+    positionStyle.right = getPositionValue(adjustedRight);
   }
 
   // Handle transform separately - convert Tailwind classes to CSS
@@ -86,16 +86,22 @@ const AnimatedTechIcon = ({
 
   return (
     <motion.div
-      className={`${cssAnimation || ""}`}
+      className={`${cssAnimation || ""} hidden sm:flex`}
       style={positionStyle}
       whileInView={animation.whileInView}
       transition={animation.transition}
       viewport={{ once: true, amount: 0.3 }}
     >
       <div
-        className={`${size.container} ${backgroundColor} backdrop-blur-sm border ${borderColor} rounded-xl flex items-center justify-center`}
+        className={`${getResponsiveSize(
+          size.container
+        )} ${backgroundColor} backdrop-blur-sm border ${borderColor} rounded-xl flex items-center justify-center`}
       >
-        <img src={imageUrl} alt={name} className={size.icon} />
+        <img
+          src={imageUrl}
+          alt={name}
+          className={getResponsiveSize(size.icon)}
+        />
       </div>
     </motion.div>
   );

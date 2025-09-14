@@ -8,6 +8,12 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
   },
   {
+    id: "Vite",
+    name: "Vite",
+    imageUrl:
+      "https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/vite-colored.svg",
+  },
+  {
     id: "React",
     name: "React",
     imageUrl:
@@ -61,12 +67,17 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
   },
   {
+    id: "ExpressJS",
+    name: "Express.js",
+    imageUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+  },
+  {
     id: "Node",
     name: "Node.js",
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
   },
-
   {
     id: "Java",
     name: "Java",
@@ -121,7 +132,6 @@ export const SKILLS: Skill[] = [
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
   },
-
   {
     id: "GitHub",
     name: "GitHub",
@@ -129,7 +139,7 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
   },
   {
-    id: "Git ",
+    id: "Git",
     name: "Git",
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",

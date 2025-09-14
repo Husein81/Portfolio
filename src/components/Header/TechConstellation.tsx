@@ -1,12 +1,25 @@
+import { useState, useEffect } from "react";
 import AnimatedTechIcon from "./AnimatedTechIcon";
-import { techIconsConfig } from "./techIconsConfig";
+import { getTechIconsConfig, refreshIconPositions } from "./techIconsConfig";
 
 const TechConstellation = () => {
+  const [techIcons, setTechIcons] = useState(getTechIconsConfig());
+
+  // Refresh positions periodically (every 30 seconds)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newIcons = refreshIconPositions();
+      setTechIcons([...newIcons]);
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
-      {techIconsConfig.map((icon) => (
+      {techIcons.map((icon) => (
         <AnimatedTechIcon
-          key={icon.id}
+          key={`${icon.id}-${Math.random()}`} // Force re-render with new positions
           name={icon.name}
           imageUrl={icon.imageUrl}
           position={icon.position}
@@ -18,8 +31,8 @@ const TechConstellation = () => {
         />
       ))}
 
-      {/* Connecting Lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none">
+      {/* Connecting Lines - Hidden on mobile for cleaner look */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block">
         <defs>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" className="line-gradient-start" />

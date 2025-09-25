@@ -51,7 +51,11 @@ const ProjectCard = ({ project }: Props) => {
         </h3>
 
         {/* Description */}
-        <p className="text-iron text-sm line-clamp-2 leading-relaxed">
+        <p
+          className={`text-iron text-sm line-clamp-2 leading-relaxed ${
+            show && "line-clamp-none"
+          }`}
+        >
           {project.description ||
             "An innovative project showcasing modern development practices."}
         </p>

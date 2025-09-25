@@ -65,6 +65,11 @@ const Header = () => {
                           className="w-full h-full object-cover"
                         />
                       </div>
+                      {/* Floating accent elements - responsive sizing */}
+                      <div className="sm:hidden">
+                        <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-accent rounded-full animate-bounce"></div>
+                        <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-4 h-4 sm:w-6 sm:h-6 bg-secondary rounded-full animate-pulse"></div>
+                      </div>
                     </motion.div>
 
                     <motion.p

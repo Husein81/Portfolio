@@ -133,6 +133,11 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
   },
   {
+    id: "RabbitMQ",
+    name: "RabbitMQ",
+    imageUrl: "https://www.rabbitmq.com/img/rabbitmq-logo.svg",
+  },
+  {
     id: "GitHub",
     name: "GitHub",
     imageUrl:

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Project } from "../../app/models/Project";
 import IPhoneMockup from "../ui/IPhoneMockup";
 
@@ -6,9 +7,14 @@ interface Props {
 }
 
 const ProjectCard = ({ project }: Props) => {
+  const [show, setShow] = useState(false);
   const isExpenseTracker = project.title
     .toLowerCase()
     .includes("expense tracker");
+
+  const technologies = show
+    ? project.technologies
+    : project.technologies?.slice(0, 3);
 
   return (
     <div className="group relative overflow-hidden  rounded-2xl  bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl transition-all duration-500 hover:shadow-mountain-meadow/20 hover:border-mountain-meadow/30">
@@ -53,7 +59,7 @@ const ProjectCard = ({ project }: Props) => {
         {/* Technologies */}
         {project.technologies && (
           <div className="flex flex-wrap gap-2">
-            {project.technologies.slice(0, 3).map((tech, index) => (
+            {technologies?.map((tech, index) => (
               <span
                 key={index}
                 className="px-2 py-1 text-xs font-medium bg-mountain-meadow/20 text-mountain-meadow rounded-full border border-mountain-meadow/30"
@@ -61,10 +67,21 @@ const ProjectCard = ({ project }: Props) => {
                 {tech}
               </span>
             ))}
-            {project.technologies.length > 3 && (
-              <span className="px-2 py-1 text-xs font-medium bg-iron/20 text-iron rounded-full border border-iron/30">
+            {project.technologies.length > 3 && !show && (
+              <button
+                onClick={() => setShow(true)}
+                className="px-2 py-1 text-xs cursor-pointer font-medium bg-iron/20 text-iron rounded-full border border-iron/30"
+              >
                 +{project.technologies.length - 3} more
-              </span>
+              </button>
+            )}
+            {project.technologies.length > 3 && show && (
+              <button
+                className="px-2 py-1 text-xs font-medium hover:underline cursor-pointer bg-iron/20 text-iron rounded-full border border-iron/30"
+                onClick={() => setShow(false)}
+              >
+                show less
+              </button>
             )}
           </div>
         )}

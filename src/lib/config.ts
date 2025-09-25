@@ -148,6 +148,23 @@ export const SKILLS: Skill[] = [
 
 export const PROJECTS: Project[] = [
   {
+    title: "BidDrive",
+    imageUrl: "/assets/projects/bidDrive.png",
+    sourceCodeUrl: "CarAuctions",
+    description:
+      "A dynamic car auction platform enabling users to bid on vehicles in real-time, featuring secure transactions and user-friendly navigation. Built as a microservice architecture using PostgreSQL, MongoDB, ASP.NET 9, RabbitMQ, Docker, Kubernetes, Next.js, and shadcn/ui.",
+    technologies: [
+      "Next.js",
+      "ASP.NET 9",
+      "PostgreSQL",
+      "MongoDB",
+      "RabbitMQ",
+      "Docker",
+      "Kubernetes",
+      "shadcn/ui",
+    ],
+  },
+  {
     title: "Expense Tracker App",
     imageUrl: "/assets/projects/expense-tracker-frame.png",
     sourceCodeUrl: "my-money-tracker",
@@ -169,7 +186,7 @@ export const PROJECTS: Project[] = [
     sourceCodeUrl: "The-Spot",
     description:
       "A social platform connecting people through shared interests and locations, featuring real-time interactions and modern UI/UX.",
-    technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+    technologies: ["React", "zustand", "Node.js", "MongoDB", "Socket.io"],
   },
   {
     title: "E-Commerce Dashboard",
@@ -177,7 +194,13 @@ export const PROJECTS: Project[] = [
     sourceCodeUrl: "ims.client",
     description:
       "Modern analytics dashboard for e-commerce platforms with real-time data visualization and comprehensive reporting features.",
-    technologies: ["React", "TypeScript", "Chart.js", "Tailwind CSS"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "zustand",
+      "Chart.js",
+      "Tailwind CSS",
+    ],
   },
 ];
 

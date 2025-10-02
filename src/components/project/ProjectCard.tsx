@@ -17,7 +17,11 @@ const ProjectCard = ({ project }: Props) => {
     : project.technologies?.slice(0, 3);
 
   return (
-    <div className="group relative overflow-hidden  rounded-2xl  bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl transition-all duration-500 hover:shadow-mountain-meadow/20 hover:border-mountain-meadow/30">
+    <div
+      className={`group relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl transition-all duration-500 hover:shadow-mountain-meadow/20 hover:border-mountain-meadow/30 ${
+        show && "border-mountain-meadow/30 shadow-mountain-meadow/20"
+      }`}
+    >
       {/* Project Image */}
       <div className="relative h-48 overflow-hidden flex items-center justify-center">
         {isExpenseTracker ? (
@@ -115,7 +119,11 @@ const ProjectCard = ({ project }: Props) => {
       </div>
 
       {/* Glow effect on hover */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-mountain-meadow/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+      <div
+        className={`absolute inset-0 rounded-2xl bg-gradient-to-r from-mountain-meadow/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
+          show && "opacity-100"
+        }`}
+      />
     </div>
   );
 };

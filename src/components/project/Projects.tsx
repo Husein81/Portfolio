@@ -1,4 +1,4 @@
-import { PROJECTS } from "../../lib/config";
+import { PROJECTS } from "./config";
 import ProjectList from "./ProjectList";
 
 const Projects = () => {

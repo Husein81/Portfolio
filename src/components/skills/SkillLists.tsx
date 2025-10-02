@@ -1,5 +1,5 @@
 import SkillCard from "./SkillCard";
-import { SKILLS } from "../../lib/config";
+import { SKILLS } from "./config";
 import { Skill } from "../../app/models/Skill";
 
 // Empty card component for keyboard spacing - responsive sizing

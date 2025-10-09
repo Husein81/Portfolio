@@ -32,7 +32,7 @@ const TechConstellation = () => {
       ))}
 
       {/* Connecting Lines - Hidden on mobile for cleaner look */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block">
+      <svg className="absolute inset-0 w-full h-full pointer-events-none">
         <defs>
           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" className="line-gradient-start" />

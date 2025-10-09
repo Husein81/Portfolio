@@ -1,4 +1,4 @@
-import { Skill } from "../../app/models";
+import { Skill } from "../../models";
 
 export const SKILLS: Skill[] = [
   {
@@ -15,7 +15,7 @@ export const SKILLS: Skill[] = [
   },
   {
     id: "React",
-    name: "React",
+    name: "React & React Native",
     imageUrl:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
   },
@@ -39,14 +39,7 @@ export const SKILLS: Skill[] = [
   {
     id: "TanStack",
     name: "TanStack Query",
-    imageUrl:
-      "https://seeklogo.com/images/R/react-query-logo-1340EA4CE9-seeklogo.com.png",
-  },
-  {
-    id: "React Native",
-    name: "React Native",
-    imageUrl:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    imageUrl: "https://tanstack.com/images/logos/splash-light.png",
   },
   {
     id: "Redux",

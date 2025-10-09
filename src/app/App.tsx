@@ -6,7 +6,7 @@ import {
   Navbar,
   Projects,
   Skills,
-} from "../../components";
+} from "../components";
 
 const App = () => {
   return (

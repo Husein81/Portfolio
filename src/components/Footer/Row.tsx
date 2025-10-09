@@ -1,5 +1,5 @@
 import { Link } from "react-scroll";
-import { Row as RowType } from "../../app/models/types";
+import { Row as RowType } from "../../models/types";
 type Props = {
   row: RowType;
 };

@@ -1,4 +1,4 @@
-import { Column as ColumnType, Row as RowType } from "../../app/models/types";
+import { Column as ColumnType, Row as RowType } from "../../models/types";
 import Row from "./Row";
 
 type Props = {

@@ -1,4 +1,4 @@
-import { Project } from "../../app/models";
+import { Project } from "../../models";
 
 export const PROJECTS: Project[] = [
   {
@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: "Expense Tracker App",
-    imageUrl: "/assets/projects/expense-tracker-frame.png",
+    imageUrl: "/assets/projects/expense-tracker.png",
     sourceCodeUrl: "my-money-tracker",
     description:
       "A comprehensive expense tracking application that helps users manage their finances with intuitive categorization, budget planning, and insightful analytics.",

@@ -1,6 +1,6 @@
 import SkillCard from "./SkillCard";
 import { SKILLS } from "./config";
-import { Skill } from "../../app/models/Skill";
+import { Skill } from "../../models/Skill";
 
 // Empty card component for keyboard spacing - responsive sizing
 const EmptyCard: React.FC = () => (

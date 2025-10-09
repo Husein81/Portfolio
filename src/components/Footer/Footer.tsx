@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Column as ColumType } from "../../app/models/types";
+import { Column as ColumType } from "../../models/types";
 import Column from "./Column";
 import { columns, rows } from "../../lib/config";
 

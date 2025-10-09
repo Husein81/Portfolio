@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Project } from "../../app/models/Project";
-import IPhoneMockup from "../ui/IPhoneMockup";
+import { Project } from "../../models/Project";
 
 interface Props {
   project: Project;
@@ -23,13 +22,16 @@ const ProjectCard = ({ project }: Props) => {
       }`}
     >
       {/* Project Image */}
-      <div className="relative h-48 overflow-hidden flex items-center justify-center">
+      <div className="relative h-64 md:h-48 overflow-hidden flex items-center justify-center">
         {isExpenseTracker ? (
-          <div className="transform scale-50 origin-center">
-            <IPhoneMockup
-              imageUrl="/assets/projects/expence-tracker.png"
+          <div className="bg-gradient-to-tr from-mountain-meadow via-gradient-end to-accent origin-center">
+            <img
+              className="object-contain w-full scale-45 transition-transform duration-700 group-hover:scale-65"
+              src="/assets/projects/expense-tracker.png"
               alt={project.title}
+              loading="lazy"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           </div>
         ) : (
           <>

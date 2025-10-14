@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import Icon from "../icon";
 
-interface Props {
+type Props = {
   content: JSX.Element[];
   onClose: () => void;
-}
+};
 
 const Drawer = ({ content, onClose }: Props) => {
   return (

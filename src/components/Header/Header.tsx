@@ -19,7 +19,7 @@ const Header = () => {
     <div className="modern-hero-bg min-h-screen flex items-center relative overflow-hidden">
       {/* Animated Tech Stack Visualization - Hidden on mobile for performance */}
       <motion.div
-        className="absolute w-full h-full tech-constellation"
+        className="absolute w-full h-full tech-constellation "
         style={{
           rotate: constellationRotate,
           scale: iconScale,
@@ -46,7 +46,7 @@ const Header = () => {
             >
               <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center lg:justify-between">
                 <div className="order-2 lg:order-1 w-full lg:max-w-2xl">
-                  <div className="backdrop-blur-sm opacity-75 md:opacity-95 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
+                  <div className="backdrop-blur-sm opacity-95 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
                     <motion.div
                       className="flex flex-row items-center justify-between gap-4 sm:gap-6 mb-6"
                       initial={{ opacity: 0, y: 50 }}

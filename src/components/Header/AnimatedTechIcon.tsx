@@ -5,7 +5,7 @@ import {
   getResponsiveSize,
 } from "../../lib/functions";
 
-interface AnimatedTechIconProps {
+type AnimatedTechIconProps = {
   name: string;
   imageUrl: string;
   position: {
@@ -36,7 +36,7 @@ interface AnimatedTechIconProps {
     };
   };
   cssAnimation?: string;
-}
+};
 
 const AnimatedTechIcon = ({
   name,

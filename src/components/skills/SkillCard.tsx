@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Skill } from "../../models/Skill";
 
 interface SkillCardProps {
   skill: Skill;

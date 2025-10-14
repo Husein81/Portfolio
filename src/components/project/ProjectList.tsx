@@ -1,4 +1,3 @@
-import { Project } from "../../models/Project";
 import ProjectCard from "./ProjectCard";
 
 type Props = {

@@ -1,11 +1,10 @@
 import React, { useMemo } from "react";
-import { Column as ColumType } from "../../models/types";
 import Column from "./Column";
 import { columns, rows } from "../../lib/config";
 
 const Footer: React.FC = () => {
   const memoRows = useMemo(() => {
-    const rowsPerColumn = (column: ColumType) =>
+    const rowsPerColumn = (column: Column) =>
       rows.filter((row) => row.columnId === column.id);
     return rowsPerColumn;
   }, []);

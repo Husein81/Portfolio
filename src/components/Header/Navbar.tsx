@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 import Drawer from "./Drawer";
 import Icon from "../icon";
 
-interface Item {
+type Item = {
   name: string;
   path: string;
   icon: string;

@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Project } from "../../models/Project";
 
-interface Props {
+type Props = {
   project: Project;
-}
+};
 
 const ProjectCard = ({ project }: Props) => {
   const [show, setShow] = useState(false);

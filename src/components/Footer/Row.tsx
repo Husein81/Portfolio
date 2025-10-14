@@ -1,7 +1,6 @@
 import { Link } from "react-scroll";
-import { Row as RowType } from "../../models/types";
 type Props = {
-  row: RowType;
+  row: Row;
 };
 
 const ScrollLink = ({

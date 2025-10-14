@@ -1,5 +1,3 @@
-import { Skill } from "../../models";
-
 export const SKILLS: Skill[] = [
   {
     id: "NextJS",

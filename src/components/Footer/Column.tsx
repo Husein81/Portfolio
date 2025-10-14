@@ -1,9 +1,8 @@
-import { Column as ColumnType, Row as RowType } from "../../models/types";
 import Row from "./Row";
 
 type Props = {
-  column: ColumnType;
-  rows: RowType[];
+  column: Column;
+  rows: Row[];
 };
 const Column = ({ column, rows }: Props) => {
   return (

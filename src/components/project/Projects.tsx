@@ -18,7 +18,7 @@ const Projects = () => {
             Explore my portfolio of innovative projects showcasing modern
             development practices and cutting-edge technologies
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto rounded-full" />
         </div>
 
         {/* Projects Grid */}

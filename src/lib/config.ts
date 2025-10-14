@@ -1,5 +1,3 @@
-import { Column, Row } from "../models";
-
 export const columns: Column[] = [
   { id: "1", title: "Portfolio" },
   { id: "2", title: "Links" },

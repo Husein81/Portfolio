@@ -1,70 +1,51 @@
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
+
+import GradientSphere from "../GradientSphere";
+import ContactChannel from "./ContactChannel";
+import { fadeUp, stagger } from "./config";
+import ContactForm from "./ContactForm";
 
 const Contact = () => {
-  const form = useRef<HTMLFormElement>(null);
-  const USER_ID = import.meta.env.VITE_USER_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
-  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
-  const [loading, setLoading] = useState(false);
-
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (form.current) {
-      setLoading(true);
-      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID).then(
-        (result) => {
-          setLoading(false);
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error);
-          setLoading(false);
-        }
-      );
-    }
-  };
-
   return (
-    <form
-      ref={form}
+    <section
       id="Contact"
-      className="container mx-auto my-10 p-4"
-      onSubmit={sendEmail}
+      className="relative overflow-hidden bg-asphalt py-24 sm:py-28"
     >
-      <fieldset className="w-full">
-        <legend>
-          <h1 className="text-4xl text-iron mb-4">Contact Me</h1>
-        </legend>
-        <div className="flex flex-col space-y-4">
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            className="rounded-lg p-2 border bg-primary outline-hidden border-iron text-gray-300 placeholder:text-gray-300"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="rounded-lg p-2 bg-primary outline-hidden border border-iron text-gray-300 placeholder:text-gray-300"
-          />
-          <textarea
-            name="message"
-            rows={4}
-            placeholder="Message"
-            className="rounded-lg p-2 bg-primary outline-hidden border border-iron text-gray-300 placeholder:text-gray-300"
-          />
-          <button
-            type="submit"
-            className="group/btn text-center cursor-pointer items-center gap-2 px-4 py-2 bg-gradient-to-r from-mountain-meadow to-secondary hover:from-mountain-meadow/80 hover:to-secondary/80 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102"
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-        </div>
-      </fieldset>
-    </form>
+      <GradientSphere />
+
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-120px" }}
+          variants={fadeUp}
+          className="text-center"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-200 shadow-sm shadow-black/20 backdrop-blur">
+            Contact
+          </span>
+          <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
+            Let’s build something remarkable together
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-300 sm:text-base">
+            Share a few details about your project, collaboration idea, or team
+            needs. I typically respond within one business day.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-120px" }}
+          variants={stagger}
+          className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_1fr]"
+        >
+          <ContactChannel />
+
+          <ContactForm />
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

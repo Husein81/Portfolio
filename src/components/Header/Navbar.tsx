@@ -8,7 +8,7 @@ type Item = {
   name: string;
   path: string;
   icon: string;
-}
+};
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -66,8 +66,8 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-primary/90 backdrop-blur-lg border-b border-white/10 shadow-2xl"
-          : "bg-primary/75"
+          ? "bg-gradient-to-br from-primary/90 to-asphalt/90 backdrop-blur-lg border-b border-white/10 shadow-2xl"
+          : "bg-gradient-to-br from-primary/75 to-asphalt/75"
       }`}
     >
       <div className="flex items-center justify-between px-4 py-2 mx-auto">

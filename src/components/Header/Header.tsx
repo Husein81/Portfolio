@@ -1,142 +1,206 @@
+﻿import { motion } from "framer-motion";
 import { Link } from "react-scroll";
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import TechConstellation from "./TechConstellation";
+import { SKILLS } from "../skills/config";
+import GradientSphere from "../GradientSphere";
+
+type HeroStat = {
+  label: string;
+  value: string;
+  description: string;
+  gradient: string;
+};
+
+const heroStats: HeroStat[] = [
+  {
+    label: "Years of experience",
+    value: "4+",
+    description: "Building production-ready products",
+    gradient: "from-cyan-400 via-blue-500 to-purple-500",
+  },
+  {
+    label: "Projects shipped",
+    value: "25+",
+    description: "Web, mobile, and backend solutions",
+    gradient: "from-emerald-400 via-teal-500 to-cyan-500",
+  },
+  {
+    label: "Avg. response time",
+    value: "<24h",
+    description: "For new collaborations",
+    gradient: "from-amber-400 via-orange-500 to-pink-500",
+  },
+];
+
+const featuredSkills = SKILLS.slice(0, 8);
 
 const Header = () => {
-  const { scrollYProgress } = useScroll();
-
-  // Transform values for scroll-based animations
-  const constellationRotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const iconScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
-  const iconOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
-
   return (
-    <div className="modern-hero-bg min-h-screen flex items-center relative overflow-hidden">
-      {/* Animated Tech Stack Visualization - Hidden on mobile for performance */}
-      <motion.div
-        className="absolute w-full h-full tech-constellation "
-        style={{
-          rotate: constellationRotate,
-          scale: iconScale,
-          opacity: iconOpacity,
-        }}
-      >
-        <TechConstellation />
-      </motion.div>
+    <section
+      id="Home"
+      className="relative overflow-hidden bg-primary py-24 sm:py-28"
+    >
+      {/* Background gradients */}
+      <GradientSphere />
 
-      {/* Grid pattern overlay */}
-      <div className="fixed inset-0 opacity-5 grid-pattern"></div>
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-4 text-center sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col items-center gap-6"
+        >
+          <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-wide text-gray-200 shadow-sm shadow-black/20 backdrop-blur">
+            Full Stack Developer
+          </span>
 
-      <div
-        id="Home"
-        className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
-      >
-        <div className="grid grid-cols-1 py-8 sm:py-10 lg:py-16">
-          <AnimatePresence>
-            <motion.div
-              initial={{ opacity: 0, y: "15rem" }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="relative z-10"
+          <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-6xl">
+            Crafting reliable, fast, and delightful digital products.
+          </h1>
+
+          <p className="max-w-2xl text-sm text-gray-300 sm:text-base">
+            I partner with startups and teams to design, build, and ship modern
+            web experiences with clean architecture, scalable infrastructure,
+            and polished UX.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Link
+              to="Projects"
+              smooth
+              duration={500}
+              className="cursor-pointer rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition-transform duration-200 hover:scale-105"
             >
-              <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center lg:justify-between">
-                <div className="order-2 lg:order-1 w-full lg:max-w-2xl">
-                  <div className="backdrop-blur-sm opacity-95 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
-                    <motion.div
-                      className="flex flex-row items-center justify-between gap-4 sm:gap-6 mb-6"
-                      initial={{ opacity: 0, y: 50 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent leading-tight">
-                        Hussein Nasrallah
-                      </h1>
+              View selected work
+            </Link>
 
-                      {/* Mobile profile image - shown inline with name on mobile */}
-                      <div className="sm:hidden w-24 h-24 rounded-full overflow-hidden border-2 border-mountain-meadow shadow-lg shadow-mountain-meadow/20 flex-shrink-0">
-                        <img
-                          src="/assets/others/profile.png"
-                          alt="Hussein Nasrallah"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      {/* Floating accent elements - responsive sizing */}
-                      <div className="sm:hidden">
-                        <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-accent rounded-full animate-bounce"></div>
-                        <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-4 h-4 sm:w-6 sm:h-6 bg-secondary rounded-full animate-pulse"></div>
-                      </div>
-                    </motion.div>
+            <Link
+              to="Contact"
+              smooth
+              duration={500}
+              className="cursor-pointer rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white/90 transition-colors duration-200 hover:border-cyan-400/80 hover:text-white"
+            >
+              Start a project
+            </Link>
 
-                    <motion.p
-                      className="text-lg sm:text-xl md:text-2xl text-iron mb-6 sm:mb-8 leading-relaxed"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                      Full Stack Developer specializing in modern web
-                      technologies and scalable solutions
-                    </motion.p>
+            <a
+              href="/Hussein-CV.pdf"
+              className="rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-gray-200 transition-colors duration-200 hover:border-purple-400/80 hover:text-white"
+            >
+              Download CV
+            </a>
+          </div>
+        </motion.div>
 
-                    <motion.div
-                      className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                    >
-                      <Link
-                        to="Contact"
-                        smooth={true}
-                        duration={500}
-                        className="bg-gradient-to-r from-mountain-meadow to-secondary px-6 py-3 rounded-xl text-white font-semibold hover:shadow-lg hover:shadow-mountain-meadow/25 transition-all duration-300 cursor-pointer text-center"
-                      >
-                        Get In Touch
-                      </Link>
+        {/* Featured skill pills */}
+        <motion.ul
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="mt-12 flex w-full flex-wrap justify-center gap-3 sm:gap-4"
+        >
+          {featuredSkills.map((skill) => (
+            <motion.li
+              key={skill.id}
+              variants={itemVariants}
+              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-gray-200 shadow-sm shadow-black/20 backdrop-blur hover:border-cyan-400/60 hover:bg-white/10"
+            >
+              <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-white/10">
+                <img
+                  src={skill.imageUrl}
+                  alt={skill.name}
+                  className="h-5 w-5 object-contain"
+                />
+              </span>
+              <span className="font-medium">{skill.name}</span>
+            </motion.li>
+          ))}
+        </motion.ul>
 
-                      <Link
-                        to="Projects"
-                        smooth={true}
-                        duration={500}
-                        className="border border-mountain-meadow/30 px-6 py-3 rounded-xl text-mountain-meadow font-semibold hover:bg-mountain-meadow/10 transition-all duration-300 cursor-pointer text-center"
-                      >
-                        View Projects
-                      </Link>
-                    </motion.div>
-                  </div>
-                </div>
-
-                {/* Desktop Profile Image */}
-                <div className="order-1 lg:order-2 hidden sm:block">
-                  <motion.div
-                    className="relative"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  >
-                    <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-mountain-meadow to-secondary shadow-2xl shadow-mountain-meadow/20">
-                      <img
-                        src="/assets/others/profile.png"
-                        alt="Hussein Nasrallah"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-
-                    {/* Floating accent elements - responsive sizing */}
-                    <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-accent rounded-full animate-bounce"></div>
-                    <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-4 h-4 sm:w-6 sm:h-6 bg-secondary rounded-full animate-pulse"></div>
-                  </motion.div>
-                </div>
+        {/* Profile highlight */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="relative mt-12 w-full max-w-3xl"
+        >
+          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 blur-2xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur">
+            <div className="grid gap-6 p-8 sm:grid-cols-[auto_1fr] sm:items-center">
+              <div className="mx-auto h-28 w-28 overflow-hidden rounded-2xl border border-white/10 shadow-lg shadow-cyan-500/20 sm:h-32 sm:w-32">
+                <img
+                  src="/assets/others/profile.png"
+                  alt="Hussein Nasrallah"
+                  className="h-full w-full object-cover"
+                />
               </div>
+              <div className="text-left sm:text-start">
+                <p className="text-sm uppercase tracking-wide text-cyan-300">
+                  Currently building impactful experiences
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold text-white">
+                  Hussein Nasrallah
+                </h3>
+                <p className="mt-2 text-sm text-gray-300">
+                  Full stack engineer with a strong focus on performant UI,
+                  efficient APIs, and resilient cloud infrastructure.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={containerVariants}
+          className="mt-16 grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {heroStats.map((stat) => (
+            <motion.div
+              key={stat.label}
+              variants={itemVariants}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 text-left shadow-sm shadow-black/20 backdrop-blur transition-transform duration-200 hover:-translate-y-1"
+            >
+              <div
+                className={`text-3xl font-bold text-transparent bg-gradient-to-r ${stat.gradient} bg-clip-text`}
+              >
+                {stat.value}
+              </div>
+              <div className="mt-2 text-sm font-semibold text-white">
+                {stat.label}
+              </div>
+              <p className="mt-1 text-xs text-gray-300">{stat.description}</p>
             </motion.div>
-          </AnimatePresence>
-        </div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
 };
 
 export default Header;

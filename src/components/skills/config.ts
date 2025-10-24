@@ -64,6 +64,12 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
   },
   {
+    id: "Fastify",
+    name: "Fastify",
+    imageUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastify/fastify-original.svg",
+  },
+  {
     id: "Node",
     name: "Node.js",
     imageUrl:

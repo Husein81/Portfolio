@@ -1,27 +1,51 @@
-import { PROJECTS } from "./config";
+import { motion } from "framer-motion";
+
+import { fadeUp, highlightCards, PROJECTS, stagger } from "./config";
 import ProjectList from "./ProjectList";
+import HighlightCard from "./HighlightCard";
+import GradientSphere from "../GradientSphere";
 
 const Projects = () => {
   return (
-    <section className="relative container mx-auto mt-20 p-6" id="Projects">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-shark/30 via-transparent to-primary/20 rounded-3xl"></div>
+    <section
+      id="Projects"
+      className="relative overflow-hidden bg-asphalt py-24 sm:py-28"
+    >
+      <GradientSphere />
 
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent mb-4">
-            Featured Projects
-          </h1>
-          <p className="text-iron text-lg max-w-3xl mx-auto mb-6">
-            Explore my portfolio of innovative projects showcasing modern
-            development practices and cutting-edge technologies
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-120px" }}
+          variants={fadeUp}
+          className="text-center"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-200 shadow-sm shadow-black/20 backdrop-blur">
+            Selected work
+          </span>
+          <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
+            Engineering products that balance velocity and reliability
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-300 sm:text-base">
+            From live-data platforms to microservice ecosystems, these projects
+            highlight how I partner with teams to ship resilient, user-first
+            experiences.
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto rounded-full" />
-        </div>
+        </motion.div>
 
-        {/* Projects Grid */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-120px" }}
+          variants={stagger}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {highlightCards.map((card) => (
+            <HighlightCard key={card.title} card={card} />
+          ))}
+        </motion.div>
+
         <ProjectList projects={PROJECTS} />
       </div>
     </section>

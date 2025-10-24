@@ -1,21 +1,35 @@
 import SkillLists from "./SkillLists";
 import { Button as LinkButton } from "react-scroll";
+import { motion } from "framer-motion";
+import GradientSphere from "../GradientSphere";
 
 const Skills = () => {
   return (
     <section className="relative py-12 md:py-20" id="Skills">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent" />
       {/* Content */}
+      <GradientSphere />
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-mountain-meadow via-secondary to-accent bg-clip-text text-transparent mb-4">
-            Skills & Expertise
-          </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: -16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="max-w-2xl space-y-4 text-center mx-auto "
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-200 shadow-sm shadow-black/20 backdrop-blur">
+            tools & technologies
+          </span>
+          <br />
+          <span className="text-5xl md:text-6xl font-bold bg-white bg-clip-text text-transparent mb-4">
+            Powering my favorite frameworks & tools
+          </span>
           <p className="text-iron text-base md:text-lg max-w-2xl mx-auto px-4">
-            Technologies and tools I work with to bring ideas to life
+            A focused collection of technologies that help me ship delightful,
+            high-quality products.
           </p>
-          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-mountain-meadow to-accent mx-auto mt-4 rounded-full"></div>
-        </div>
+        </motion.h1>
 
         {/* Skills Grid */}
         <div className="mb-12 md:mb-16">

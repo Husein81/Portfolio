@@ -14,7 +14,7 @@ const ScrollLink = ({
     to={to}
     smooth={true}
     duration={500}
-    className="flex cursor-pointer text-sm text-gray-400 no-underline hover:underline"
+    className="inline-flex cursor-pointer items-center text-sm text-gray-300 transition-transform duration-200 hover:-translate-x-1 hover:text-white"
   >
     {children}
   </Link>
@@ -29,8 +29,9 @@ const NavLinkStyled = ({
 }) => (
   <a
     href={href}
-    target="blank"
-    className="flex cursor-pointer text-sm text-gray-400 no-underline hover:underline"
+    target="_blank"
+    rel="noreferrer"
+    className="inline-flex cursor-pointer items-center text-sm text-gray-300 transition-transform duration-200 hover:-translate-x-1 hover:text-white"
   >
     {children}
   </a>
@@ -41,11 +42,11 @@ const Row = ({ row }: Props) => {
     <div>
       {row.link.includes("pdf") || row.columnId === "3" ? (
         <NavLinkStyled href={row.link}>
-          <span className="text-neutral-100 ">{row.title}</span>
+          <span className="text-sm font-medium text-gray-200">{row.title}</span>
         </NavLinkStyled>
       ) : (
         <ScrollLink to={row.link}>
-          <span className="text-neutral-100 ">{row.title}</span>
+          <span className="text-sm font-medium text-gray-200">{row.title}</span>
         </ScrollLink>
       )}
     </div>

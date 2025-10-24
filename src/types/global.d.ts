@@ -55,3 +55,16 @@ type Contact = {
   email: string;
   message: string;
 };
+
+type Variants = {
+  hidden: { opacity: number; y?: number };
+  visible: {
+    opacity: number;
+    y?: number;
+    transition: {
+      duration?: number;
+      ease?: string;
+      staggerChildren?: number;
+    };
+  };
+};

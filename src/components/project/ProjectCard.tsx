@@ -1,130 +1,122 @@
 import { useState } from "react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 type Props = {
   project: Project;
+  index?: number;
 };
 
-const ProjectCard = ({ project }: Props) => {
-  const [show, setShow] = useState(false);
-  const isExpenseTracker = project.title
-    .toLowerCase()
-    .includes("expense tracker");
+const accentGradients = [
+  "from-cyan-500/20 via-blue-500/10 to-purple-500/20",
+  "from-emerald-400/20 via-teal-500/10 to-cyan-500/20",
+  "from-amber-400/20 via-orange-500/10 to-pink-500/20",
+];
 
-  const technologies = show
-    ? project.technologies
-    : project.technologies?.slice(0, 3);
+const ProjectCard = ({ project, index = 0 }: Props) => {
+  const [showAllTech, setShowAllTech] = useState(false);
+  const displayedTechnologies = showAllTech
+    ? project.technologies ?? []
+    : project.technologies?.slice(0, 4) ?? [];
+  const accentGradient = accentGradients[index % accentGradients.length];
+  const repoUrl = project.sourceCodeUrl
+    ? `https://github.com/Husein81/${project.sourceCodeUrl}`
+    : undefined;
+
+  const remainingTechCount = project.technologies
+    ? project.technologies.length - displayedTechnologies.length
+    : 0;
 
   return (
-    <div
-      className={`group relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl transition-all duration-500 hover:shadow-mountain-meadow/20 hover:border-mountain-meadow/30 ${
-        show && "border-mountain-meadow/30 shadow-mountain-meadow/20"
-      }`}
-    >
-      {/* Project Image */}
-      <div className="relative h-64 md:h-48 overflow-hidden flex items-center justify-center">
-        {isExpenseTracker ? (
-          <div className="bg-gradient-to-tr from-mountain-meadow via-gradient-end to-accent origin-center">
-            <img
-              className="object-contain w-full scale-45 transition-transform duration-700 group-hover:scale-65"
-              src="/assets/projects/expense-tracker.png"
-              alt={project.title}
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          </div>
-        ) : (
-          <>
-            <img
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              src={project.imageUrl}
-              alt={project.title}
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-          </>
-        )}
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-lg shadow-black/20 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-cyan-500/20">
+      <div
+        className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${accentGradient} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
+      />
 
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-mountain-meadow/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="relative h-56 overflow-hidden">
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-gray-200 backdrop-blur">
+          {project.technologies?.[0] || "Full stack"}
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6 space-y-4">
-        {/* Title */}
-        <h3 className="text-xl font-bold text-white group-hover:text-mountain-meadow transition-colors duration-300">
-          {project.title}
-        </h3>
+      <div className="relative z-10 flex flex-1 flex-col gap-5 p-6">
+        <div className="flex items-center justify-between">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-gray-200">
+            Case study
+          </span>
+          {project.startDate && (
+            <span className="text-[11px] font-semibold uppercase tracking-wide text-gray-400">
+              {project.startDate}{" "}
+              {project.endDate ? `– ${project.endDate}` : ""}
+            </span>
+          )}
+        </div>
 
-        {/* Description */}
-        <p
-          className={`text-iron text-sm line-clamp-2 leading-relaxed ${
-            show && "line-clamp-none"
-          }`}
-        >
-          {project.description ||
-            "An innovative project showcasing modern development practices."}
-        </p>
+        <div className="space-y-3">
+          <h3 className="text-2xl font-semibold text-white transition-colors duration-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:via-gray-200 group-hover:to-white group-hover:bg-clip-text">
+            {project.title}
+          </h3>
+          <p className="text-sm leading-relaxed text-gray-300">
+            {project.description ||
+              "An innovative project showcasing modern development practices."}
+          </p>
+        </div>
 
-        {/* Technologies */}
-        {project.technologies && (
+        {project.technologies && project.technologies.length > 0 && (
           <div className="flex flex-wrap gap-2">
-            {technologies?.map((tech, index) => (
+            {displayedTechnologies.map((tech) => (
               <span
-                key={index}
-                className="px-2 py-1 text-xs font-medium bg-mountain-meadow/20 text-mountain-meadow rounded-full border border-mountain-meadow/30"
+                key={`${project.title}-${tech}`}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-gray-200 backdrop-blur-sm"
               >
                 {tech}
               </span>
             ))}
-            {project.technologies.length > 3 && !show && (
+            {remainingTechCount > 0 && !showAllTech && (
               <button
-                onClick={() => setShow(true)}
-                className="px-2 py-1 text-xs cursor-pointer font-medium bg-iron/20 text-iron rounded-full border border-iron/30"
+                type="button"
+                onClick={() => setShowAllTech(true)}
+                className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-gray-300 transition-colors duration-200 hover:border-cyan-400/60 hover:text-white"
               >
-                +{project.technologies.length - 3} more
+                +{remainingTechCount} more
               </button>
             )}
-            {project.technologies.length > 3 && show && (
+            {showAllTech && project.technologies.length > 4 && (
               <button
-                className="px-2 py-1 text-xs font-medium hover:underline cursor-pointer bg-iron/20 text-iron rounded-full border border-iron/30"
-                onClick={() => setShow(false)}
+                type="button"
+                onClick={() => setShowAllTech(false)}
+                className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-gray-300 transition-colors duration-200 hover:border-cyan-400/60 hover:text-white"
               >
-                show less
+                Show less
               </button>
             )}
           </div>
         )}
 
-        {/* Action Button */}
-        <div className="pt-2 hover:transition-transform duration-300 group-hover:translate-y-[-2px]">
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={"https://github.com/Husein81/" + project.sourceCodeUrl}
-            className="group/btn inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-mountain-meadow to-secondary hover:from-mountain-meadow/80 hover:to-secondary/80 text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-          >
-            <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover/btn:rotate-12"
-              fill="currentColor"
-              viewBox="0 0 20 20"
+        <div className="mt-auto flex items-center justify-between gap-4">
+          <div className="text-[11px] uppercase tracking-wide text-gray-400">
+            {project.endDate ? "Shipped" : "In production"}
+          </div>
+          {repoUrl && (
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={repoUrl}
+              className="group/cta inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition-transform duration-200 hover:scale-105"
             >
-              <path
-                fillRule="evenodd"
-                d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            View Code
-          </a>
+              <Github className="h-4 w-4" />
+              View code
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
+            </a>
+          )}
         </div>
       </div>
-
-      {/* Glow effect on hover */}
-      <div
-        className={`absolute inset-0 rounded-2xl bg-gradient-to-r from-mountain-meadow/10 via-secondary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
-          show && "opacity-100"
-        }`}
-      />
     </div>
   );
 };

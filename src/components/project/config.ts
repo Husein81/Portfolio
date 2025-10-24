@@ -55,8 +55,22 @@ export const PROJECTS: Project[] = [
     imageUrl: "/assets/projects/theSpot.png",
     sourceCodeUrl: "The-Spot",
     description:
-      "A social platform connecting people through shared interests and locations, featuring real-time interactions and modern UI/UX.",
-    technologies: ["React", "zustand", "Node.js", "MongoDB", "Socket.io"],
+      "A social platform connecting people through shared interests and locations, featuring real-time interactions and modern UI/UX. Re-architected as a microservice-based system for scalability, resilience, and independent deployability.",
+    technologies: [
+      "Next.js",
+      "React",
+      "zustand",
+      "Node.js",
+      "Fastify",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "MongoDB",
+      "Socket.io",
+      "Kafka",
+      "Docker",
+      "Kubernetes",
+    ],
   },
   {
     title: "E-Commerce Dashboard",
@@ -71,5 +85,47 @@ export const PROJECTS: Project[] = [
       "Chart.js",
       "Tailwind CSS",
     ],
+  },
+];
+
+export const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+export const stagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+export const highlightCards = [
+  {
+    title: "Real-time experiences",
+    description:
+      "Signalist and BidDrive deliver responsive, data-rich flows for live environments.",
+    icon: "Activity",
+  },
+  {
+    title: "Cloud-native architecture",
+    description:
+      "Microservices, event streaming, and resilient pipelines keep complex systems scalable.",
+    icon: "Cloud",
+  },
+  {
+    title: "Insightful analytics",
+    description:
+      "Dashboards and reporting layers surface the metrics stakeholders rely on daily.",
+    icon: "ChartNoAxesColumnIncreasing",
   },
 ];

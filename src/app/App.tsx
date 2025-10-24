@@ -18,7 +18,7 @@ const Spinner = () => (
 
 const App = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Navbar />
       <Header />
       <Suspense fallback={<Spinner />}>

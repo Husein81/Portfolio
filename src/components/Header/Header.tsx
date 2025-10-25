@@ -2,6 +2,7 @@
 import { Link } from "react-scroll";
 import { SKILLS } from "../skills/config";
 import GradientSphere from "../GradientSphere";
+import Heading from "../Heading";
 
 type HeroStat = {
   label: string;
@@ -49,19 +50,12 @@ const Header = () => {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center gap-6"
         >
-          <span className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-wide text-gray-200 shadow-sm shadow-black/20 backdrop-blur">
-            Full Stack Developer
-          </span>
-
-          <h1 className="text-4xl font-semibold leading-tight text-white sm:text-5xl md:text-6xl">
-            Crafting reliable, fast, and delightful digital products.
-          </h1>
-
-          <p className="max-w-2xl text-sm text-gray-300 sm:text-base">
-            I partner with startups and teams to design, build, and ship modern
-            web experiences with clean architecture, scalable infrastructure,
-            and polished UX.
-          </p>
+          <Heading
+            preTitle="Software Engineer"
+            title="Crafting reliable, fast, and delightful digital products."
+            description="I partner with startups and teams to design, build, and ship modern web experiences with clean architecture, scalable infrastructure, and polished UX."
+            isHero
+          />
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <Link

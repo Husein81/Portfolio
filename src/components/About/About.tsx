@@ -3,6 +3,7 @@ import Icon from "../icon";
 import { expertise, services, stats } from "./config";
 import ServiceCard from "./service-card";
 import GradientSphere from "../GradientSphere";
+import Heading from "../Heading";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -45,16 +46,11 @@ const About = () => {
           variants={fadeUp}
           className="text-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-200 shadow-sm shadow-black/20 backdrop-blur">
-            About me
-          </span>
-          <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl md:text-5xl">
-            Building reliable products with a human touch
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm text-gray-300 sm:text-base">
-            I’m Hussein Nasrallah, a full stack engineer turning complex product
-            ideas into polished, scalable experiences.
-          </p>
+          <Heading
+            preTitle="About Me"
+            title="Building reliable products with a human touch."
+            description="I’m Hussein Nasrallah, a full stack engineer turning complex product ideas into polished, scalable experiences."
+          />
         </motion.div>
 
         {/* Intro grid */}
@@ -83,7 +79,7 @@ const About = () => {
                 Hussein Nasrallah
               </h3>
               <p className="text-sm font-medium text-cyan-300">
-                Full Stack Developer
+                Software Engineer
               </p>
               <p className="text-xs text-gray-400">
                 {age} years old · Based in Lebanon

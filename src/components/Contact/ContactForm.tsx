@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../project/config";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Icon from "../icon";
+import { fadeUp } from "./config";
 
 const ContactForm = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -40,6 +40,7 @@ const ContactForm = () => {
       }
     );
   };
+
   return (
     <motion.form
       ref={form}

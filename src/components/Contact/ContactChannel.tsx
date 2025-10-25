@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { fadeUp } from "../project/config";
-import { contactChannels } from "./config";
+
+import { contactChannels, fadeUp } from "./config";
 import Icon from "../icon";
 
 const ContactChannel = () => {

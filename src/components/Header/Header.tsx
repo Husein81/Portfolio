@@ -77,7 +77,8 @@ const Header = () => {
             </Link>
 
             <a
-              href="/Hussein-CV.pdf"
+              href="/Hussein-Nasrallah-CV.pdf"
+              download
               className="rounded-full border border-white/10 px-6 py-3 text-sm font-semibold text-gray-200 transition-colors duration-200 hover:border-purple-400/80 hover:text-white"
             >
               Download CV

@@ -5,6 +5,7 @@ import ProjectList from "./ProjectList";
 import HighlightCard from "./HighlightCard";
 import GradientSphere from "../GradientSphere";
 import Heading from "../Heading";
+import Icon from "../icon";
 
 const Projects = () => {
   return (
@@ -34,6 +35,21 @@ const Projects = () => {
         </motion.div>
 
         <ProjectList projects={PROJECTS} />
+        <div className="flex justify-center">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={"https://github.com/Husein81"}
+            className="group/cta w-fit inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition-transform duration-200 hover:scale-105"
+          >
+            <Icon name="Github" className="h-4 w-4" />
+            View github repo
+            <Icon
+              name="ArrowUpRight"
+              className="h-4 w-4 transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
+            />
+          </a>
+        </div>
       </div>
     </section>
   );

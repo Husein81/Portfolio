@@ -1,5 +1,22 @@
 export const PROJECTS: Project[] = [
   {
+    title: "ResuAI",
+    imageUrl: "/assets/projects/resu-ai.png",
+    sourceCodeUrl: "Smart-Resume-Analyzer",
+    description:
+      "ResuAI is an AI-powered resume analyzer that uses advanced natural language processing to deeply understand candidate qualifications, automatically parsing resumes and generating compatibility scores against job requirements.",
+    technologies: [
+      "Next.js",
+      "NextAuth",
+      "TypeScript",
+      "Groq AI",
+      "Shadcn",
+      "Tailwind CSS",
+      "MongoDB",
+    ],
+  },
+
+  {
     title: "Signalist",
     imageUrl: "/assets/projects/stock-tracker.png",
     description:
@@ -43,14 +60,6 @@ export const PROJECTS: Project[] = [
     technologies: ["React Native", "TypeScript", "SQLite", "React Navigation"],
   },
   {
-    title: "Inventory Management System",
-    imageUrl: "/assets/projects/inv.png",
-    sourceCodeUrl: "Inventory-Management-System.API",
-    description:
-      "A comprehensive inventory management system built with modern technologies to streamline business operations and track inventory efficiently.",
-    technologies: ["ASP.NET", "React", "SQL Server", "TypeScript"],
-  },
-  {
     title: "The Spot",
     imageUrl: "/assets/projects/theSpot.png",
     sourceCodeUrl: "The-Spot",
@@ -73,18 +82,12 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    title: "E-Commerce Dashboard",
-    imageUrl: "/assets/projects/dashboard.png",
-    sourceCodeUrl: "ims.client",
+    title: "Inventory Management System",
+    imageUrl: "/assets/projects/inv.png",
+    sourceCodeUrl: "Inventory-Management-System.API",
     description:
-      "Modern analytics dashboard for e-commerce platforms with real-time data visualization and comprehensive reporting features.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "zustand",
-      "Chart.js",
-      "Tailwind CSS",
-    ],
+      "A comprehensive inventory management system built with modern technologies to streamline business operations and track inventory efficiently.",
+    technologies: ["ASP.NET", "React", "SQL Server", "TypeScript"],
   },
 ];
 

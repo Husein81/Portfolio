@@ -57,7 +57,7 @@ const Drawer = ({ content, onClose }: Props) => {
                     Nasrallah
                   </span>
                 </span>
-                <p className="text-iron text-sm">Full Stack Developer</p>
+                <p className="text-iron text-sm">Software Developer</p>
               </div>
             </motion.div>
 

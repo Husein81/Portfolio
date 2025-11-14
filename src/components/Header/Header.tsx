@@ -20,7 +20,7 @@ const heroStats: HeroStat[] = [
   },
   {
     label: "Projects shipped",
-    value: "25+",
+    value: "20+",
     description: "Web, mobile, and backend solutions",
     gradient: "from-emerald-400 via-teal-500 to-cyan-500",
   },
@@ -137,7 +137,7 @@ const Header = () => {
                   Hussein Nasrallah
                 </h3>
                 <p className="mt-2 text-sm text-gray-300">
-                  Full stack engineer with a strong focus on performant UI,
+                  Software engineer with a strong focus on performant UI,
                   efficient APIs, and resilient cloud infrastructure.
                 </p>
               </div>

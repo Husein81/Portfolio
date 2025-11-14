@@ -49,7 +49,7 @@ const About = () => {
           <Heading
             preTitle="About Me"
             title="Building reliable products with a human touch."
-            description="I’m Hussein Nasrallah, a full stack engineer turning complex product ideas into polished, scalable experiences."
+            description="I’m Hussein Nasrallah, a software engineer turning complex product ideas into polished, scalable experiences."
           />
         </motion.div>
 

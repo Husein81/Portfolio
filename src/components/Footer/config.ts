@@ -8,7 +8,7 @@ export const highlights = [
   {
     icon: "ShieldCheck",
     label: "Production ready",
-    value: "25+",
+    value: "20+",
     description:
       "Real-world launches across SaaS, marketplaces, and ops tools.",
   },

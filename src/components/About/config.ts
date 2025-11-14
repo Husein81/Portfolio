@@ -1,8 +1,7 @@
-
 export const stats: Stat[] = [
   {
     label: "Years Experience",
-    value: "5+",
+    value: "4+",
     icon: "💻",
     color: "from-blue-500 to-cyan-500",
   },

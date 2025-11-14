@@ -138,8 +138,7 @@ const Footer = () => {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-gray-400 sm:flex-row">
           <p>
-            © {new Date().getFullYear()} Hussein Nasrallah. Crafted with React,
-            TypeScript, Framer Motion, and a focus on resilient systems.
+            © {new Date().getFullYear()} Hussein Nasrallah. All rights reserved.
           </p>
           <a
             href="#Home"

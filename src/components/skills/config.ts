@@ -76,6 +76,12 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
   },
   {
+    id: "C#",
+    name: "C#",
+    imageUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg",
+  },
+  {
     id: "Java",
     name: "Java",
     imageUrl:

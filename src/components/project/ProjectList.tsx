@@ -1,10 +1,7 @@
 import { motion } from "framer-motion";
 
 import ProjectCard from "./ProjectCard";
-
-type Props = {
-  projects: Project[];
-};
+import { PROJECTS } from "./config";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -29,7 +26,8 @@ const itemVariants = {
   },
 };
 
-const ProjectList = ({ projects }: Props) => {
+const ProjectList = () => {
+  const projects = PROJECTS;
   return (
     <motion.ul
       initial="hidden"

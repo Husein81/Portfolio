@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { highlightCards, PROJECTS, stagger } from "./config";
+import { highlightCards, stagger } from "./config";
 import ProjectList from "./ProjectList";
 import HighlightCard from "./HighlightCard";
 import GradientSphere from "../GradientSphere";
@@ -34,7 +34,7 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        <ProjectList projects={PROJECTS} />
+        <ProjectList />
         <div className="flex justify-center">
           <a
             target="_blank"

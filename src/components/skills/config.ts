@@ -94,6 +94,12 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
   },
   {
+    id: "Supabase",
+    name: "Supabase",
+    imageUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-plain.svg",
+  },
+  {
     id: "Firebase",
     name: "Firebase",
     imageUrl:

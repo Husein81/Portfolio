@@ -58,6 +58,12 @@ export const SKILLS: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg",
   },
   {
+    id: "Nest.Js",
+    name: "Nest.js",
+    imageUrl:
+      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
+  },
+  {
     id: "ExpressJS",
     name: "Express.js",
     imageUrl:

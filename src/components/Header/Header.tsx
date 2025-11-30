@@ -3,6 +3,8 @@ import { Link } from "react-scroll";
 import { SKILLS } from "../skills/config";
 import GradientSphere from "../GradientSphere";
 import Heading from "../Heading";
+import Icon from "../icon";
+import { useEffect, useState } from "react";
 
 type HeroStat = {
   label: string;
@@ -35,6 +37,20 @@ const heroStats: HeroStat[] = [
 const featuredSkills = SKILLS.slice(0, 8);
 
 const Header = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section
       id="Home"
@@ -110,7 +126,17 @@ const Header = () => {
             </motion.li>
           ))}
         </motion.ul>
-
+        <motion.div
+          className={`mt-10 hidden absolute inset-0 md:flex md:flex-col md:gap-4 md:justify-center md:items-center ${
+            scrollY > 150 ? "opacity-0" : "opacity-100"
+          } transition-opacity duration-500`}
+        >
+          <span className="text-sm text-gray-500/85 uppercase">Scroll</span>
+          <Icon
+            name="Mouse"
+            className="animate-bounce size-8 text-gray-500/45"
+          />
+        </motion.div>
         {/* Profile highlight */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

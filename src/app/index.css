@@ -1,231 +1,343 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "tw-animate-css";
 
-@theme {
-  --color-shark: #0f0f23;
-  --color-primary: #08090d;
-  --color-asphalt: #05070F;
-  --color-mountain-meadow: #00d9ff;
-  --color-iron: #a8b2d1;
-  --color-accent: #ff6b6b;
-  --color-secondary: #4ecdc4;
-  --color-purple: #a8e6cf;
-  --color-gradient-start: #667eea;
-  --color-gradient-end: #764ba2;
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ── Swiss Terminal ───────────────────────────────────────────────────────
+   A systems engineer's portfolio set like engineering documentation: a
+   strict 12-column grid, hairline rules instead of cards, monospace for
+   every label and datum, and one signal colour that only ever means
+   "this is live / this is the link". No gradients, no shadows, no radii —
+   structure comes from rules and alignment alone.
+
+   Every pair below is contrast-checked: body and muted text clear WCAG AAA
+   on their own surface; faint and the accent clear AA in light and AAA in
+   dark, including white-on-accent for the primary button. */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #ffffff;
+  --foreground: #0a0a0b;
+
+  --card: #f7f7f6;
+  --card-foreground: #0a0a0b;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0b;
+
+  --primary: #0a0a0b;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #0a0a0b;
+
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b; /* 7.73:1 on background */
+  --faint: #6b6b74; /* 5.28:1 on background */
+
+  --accent: #b4441a; /* 5.55:1 on background */
+  --accent-foreground: #ffffff; /* 5.55:1 on accent */
+
+  --destructive: #b91c1c;
+  --destructive-foreground: #ffffff;
+
+  --border: #e4e4e7;
+  --rule: #d4d4d8; /* heavier hairline for structural divisions */
+  --input: #a1a1aa;
+  --ring: #b4441a;
+
+  --radius: 0px;
+  --grid-line: rgba(10, 10, 11, 0.045);
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+[data-theme="dark"] {
+  color-scheme: dark;
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+  --background: #0a0a0b;
+  --foreground: #ededef;
+
+  --card: #121214;
+  --card-foreground: #ededef;
+  --popover: #121214;
+  --popover-foreground: #ededef;
+
+  --primary: #ededef;
+  --primary-foreground: #0a0a0b;
+  --secondary: #141417;
+  --secondary-foreground: #ededef;
+
+  --muted: #141417;
+  --muted-foreground: #a1a1a8; /* 7.71:1 on background */
+  --faint: #8a8a92; /* 5.78:1 on background */
+
+  --accent: #ff7a3d; /* 7.64:1 on background */
+  --accent-foreground: #0a0a0b; /* 7.64:1 on accent */
+
+  --destructive: #f87171;
+  --destructive-foreground: #0a0a0b;
+
+  --border: #232327;
+  --rule: #303036;
+  --input: #3f3f46;
+  --ring: #ff7a3d;
+
+  --grid-line: rgba(237, 237, 239, 0.05);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-faint: var(--faint);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-rule: var(--rule);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Square by intent — the Swiss grid does the work a corner radius used to. */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display: "Archivo", "IBM Plex Sans", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo,
+    monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @layer base {
   *,
   ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
+  ::before {
+    border-color: var(--border);
   }
-}
 
-*,*,*{
-    box-sizing: border-box;
+  html {
     scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, var(--color-shark) 0%, var(--color-primary) 100%);
-  min-height: 100vh;
-  color: #f8fafc;
-}
-
-/* Modern Hero Background */
-.modern-hero-bg {
-  background: linear-gradient(135deg, 
-    var(--color-shark) 0%, 
-    var(--color-primary) 25%, 
-    var(--color-shark) 50%, 
-    var(--color-primary) 75%, 
-    var(--color-shark) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
-}
-
-.grid-pattern {
-  background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.5) 1px, transparent 0);
-  background-size: 40px 40px;
-}
-
-/* Animation delays */
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Tech constellation animations */
-.tech-constellation {
-  animation: constellation-rotate 60s linear infinite;
-}
-
-@keyframes constellation-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(0.5deg); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes float-delay-1 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-}
-
-@keyframes float-delay-2 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-25px); }
-}
-
-@keyframes float-delay-3 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-18px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-float-delay-1 {
-  animation: float-delay-1 7s ease-in-out infinite 1s;
-}
-
-.animate-float-delay-2 {
-  animation: float-delay-2 8s ease-in-out infinite 2s;
-}
-
-.animate-float-delay-3 {
-  animation: float-delay-3 6.5s ease-in-out infinite 3s;
-}
-
-/* SVG gradient classes */
-.line-gradient-start {
-  stop-color: #00d9ff;
-  stop-opacity: 0.3;
-}
-
-.line-gradient-end {
-  stop-color: #4ecdc4;
-  stop-opacity: 0.1;
-}
-
-/* Gradient animation */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Project card animations */
-.project-card-0 {
-  animation: fadeInUp 0.6s ease-out 0.2s both;
-}
-
-.project-card-1 {
-  animation: fadeInUp 0.6s ease-out 0.4s both;
-}
-
-.project-card-2 {
-  animation: fadeInUp 0.6s ease-out 0.6s both;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+    -webkit-text-size-adjust: 100%;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Anchored sections clear the fixed header. */
+  :where(section[id]) {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
   }
 }
 
-
-
-/* Header.css */
-
-@keyframes moveLeft {
-  from{
-    transform: translatey(100%);
-    opacity: 0;
+@layer components {
+  /* ── Grid ──────────────────────────────────────────────────────────────
+     One gutter for the whole document. Every section inherits it, so the
+     vertical rules of the header line up with the rules in every row
+     below it. */
+  .shell {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
   }
-  to {
-    transform: translatey(0);
-    opacity: 1;
-  }
-}
 
-@keyframes moveRight {
-  from {
-    transform: translatey(100%);
-    opacity: 0;
+  @media (min-width: 640px) {
+    .shell {
+      padding-inline: 2rem;
+    }
   }
-  to {
-    transform: translatey(0);
-    opacity: 1;
+
+  @media (min-width: 1024px) {
+    .shell {
+      padding-inline: 2.5rem;
+    }
   }
-}
-@media (min-width: 668px) {
-  @keyframes moveLeft {
-    from{
-      transform: translatex(40%);
+
+  /* The strict 12-column field. Sections opt into it; children take spans. */
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-12 {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-12 {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  /* ── Type ──────────────────────────────────────────────────────────────
+     Labels, indices, and any datum are mono and uppercase. Prose is Plex.
+     Statements are Archivo, tightly tracked and set large. */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    line-height: 1.4;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  /* Hero-scale statement: uppercase, maximum density. */
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.94;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  /* Tabular data — spec tables, years, counts. */
+  .datum {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  /* ── Rules ─────────────────────────────────────────────────────────────
+     Structure is drawn, never shadowed. `.rule` is the heavier division
+     between major blocks; plain borders handle everything inside them. */
+  .rule {
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Engineering-paper grid, used behind the hero only. Fades out downward
+     so it never competes with the content that follows. */
+  .grid-paper {
+    background-image: linear-gradient(
+        to right,
+        var(--grid-line) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 5rem 5rem;
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 92%);
+    mask-image: linear-gradient(to bottom, #000 0%, transparent 92%);
+  }
+
+  /* Inline link: the underline is always present, the colour is the tell. */
+  .link {
+    color: var(--foreground);
+    text-decoration: none;
+    border-bottom: 1px solid var(--input);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .link:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* Live-status dot. The only thing on the page that moves on its own. */
+  .status-dot {
+    position: relative;
+    display: inline-block;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    background-color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .status-dot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--accent);
+    animation: status-ping 2.4s var(--ease-out-expo) infinite;
+  }
+
+  @keyframes status-ping {
+    0% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+    70%,
+    100% {
       opacity: 0;
-    }
-    to {
-      transform: translatex(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes moveRight {
-    from {
-      transform: translatex(-40%);
-      opacity: 0;
-    }
-    to {
-      transform: translatex(0%);
-      opacity: 1;
+      transform: scale(2.6);
     }
   }
 }
-@keyframes moveUp {
-  0% {
-    transform: translatey(40%);
-    opacity: 0;
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  100% {
-    transform: translatey(0%);
-    opacity: 1;
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-}
-
-
-.move-left {
-  animation: moveLeft 2s forwards;
-}
-
-.move-right {
-  animation: moveRight 2s forwards;
-}
-
-.move-up {
-  animation: moveUp 1.5s forwards;
 }

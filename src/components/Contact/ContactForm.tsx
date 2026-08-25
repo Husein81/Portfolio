@@ -1,120 +1,128 @@
-import { motion } from "framer-motion";
-import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import Icon from "../icon";
-import { fadeUp } from "./config";
+import { ArrowRight, Check, LoaderCircle, TriangleAlert } from "lucide-react";
+import { useRef, useState } from "react";
+
+import { site } from "../../data/site";
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
+
+type Status = "idle" | "sending" | "success" | "error";
+
+const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+const USER_ID = import.meta.env.VITE_USER_ID;
 
 const ContactForm = () => {
-  const form = useRef<HTMLFormElement>(null);
-  const USER_ID = import.meta.env.VITE_USER_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
-  const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
-  const [feedback, setFeedback] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<Status>("idle");
+  const [message, setMessage] = useState("");
 
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-    if (!form.current) {
+    const form = formRef.current;
+    if (!form) return;
+
+    if (!SERVICE_ID || !TEMPLATE_ID || !USER_ID) {
+      setStatus("error");
+      setMessage(`The form isn't configured right now — email ${site.email}.`);
       return;
     }
 
-    setLoading(true);
-    setStatus("idle");
-    setFeedback("");
+    setStatus("sending");
+    setMessage("");
 
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID).then(
-      () => {
-        setLoading(false);
-        setStatus("success");
-        setFeedback("Thanks for reaching out! I will reply within 24 hours.");
-        form.current?.reset();
-      },
-      () => {
-        setLoading(false);
-        setStatus("error");
-        setFeedback(
-          "Something went wrong. Please try again or connect with me on LinkedIn."
-        );
-      }
-    );
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, USER_ID);
+      setStatus("success");
+      setMessage("Message sent. I'll get back to you within a day.");
+      form.reset();
+    } catch {
+      setStatus("error");
+      setMessage(
+        `That didn't go through. Email ${site.email} directly and it will reach me.`
+      );
+    }
   };
 
+  const isSending = status === "sending";
+
   return (
-    <motion.form
-      ref={form}
-      variants={fadeUp}
-      onSubmit={sendEmail}
-      className="space-y-6 rounded-3xl border border-white/10 bg-primary/45 p-8 shadow-xl shadow-black/25 backdrop-blur"
-    >
-      <div className="grid gap-4 sm:grid-cols-2">
-        <label className="flex flex-col gap-2 text-sm font-medium text-gray-200">
-          Name
-          <input
-            type="text"
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <Label htmlFor="contact-name">Name</Label>
+          <Input
+            id="contact-name"
             name="name"
+            type="text"
             autoComplete="name"
             required
-            placeholder="How should I address you?"
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-400 transition-colors duration-200 focus:border-cyan-400/70 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+            placeholder="Your name"
+            className="mt-2.5"
           />
-        </label>
-        <label className="flex flex-col gap-2 text-sm font-medium text-gray-200">
-          Email
-          <input
-            type="email"
+        </div>
+
+        <div>
+          <Label htmlFor="contact-email">Email</Label>
+          <Input
+            id="contact-email"
             name="email"
+            type="email"
             autoComplete="email"
             required
-            placeholder="you@example.com"
-            className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-400 transition-colors duration-200 focus:border-cyan-400/70 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+            placeholder="you@company.com"
+            className="mt-2.5"
           />
-        </label>
+        </div>
       </div>
 
-      <label className="flex lg:h-2/3 flex-col gap-2 text-sm font-medium text-gray-200">
-        Project details
-        <textarea
+      <div>
+        <Label htmlFor="contact-message">What are you building?</Label>
+        <Textarea
+          id="contact-message"
           name="message"
-          rows={6}
+          rows={7}
           required
-          placeholder="Share the context, goals, timeline, or anything else I should know."
-          className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-400 transition-colors duration-200 focus:border-cyan-400/70 focus:outline-none focus:ring-2 focus:ring-cyan-400/40"
+          placeholder="A sentence on the project, the stage it's at, and what you need."
+          className="mt-2.5"
         />
-      </label>
-
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <button
-          type="submit"
-          disabled={loading}
-          className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/30 transition-transform duration-200 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          <Icon
-            name="Send"
-            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-          />
-          {loading ? "Sending..." : "Send message"}
-        </button>
-
-        {status !== "idle" && (
-          <div
-            className={`inline-flex items-center gap-2 text-sm ${
-              status === "success" ? "text-cyan-200" : "text-rose-200"
-            }`}
-            role="status"
-            aria-live="polite"
-          >
-            {status === "success" ? (
-              <Icon name="CheckCircle2" className="h-5 w-5" />
-            ) : (
-              <Icon name="AlertCircle" className="h-5 w-5" />
-            )}
-            {feedback}
-          </div>
-        )}
       </div>
-    </motion.form>
+
+      <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+        <Button type="submit" disabled={isSending} className="group">
+          {isSending ? (
+            <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />
+          ) : null}
+          {isSending ? "Sending" : "Send message"}
+          {isSending ? null : (
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          )}
+        </Button>
+
+        <p
+          role="status"
+          aria-live="polite"
+          className={`flex items-center gap-2 text-sm ${
+            status === "error" ? "text-destructive" : "text-muted-foreground"
+          }`}
+        >
+          {status === "success" ? (
+            <Check className="h-4 w-4 shrink-0" aria-hidden="true" />
+          ) : null}
+          {status === "error" ? (
+            <TriangleAlert className="h-4 w-4 shrink-0" aria-hidden="true" />
+          ) : null}
+          {message}
+        </p>
+      </div>
+    </form>
   );
 };
+
 export default ContactForm;

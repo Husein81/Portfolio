@@ -1,35 +1,60 @@
 import { lazy, Suspense } from "react";
-import { Header, Navbar } from "../components";
-import Spinner from "../components/Spinner";
 
-// Lazy load heavy components
-const About = lazy(() => import("../components/About/About"));
-const Projects = lazy(() => import("../components/project/Projects"));
-const Skills = lazy(() => import("../components/skills/Skills"));
-const Contact = lazy(() => import("../components/Contact/Contact"));
-const Footer = lazy(() => import("../components/Footer/Footer"));
+import Nav from "../components/layout/Nav";
+import Hero from "../components/sections/Hero";
+import SectionFallback from "../components/ui/SectionFallback";
+
+// Everything below the fold loads on demand.
+const Problems = lazy(() => import("../components/sections/Problems"));
+const Work = lazy(() => import("../components/sections/Work"));
+const Approach = lazy(() => import("../components/sections/Approach"));
+const Stack = lazy(() => import("../components/sections/Stack"));
+const Experience = lazy(() => import("../components/sections/Experience"));
+const About = lazy(() => import("../components/sections/About"));
+const Contact = lazy(() => import("../components/sections/Contact"));
+const Footer = lazy(() => import("../components/layout/Footer"));
 
 const App = () => {
   return (
-    <Suspense
-      fallback={
-        <div className="flex items-center justify-center min-h-128">
-          <Spinner />
-        </div>
-      }
-    >
-      <div className="overflow-hidden">
-        <Navbar />
-        <Header />
-        <About />
-        <Projects />
-        <Skills />
-        <div className="z-40 relative">
+    <>
+      <Nav />
+
+      <main id="main">
+        <Hero />
+
+        <Suspense fallback={<SectionFallback />}>
+          <Problems />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <Work />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <Approach />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <Stack />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <Experience />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <About />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
           <Contact />
-          <Footer />
-        </div>
-      </div>
-    </Suspense>
+        </Suspense>
+      </main>
+
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+    </>
   );
 };
 

@@ -1,17 +1,54 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/assets/others/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?
-      family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;
-      1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900
-      &family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;
-      1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Hussein Nasrallah's Portfolio</title>
+
+    <title>Hussein Nasrallah — Software Engineer</title>
+    <meta
+      name="description"
+      content="Hussein Nasrallah is a Software engineer in Lebanon building production POS, CRM, and business systems — React, Vue, NestJS, and ASP.NET Core, shipped with Docker and Kubernetes."
+    />
+    <meta name="author" content="Hussein Nasrallah" />
+    <link rel="canonical" href="https://hussein-nasrallah.dev/" />
+    <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hussein-nasrallah.dev/" />
+    <meta property="og:title" content="Hussein Nasrallah — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software engineer building production POS, CRM, and business systems — from database schema to the interface people use every shift."
+    />
+    <meta property="og:image" content="/assets/others/profile.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Set the theme before first paint so there is no flash of the wrong palette.
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme =
+            stored === "light" || stored === "dark"
+              ? stored
+              : window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

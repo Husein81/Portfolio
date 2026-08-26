@@ -1,9 +1,9 @@
 import { ArrowUpRight, Download, MapPin } from "lucide-react";
 
 import { site, socials } from "../../data/site";
-import ContactForm from "../contact/ContactForm";
-import Reveal from "../ui/Reveal";
-import Section from "../ui/Section";
+import ContactForm from "@/components/contact/ContactForm";
+import Reveal from "@/components/ui/Reveal";
+import Section from "@/components/ui/Section";
 
 const Contact = () => {
   return (

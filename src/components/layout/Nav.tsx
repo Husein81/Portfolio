@@ -60,7 +60,9 @@ const Nav = () => {
             href="#home"
             className="group -ml-2 flex min-h-11 items-center gap-2.5 px-2 transition-colors duration-200"
           >
-            <span className="font-mono text-sm font-medium text-accent">HN</span>
+            <span className="font-mono text-sm font-medium text-accent">
+              HN
+            </span>
             <span className="hidden text-sm font-medium tracking-tight transition-colors duration-200 group-hover:text-accent sm:inline">
               {site.name}
             </span>
@@ -93,7 +95,10 @@ const Nav = () => {
                         <motion.span
                           layoutId="nav-active"
                           className="absolute inset-x-3 -bottom-px h-px bg-accent"
-                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                          transition={{
+                            duration: 0.3,
+                            ease: [0.16, 1, 0.3, 1],
+                          }}
                         />
                       ) : null}
                     </a>
@@ -112,7 +117,10 @@ const Nav = () => {
               className="hidden sm:inline-flex"
             >
               <a href={site.github} target="_blank" rel="noreferrer">
-                <Github className="h-[1.125rem] w-[1.125rem]" aria-hidden="true" />
+                <Github
+                  className="h-[1.125rem] w-[1.125rem]"
+                  aria-hidden="true"
+                />
               </a>
             </Button>
 

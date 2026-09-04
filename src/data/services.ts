@@ -62,14 +62,14 @@ export const services: Service[] = [
       "Hi, I'm interested in developing a mobile application. I'd like to discuss my idea, requirements, and estimated cost.",
   },
   {
-    slug: "api-backend",
-    icon: "Database",
-    name: "API & Backend Development",
+    slug: "automations",
+    icon: "Workflow",
+    name: "Automations",
     description:
-      "Reliable backend systems and APIs that power web, mobile, POS, and business applications.",
-    tags: ["REST APIs", "Auth", "Database design", "Cloud deployment"],
-    ctaLabel: "Discuss Backend Project",
+      "Custom workflow automations, integrations, and bots designed to streamline business operations and eliminate manual work.",
+    tags: ["Workflows", "API Integrations", "Webhooks", "Bots"],
+    ctaLabel: "Discuss Automations",
     whatsappMessage:
-      "Hi, I need help with backend/API development. I'd like to discuss my project requirements and the best technical approach.",
+      "Hi, I'm interested in building automations for my business. I'd like to discuss my workflows, requirements, and pricing.",
   },
 ];

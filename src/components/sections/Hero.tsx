@@ -106,11 +106,11 @@ const Hero = () => {
             className="col-span-4 md:col-span-5 lg:col-span-6"
           >
             <p className="max-w-[58ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
-              Software engineer in Lebanon, two years turning operational
-              problems into production software: a POS order engine processing
-              live transactions, a CRM's offline sync, an inventory system a
-              warehouse team actually uses. React and Vue on the front, NestJS
-              and ASP.NET Core on the back, shipped with Docker and Kubernetes.
+              Software engineer based in Lebanon with two years of experience
+              turning operational problems into production software: a POS order
+              engine handling live transactions, an ERP system streamlining core
+              business operations, a CRM with offline sync, and an inventory
+              system built for a warehouse team that actually uses it daily.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">

@@ -6,6 +6,7 @@ import {
   ShoppingBag,
   ShoppingCart,
   Smartphone,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 
@@ -24,6 +25,7 @@ const ICONS: Record<string, LucideIcon> = {
   LayoutDashboard,
   Smartphone,
   Database,
+  Workflow,
 };
 
 type Props = {

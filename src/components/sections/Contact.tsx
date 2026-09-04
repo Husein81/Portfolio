@@ -9,7 +9,7 @@ const Contact = () => {
   return (
     <Section
       id="contact"
-      index="07"
+      index="08"
       label="Contact"
       title="Have a software problem worth solving?"
       lede="A sentence on what you're building and where it's stuck is enough to start. Email works best, and I read everything that arrives."

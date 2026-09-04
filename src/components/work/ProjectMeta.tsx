@@ -4,23 +4,24 @@ import { repoUrl } from "../../data/site";
 import type { Project } from "../../types";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import { Stagger, StaggerItem } from "../ui/Stagger";
 
 /** Wrapping technology badges. Reads as a spec line, not a chip wall. */
 export const StackLine = ({ items }: { items: string[] }) => (
-  <ul className="flex flex-wrap gap-1.5">
+  <Stagger as="ul" className="flex flex-wrap gap-1.5" gap={0.035}>
     {items.map((item) => (
-      <li key={item}>
+      <StaggerItem key={item} as="li" distance={8}>
         <Badge variant="outline">{item}</Badge>
-      </li>
+      </StaggerItem>
     ))}
-  </ul>
+  </Stagger>
 );
 
 /** Rule-marked list used for technical decisions. */
 export const DecisionList = ({ items }: { items: string[] }) => (
-  <ul className="space-y-3">
+  <Stagger as="ul" className="space-y-3" gap={0.06}>
     {items.map((item) => (
-      <li key={item} className="flex gap-3.5">
+      <StaggerItem key={item} as="li" className="flex gap-3.5" distance={10}>
         <span
           className="mt-[0.6875rem] h-px w-4 shrink-0 bg-accent"
           aria-hidden="true"
@@ -28,9 +29,9 @@ export const DecisionList = ({ items }: { items: string[] }) => (
         <span className="text-sm leading-relaxed text-muted-foreground">
           {item}
         </span>
-      </li>
+      </StaggerItem>
     ))}
-  </ul>
+  </Stagger>
 );
 
 export const ProjectLinks = ({ project }: { project: Project }) => {

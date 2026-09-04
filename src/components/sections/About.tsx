@@ -15,26 +15,27 @@ const About = () => {
             {/* Opening paragraph carries a rule and full-contrast text so the
                 section has an entry point without a heading. */}
             <p className="border-l-2 border-accent pl-5 text-foreground">
-              I'm Hussein. I started writing C# backends for an ERP system,
-              moved through frontend work on a crop-tracking SaaS, and now
-              build point-of-sale, CRM, and business systems full-time — with
-              freelance projects running alongside almost every role since.
+              I'm Hussein, a software engineer with 2+ years of experience
+              building POS, ERP, CRM, e-commerce, and SaaS systems.
             </p>
             <p>
-              What I actually enjoy is the part most people skip: modelling a
-              business process correctly before writing UI for it. A POS order
-              isn't just a form — it's a draft that can be held, split across
-              payments, partially refunded, or cancelled, and every one of
-              those states has to stay consistent with inventory and the audit
-              log. Getting that model right matters more than the framework on
-              top of it.
+              I focus on the engineering behind the interface — modelling
+              business processes, designing reliable APIs and data models, and
+              building systems that handle real-world complexity such as
+              payments, inventory, permissions, offline workflows,
+              synchronization, and auditability.
             </p>
             <p>
-              I also use AI tooling deliberately rather than by default —
-              Claude Code and Copilot for test generation, boilerplate, and
-              refactors, while the architecture and edge cases stay under
-              direct review. It's a real part of how I work now, not a buzzword
-              on top of it.
+              My background spans C#/.NET, React, Vue, Node.js, NestJS, and
+              modern databases and infrastructure. I care less about following a
+              specific stack and more about choosing the right architecture to
+              solve the problem.
+            </p>
+            <p>
+              I also use AI tools like Claude Code and GitHub Copilot to move
+              faster with testing, refactoring, and repetitive work — while
+              keeping architecture, business logic, and critical decisions under
+              direct engineering review.
             </p>
           </div>
         </div>

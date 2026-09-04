@@ -63,6 +63,18 @@ export type Problem = {
   result: string;
 };
 
+export type Service = {
+  slug: string;
+  icon: string;
+  name: string;
+  description: string;
+  /** Short capability tags — 4 keeps a row scannable at a glance. */
+  tags: string[];
+  ctaLabel: string;
+  /** Pre-filled text for this service's WhatsApp click-to-chat link. */
+  whatsappMessage: string;
+};
+
 export type Principle = {
   title: string;
   body: string;

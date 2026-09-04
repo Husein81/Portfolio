@@ -11,6 +11,7 @@ const Approach = lazy(() => import("../components/sections/Approach"));
 const Stack = lazy(() => import("../components/sections/Stack"));
 const Experience = lazy(() => import("../components/sections/Experience"));
 const About = lazy(() => import("../components/sections/About"));
+const Services = lazy(() => import("../components/sections/Services"));
 const Contact = lazy(() => import("../components/sections/Contact"));
 const Footer = lazy(() => import("../components/layout/Footer"));
 
@@ -44,6 +45,10 @@ const App = () => {
 
         <Suspense fallback={<SectionFallback />}>
           <About />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <Services />
         </Suspense>
 
         <Suspense fallback={<SectionFallback />}>

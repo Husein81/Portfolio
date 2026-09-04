@@ -7,6 +7,7 @@ import WorkRow from "../work/WorkRow";
 import { Button } from "../ui/button";
 import Reveal from "../ui/Reveal";
 import Section from "../ui/Section";
+import { Stagger } from "../ui/Stagger";
 
 const Work = () => {
   return (
@@ -48,17 +49,15 @@ const Work = () => {
           </div>
         </Reveal>
 
-        <Reveal className="mt-8" delay={0.06}>
-          <ul>
-            {otherProjects.map((project, position) => (
-              <WorkRow
-                key={project.slug}
-                project={project}
-                index={featuredProjects.length + position + 1}
-              />
-            ))}
-          </ul>
-        </Reveal>
+        <Stagger as="ul" className="mt-8">
+          {otherProjects.map((project, position) => (
+            <WorkRow
+              key={project.slug}
+              project={project}
+              index={featuredProjects.length + position + 1}
+            />
+          ))}
+        </Stagger>
       </div>
     </Section>
   );

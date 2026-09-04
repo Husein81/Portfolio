@@ -1,5 +1,11 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, Download } from "lucide-react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { ArrowDown, Download, Mail, Wrench } from "lucide-react";
+import { useRef } from "react";
 
 import { site } from "../../data/site";
 import { EASE } from "../../lib/motion";
@@ -7,13 +13,11 @@ import { Button } from "../ui/button";
 
 const CORE_STACK = [
   "React",
-  "Next.js",
-  "Vue.js",
-  "NestJS",
-  "ASP.NET Core",
+  "TypeScript",
+  "C#",
+  ".NET",
+  "Python",
   "PostgreSQL",
-  "Docker",
-  "Kubernetes",
 ];
 
 /**
@@ -36,6 +40,25 @@ const SPECS = [
 
 const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Drives the two parallax layers below — a fraction of the hero's own
+  // height, not the whole document, so the drift stays proportional at any
+  // viewport size and settles once the section has scrolled past.
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const paperY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    prefersReducedMotion ? [0, 0] : [0, -32],
+  );
+  const portraitY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    prefersReducedMotion ? [0, 0] : [0, 28],
+  );
 
   const rise = (delay: number) =>
     prefersReducedMotion
@@ -47,8 +70,9 @@ const Hero = () => {
         };
 
   return (
-    <section id="home" className="relative overflow-hidden">
-      <div
+    <section id="home" ref={heroRef} className="relative overflow-hidden">
+      <motion.div
+        style={{ y: paperY }}
         className="grid-paper pointer-events-none absolute inset-0"
         aria-hidden="true"
       />
@@ -77,7 +101,10 @@ const Hero = () => {
         </div>
 
         <div className="grid-12 mt-14 sm:mt-16">
-          <motion.div {...rise(0.12)} className="col-span-4 md:col-span-5 lg:col-span-6">
+          <motion.div
+            {...rise(0.12)}
+            className="col-span-4 md:col-span-5 lg:col-span-6"
+          >
             <p className="max-w-[58ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
               Software engineer in Lebanon, two years turning operational
               problems into production software: a POS order engine processing
@@ -94,7 +121,16 @@ const Hero = () => {
                 </a>
               </Button>
               <Button asChild variant="outline">
-                <a href="#contact">Start a project</a>
+                <a href="#services">
+                  <Wrench className="h-4 w-4" aria-hidden="true" />
+                  Check my services
+                </a>
+              </Button>
+              <Button asChild variant="outline">
+                <a href="#contact">
+                  <Mail className="w-4 h-4" aria-hidden="true" />
+                  Start a project
+                </a>
               </Button>
               <Button asChild variant="link" size="sm">
                 <a href={site.resume} download>
@@ -126,29 +162,33 @@ const Hero = () => {
             {...rise(0.18)}
             className="col-span-4 md:col-span-3 lg:col-span-5 lg:col-start-8"
           >
-            <div className="border border-border bg-card">
-              <img
-                src="/assets/others/profile.png"
-                alt="Portrait of Hussein Nasrallah"
-                width={640}
-                height={800}
-                className="aspect-[4/5] w-full object-cover object-center sm:aspect-[3/2] lg:aspect-[4/3]"
-              />
-            </div>
+            {/* Image and spec sheet drift together as one rigid unit — never
+                the image alone, which would slide over the rows below it. */}
+            <motion.div style={{ y: portraitY }}>
+              <div className="border border-border bg-card">
+                <img
+                  src="/assets/others/profile.png"
+                  alt="Portrait of Hussein Nasrallah"
+                  width={640}
+                  height={800}
+                  className="aspect-[4/5] w-full object-cover object-center sm:aspect-[3/2] lg:aspect-[4/3]"
+                />
+              </div>
 
-            <dl className="mt-6">
-              {SPECS.map((spec) => (
-                <div
-                  key={spec.label}
-                  className="flex items-baseline justify-between gap-4 border-t border-border py-2.5"
-                >
-                  <dt className="eyebrow">{spec.label}</dt>
-                  <dd className="datum text-right text-foreground">
-                    {spec.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+              <dl className="mt-6">
+                {SPECS.map((spec) => (
+                  <div
+                    key={spec.label}
+                    className="flex items-baseline justify-between gap-4 border-t border-border py-2.5"
+                  >
+                    <dt className="eyebrow">{spec.label}</dt>
+                    <dd className="datum text-right text-foreground">
+                      {spec.value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </motion.div>
           </motion.div>
         </div>
 

@@ -10,6 +10,7 @@ export const stackGroups: StackGroup[] = [
     items: [
       { name: "TypeScript", primary: true },
       { name: "JavaScript", primary: true },
+      { name: "Python", primary: true },
       { name: "C#", primary: true },
       { name: "Java" },
     ],
@@ -32,8 +33,9 @@ export const stackGroups: StackGroup[] = [
     items: [
       { name: "NestJS", primary: true },
       { name: "ASP.NET Core", primary: true },
+      { name: "Fast API", primary: true },
       { name: "Node.js", primary: true },
-      { name: "Entity Framework Core", primary: true },
+      { name: "Entity Framework Core" },
       { name: "Fastify" },
       { name: "Express.js" },
       { name: "Prisma" },
@@ -82,6 +84,7 @@ export const stackGroups: StackGroup[] = [
 ];
 
 export const practices = [
+  "System Design",
   "Microservices",
   "Clean Architecture",
   "SOLID",

@@ -2,6 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { repoUrl } from "../../data/site";
 import type { Project } from "../../types";
+import { StaggerItem } from "../ui/Stagger";
 
 type Props = {
   project: Project;
@@ -59,7 +60,7 @@ const WorkRow = ({ project, index }: Props) => {
   );
 
   return (
-    <li className="border-t border-border">
+    <StaggerItem as="li" className="border-t border-border">
       {href ? (
         <a
           href={href}
@@ -73,7 +74,7 @@ const WorkRow = ({ project, index }: Props) => {
       ) : (
         <div className={ROW_CLASS}>{content}</div>
       )}
-    </li>
+    </StaggerItem>
   );
 };
 

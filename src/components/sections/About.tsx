@@ -16,26 +16,27 @@ const About = () => {
                 section has an entry point without a heading. */}
             <p className="border-l-2 border-accent pl-5 text-foreground">
               I'm Hussein, a software engineer with 2+ years of experience
-              building POS, ERP, CRM, e-commerce, and SaaS systems.
+              building production web and mobile systems with TypeScript/Node,
+              .NET, and React.
             </p>
             <p>
-              I focus on the engineering behind the interface — modelling
-              business processes, designing reliable APIs and data models, and
-              building systems that handle real-world complexity such as
-              payments, inventory, permissions, offline workflows,
-              synchronization, and auditability.
+              I specialize in system design and architecture from domain
+              modeling and API design to microservices and UI. My recent work
+              centers on POS, CRM, and microservices platforms, with an emphasis
+              on clean architecture and fault-tolerant, maintainable systems.
             </p>
             <p>
-              My background spans C#/.NET, React, Vue, Node.js, NestJS, and
-              modern databases and infrastructure. I care less about following a
-              specific stack and more about choosing the right architecture to
-              solve the problem.
+              My stack spans TypeScript, C#/.NET, Next.js, React, Vue.js,
+              NestJS, Electron, FastAPI, and databases like PostgreSQL, SQL
+              Server, and MongoDB. On infrastructure, I work with Docker,
+              Kubernetes, RabbitMQ, and cloud platforms like AWS and Digital
+              Ocean.
             </p>
             <p>
-              I also use AI tools like Claude Code and GitHub Copilot to move
-              faster with testing, refactoring, and repetitive work — while
-              keeping architecture, business logic, and critical decisions under
-              direct engineering review.
+              I actively integrate AI dev tools like Claude Code (CLI), Cursor,
+              and GitHub Copilot to accelerate prototyping, test coverage, and
+              repetitive flows by roughly 30%—while ensuring core architecture,
+              domain models, and critical logic remain rigorously engineered.
             </p>
           </div>
         </div>

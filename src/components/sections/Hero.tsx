@@ -12,12 +12,14 @@ import { EASE } from "../../lib/motion";
 import { Button } from "../ui/button";
 
 const CORE_STACK = [
-  "React",
   "TypeScript",
-  "C#",
+  "React",
+  "Next.js",
+  "NestJS",
   ".NET",
   "Python",
   "PostgreSQL",
+  "Docker",
 ];
 
 /**
@@ -25,16 +27,16 @@ const CORE_STACK = [
  * they also square the left column against the spec sheet on the right.
  */
 const PROOF = [
-  { figure: "90%+", note: "edge-case coverage on POS payment logic" },
-  { figure: "4", note: "independent services behind BidDrive" },
-  { figure: "~30%", note: "faster offline-sync delivery at SPCI" },
+  { figure: "2+", note: "years building production web & mobile systems" },
+  { figure: "4", note: "independent microservices behind BidDrive" },
+  { figure: "~30%", note: "faster CRM prototyping with Claude Code" },
 ];
 
 /** Read as a spec sheet: label left, value right, one rule per row. */
 const SPECS = [
   { label: "Role", value: "Software Engineer" },
   { label: "Based", value: "Lebanon · Remote" },
-  { label: "Focus", value: "POS · CRM · Field ops" },
+  { label: "Focus", value: "POS · CRM · Microservices" },
   { label: "Shipping since", value: "2023" },
 ];
 
@@ -106,11 +108,12 @@ const Hero = () => {
             className="col-span-4 md:col-span-5 lg:col-span-6"
           >
             <p className="max-w-[58ch] text-[1.0625rem] leading-relaxed text-muted-foreground">
-              Software engineer based in Lebanon with two years of experience
-              turning operational problems into production software: a POS order
-              engine handling live transactions, an ERP system streamlining core
-              business operations, a CRM with offline sync, and an inventory
-              system built for a warehouse team that actually uses it daily.
+              Software engineer based in Lebanon with 2+ years of experience
+              building production web and mobile systems with TypeScript/Node,
+              .NET, and React. Skilled in system design and architecture from
+              domain modeling and API design to microservices and UI, with
+              recent focus on POS, CRM, and microservices platforms built for
+              clean architecture and fault tolerance.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">

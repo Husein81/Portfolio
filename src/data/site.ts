@@ -5,14 +5,14 @@ export const GITHUB_USER = "Husein81";
 export const site = {
   name: "Hussein Nasrallah",
   shortName: "Hussein",
-  role: "Software Engineer",
+  role: "SoftwareEngineer",
   location: "Lebanon",
   email: import.meta.env.VITE_EMAIL_ADDRESS ?? "husseinnasrallah2002@gmail.com",
   resume: "/Hussein_Nasrallah_CV.pdf",
   github: `https://github.com/${GITHUB_USER}`,
-  domain: "hussein-nasrallah.dev",
-  /** Currently full-time; freelance work has run alongside every full-time role since 2023. */
-  availability: "Full-time at CedarPoint · Open to freelance projects",
+  domain: "husseinnasrallah.com",
+  /** Currently full-time; freelance and contract work has run alongside roles since 2023. */
+  availability: "Software Engineer · Open to select projects",
 } as const;
 
 export const navItems: NavItem[] = [
@@ -32,7 +32,7 @@ export const socials: SocialLink[] = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/hussein-nasrallah-645559235",
+    href: "https://www.linkedin.com/in/husseinnasrallah",
     handle: "linkedin.com/in/husseinnasrallah",
   },
   {

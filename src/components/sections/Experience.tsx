@@ -10,7 +10,7 @@ const Experience = () => {
       index="05"
       label="Experience"
       title="Where the work above actually happened."
-      lede="A current full-time role, a freelance engagement that ran alongside it, and the backend job that started it all."
+      lede="Production engineering across municipal operations, enterprise CRM, real-time geospatial SaaS, and distributed systems."
     >
       <Stagger as="ol">
         {journey.map((entry) => (

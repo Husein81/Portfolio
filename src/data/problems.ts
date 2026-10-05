@@ -14,7 +14,7 @@ export const problems: Problem[] = [
     approach:
       "Model the real domain as proper entities, add the access control and audit trail the business actually needs, and ship something a team uses on shift one, not six months in.",
     result:
-      "CedarPoint's order engine — draft, hold, multi-payment, refund, cancellation — is processing live transactions today.",
+      "Municipality of El Bazourieh's mechanization and sales system manages equipment, geolocation, and field operations in production.",
   },
   {
     slug: "no-backend",
@@ -25,7 +25,7 @@ export const problems: Problem[] = [
     approach:
       "Design the schema first, then build RESTful or event-driven APIs with the architecture the domain actually calls for — microservices where things genuinely separate, a single service where they don't.",
     result:
-      "BidDrive's Auction and Bidding services run independently and communicate over RabbitMQ; SPCI's APIs are documented in Swagger and reviewed as they ship.",
+      "BidDrive's Auction and Bidding services run independently and communicate over RabbitMQ; SPCI's and Municipality's APIs are structured for scale.",
   },
   {
     slug: "legacy-modernization",
@@ -36,18 +36,18 @@ export const problems: Problem[] = [
     approach:
       "Migrate incrementally into modular components without breaking what already works, applying SOLID as I go instead of proposing a rewrite nobody has time for.",
     result:
-      "SPCI's legacy Razor Pages flows now run as modular Vue.js components, migrated without downtime.",
+      "SPCI's legacy server-side flows now run as modular, maintainable Vue.js components against SQL Server and EF Core.",
   },
   {
     slug: "offline-field",
     icon: "WifiOff",
     title: "Field teams can't depend on a connection",
     problem:
-      "Mobile users — clinic staff, field reps, anyone not sitting at a desk — need the app to keep working when the network doesn't.",
+      "Mobile users — field operators, inspectors, anyone not sitting at a desk — need the app to keep working when the network doesn't.",
     approach:
       "Design for local-first data and sync modules that reconcile once a connection returns, instead of an app that quietly fails offline.",
     result:
-      "PetSafe's clinic data stays isolated and usable per location; SPCI's offline sync module shipped roughly 30% faster using an AI-augmented workflow.",
+      "Omega Crop's real-time geospatial desktop app maintains reliability in low-connectivity fields; SPCI's offline sync module shipped roughly 30% faster.",
   },
   {
     slug: "ai-augmented",
@@ -58,7 +58,7 @@ export const problems: Problem[] = [
     approach:
       "Use it where it removes real toil — test generation, boilerplate, refactors — while architecture decisions and edge cases stay under direct review.",
     result:
-      "90%+ edge-case unit test coverage on CedarPoint's payment logic; event schemas and DTOs generated across BidDrive's services with Claude Code.",
+      "Cut prototyping time by ~30% on SPCI's CRM outbox and offline sync using Claude Code; generated event schemas and DTOs across BidDrive's microservices.",
   },
 ];
 
@@ -66,7 +66,7 @@ export const problems: Problem[] = [
 export const principles: Principle[] = [
   {
     title: "Model the real domain first",
-    body: "Orders, shifts, inventory, patients, clinics — the entities and their relationships get designed before a line of UI, because a wrong schema costs more later than it does now.",
+    body: "Orders, inventory, equipment, geolocation, field operations — the entities and their relationships get designed before a line of UI, because a wrong schema costs more later than it does now.",
   },
   {
     title: "Architect for how it actually separates",

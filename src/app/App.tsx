@@ -28,10 +28,6 @@ const App = () => {
         </Suspense>
 
         <Suspense fallback={<SectionFallback />}>
-          <Experience />
-        </Suspense>
-
-        <Suspense fallback={<SectionFallback />}>
           <Work />
         </Suspense>
 
@@ -41,6 +37,10 @@ const App = () => {
 
         <Suspense fallback={<SectionFallback />}>
           <Stack />
+        </Suspense>
+
+        <Suspense fallback={<SectionFallback />}>
+          <Experience />
         </Suspense>
 
         <Suspense fallback={<SectionFallback />}>

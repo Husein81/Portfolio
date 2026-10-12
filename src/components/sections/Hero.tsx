@@ -174,7 +174,7 @@ const Hero = () => {
                   alt="Portrait of Hussein Nasrallah"
                   width={640}
                   height={800}
-                  className="aspect-[4/5] w-full object-cover object-center sm:aspect-[3/2] lg:aspect-[4/3]"
+                  className="aspect-[4/5] w-full object-cover object-center sm:aspect-[3/2] lg:aspect-[7/6]"
                 />
               </div>
 

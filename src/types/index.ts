@@ -50,6 +50,7 @@ export type JourneyEntry = {
   kind: "Full-time" | "Freelance" | "Education";
   role: string;
   org: string;
+  url?: string;
   summary: string;
   tags: string[];
 };
@@ -61,6 +62,7 @@ export type Problem = {
   problem: string;
   approach: string;
   result: string;
+  url?: string;
 };
 
 export type Service = {

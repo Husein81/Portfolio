@@ -3,11 +3,12 @@ import type { JourneyEntry } from "../types";
 /** Newest first. `start` keeps the order honest if entries are edited. */
 export const journey: JourneyEntry[] = [
   {
-    period: "Jun 2026 — Present",
+    period: "Jun 2026 — Oct 2026",
     start: "2026-06",
     kind: "Full-time",
     role: "Software Developer",
     org: "Municipality of El Bazourieh",
+    url: "https://www.baladyia.com/albazourieh/en",
     summary:
       "Built a sales and mechanization management application as part of a team, using Next.js deployed on Vercel, NestJS hosted on AWS Lightsail, and PostgreSQL, with Nginx configured as a reverse proxy for secure and efficient backend traffic. Developed REST APIs to manage sales records, equipment inventory, and field operations, while integrating geolocation and interactive maps to track mechanization assets and support location based sales operations across the municipality.",
     tags: [
@@ -26,7 +27,7 @@ export const journey: JourneyEntry[] = [
     start: "2025-12",
     kind: "Full-time",
     role: "Software Engineer",
-    org: "SPCI",
+    org: "Synergy Prosales Company International (SPCI)",
     summary:
       "Built and maintained full stack mobile applications with a Vue.js frontend and ASP.NET Core backend, applying system design principles to keep the codebase scalable as features grew. Used Claude Code to accelerate development of a CRM outbox feature and offline sync, cutting initial prototyping time by roughly 30% while preserving reliability of data delivery. Migrated legacy server side flows into modular, maintainable Vue.js components and integrated RESTful APIs against SQL Server via Entity Framework Core.",
     tags: [

@@ -1,4 +1,5 @@
 import {
+  ArrowUpRight,
   ClipboardList,
   RefreshCw,
   Server,
@@ -70,6 +71,19 @@ const Problems = () => {
                 <dt className="eyebrow mt-4 text-accent">Evidence</dt>
                 <dd className="mt-1.5 text-sm leading-relaxed text-foreground">
                   {item.result}
+                  {item.url ? (
+                    <span className="block mt-2">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-accent transition-colors hover:underline"
+                      >
+                        <span>Live system</span>
+                        <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+                      </a>
+                    </span>
+                  ) : null}
                 </dd>
               </dl>
             </StaggerItem>

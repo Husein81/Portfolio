@@ -15,6 +15,7 @@ export const problems: Problem[] = [
       "Model the real domain as proper entities, add the access control and audit trail the business actually needs, and ship something a team uses on shift one, not six months in.",
     result:
       "Municipality of El Bazourieh's mechanization and sales system manages equipment, geolocation, and field operations in production.",
+    url: "https://www.baladyia.com/albazourieh/en",
   },
   {
     slug: "no-backend",
@@ -25,7 +26,7 @@ export const problems: Problem[] = [
     approach:
       "Design the schema first, then build RESTful or event-driven APIs with the architecture the domain actually calls for — microservices where things genuinely separate, a single service where they don't.",
     result:
-      "BidDrive's Auction and Bidding services run independently and communicate over RabbitMQ; SPCI's and Municipality's APIs are structured for scale.",
+      "BidDrive's Auction and Bidding services run independently and communicate over RabbitMQ; Synergy Prosales Company International (SPCI)'s and Municipality's APIs are structured for scale.",
   },
   {
     slug: "legacy-modernization",
@@ -36,7 +37,7 @@ export const problems: Problem[] = [
     approach:
       "Migrate incrementally into modular components without breaking what already works, applying SOLID as I go instead of proposing a rewrite nobody has time for.",
     result:
-      "SPCI's legacy server-side flows now run as modular, maintainable Vue.js components against SQL Server and EF Core.",
+      "Synergy Prosales Company International (SPCI)'s legacy server-side flows now run as modular, maintainable Vue.js components against SQL Server and EF Core.",
   },
   {
     slug: "offline-field",
@@ -47,7 +48,7 @@ export const problems: Problem[] = [
     approach:
       "Design for local-first data and sync modules that reconcile once a connection returns, instead of an app that quietly fails offline.",
     result:
-      "Omega Crop's real-time geospatial desktop app maintains reliability in low-connectivity fields; SPCI's offline sync module shipped roughly 30% faster.",
+      "Omega Crop's real-time geospatial desktop app maintains reliability in low-connectivity fields; Synergy Prosales Company International (SPCI)'s offline sync module shipped roughly 30% faster.",
   },
   {
     slug: "ai-augmented",
@@ -58,7 +59,7 @@ export const problems: Problem[] = [
     approach:
       "Use it where it removes real toil — test generation, boilerplate, refactors — while architecture decisions and edge cases stay under direct review.",
     result:
-      "Cut prototyping time by ~30% on SPCI's CRM outbox and offline sync using Claude Code; generated event schemas and DTOs across BidDrive's microservices.",
+      "Cut prototyping time by ~30% on Synergy Prosales Company International (SPCI)'s CRM outbox and offline sync using Claude Code; generated event schemas and DTOs across BidDrive's microservices.",
   },
 ];
 
